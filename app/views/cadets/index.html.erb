@@ -8,13 +8,6 @@
       <th>Cadetid</th>
       <th>Lastname</th>
       <th>Firstname</th>
-      <th>Email</th>
-      <th>Phonenumber</th>
-      <th>School</th>
-      <th>Position</th>
-      <th>Course</th>
-      <th>Gradyear</th>
-      <th>Flight</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,13 +18,6 @@
         <td><%= cadet.cadetID %></td>
         <td><%= cadet.lastName %></td>
         <td><%= cadet.firstName %></td>
-        <td><%= cadet.email %></td>
-        <td><%= cadet.phoneNumber %></td>
-        <td><%= cadet.school %></td>
-        <td><%= cadet.position %></td>
-        <td><%= cadet.course %></td>
-        <td><%= cadet.gradYear %></td>
-        <td><%= cadet.flight %></td>
         <td><%= link_to 'View Profile', cadet %></td>
         <td><%= link_to 'Edit', edit_cadet_path(cadet) %></td>
         <td><%= link_to 'Remove', cadet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
