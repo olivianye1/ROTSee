@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cadetID: 
+  lastName: MyString
+  firstName: MyString
+  email: MyString
+  phoneNumber: MyString
+  school: MyString
+  position: MyString
+  course: MyString
+  gradYear: 
+  flight: MyString
+  username: MyString
+  password: MyString
+
+two:
+  cadetID: 
+  lastName: MyString
+  firstName: MyString
+  email: MyString
+  phoneNumber: MyString
+  school: MyString
+  position: MyString
+  course: MyString
+  gradYear: 
+  flight: MyString
+  username: MyString
+  password: MyString

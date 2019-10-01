@@ -1,0 +1,77 @@
+<%= form_with(model: cadet, local: true) do |form| %>
+  <% if cadet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cadet.errors.count, "error") %> prohibited this cadet from being saved:</h2>
+
+      <ul>
+        <% cadet.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cadetID %>
+    <%= form.text_field :cadetID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastName %>
+    <%= form.text_field :lastName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :firstName %>
+    <%= form.text_field :firstName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phoneNumber %>
+    <%= form.text_field :phoneNumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :school %>
+    <%= form.text_field :school %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course %>
+    <%= form.text_field :course %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gradYear %>
+    <%= form.text_field :gradYear %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flight %>
+    <%= form.text_field :flight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
