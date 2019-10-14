@@ -9,7 +9,7 @@
 
 more_cadets = [    {:cadetID => 0, :lastName =>'Nye', :firstName => 'Olivia', :email => 'onye@tulane.edu', :phoneNumber => '8477701060', :school => 'Tulane University', :position => 'Flight Commander', :course => 'POC', :gradYear => 2020 , :flight => 'Alpha', :username => 'onye', :password => 'password'},
     {:cadetID => 1, :lastName =>'Juenemann', :firstName => 'Riley', :email => 'rjuenemann@tulane.edu', :phoneNumber => '7204288077', :school => 'Tulane University', :position => 'Flight Commander', :course => 'GMC', :gradYear => 2021 , :flight => 'Bravo', :username => 'rjuenemann', :password => 'password'},
-    {:cadetID => 2, :lastName =>'Dorset', :firstName => 'Kennedy', :email => 'kdorsey3@tulane.edu', :phoneNumber => '5046384147', :school => 'Tulane University', :position => 'Flight Commander', :course => 'POC', :gradYear => 2020, :flight => 'Alpha', :username => 'kdorsey3', :password => 'password'},
+    {:cadetID => 2, :lastName =>'Dorsey', :firstName => 'Kennedy', :email => 'kdorsey3@tulane.edu', :phoneNumber => '5046384147', :school => 'Tulane University', :position => 'Flight Commander', :course => 'POC', :gradYear => 2020, :flight => 'Alpha', :username => 'kdorsey3', :password => 'password'},
     {:cadetID => 3, :lastName => 'Hotsko', :firstName => 'Jessica', :email => 'jhotsko@tulane.edu', :phoneNumber => '4109243357', :school => 'Tulane University', :position => 'Flight Commander', :course => 'GMC', :gradYear => 2020, :flight => 'Bravo', :username => 'jhotsko',:password => 'password'},
     {:cadetID => 4, :lastName =>'Dewitt', :firstName => 'Marie', :email => 'mdewitt@tulane.edu', :phoneNumber => '1230001234', :school => 'Tulane University', :position => 'Flight Captain', :course => 'POC', :gradYear => 2020 , :flight => 'Alpha', :username => 'mdewitt', :password => 'password'},
     {:cadetID => 5, :lastName =>'Clark', :firstName => 'Kyra', :email => 'kclark7@tulane.edu', :phoneNumber => '4560004567', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2020 , :flight => 'Bravo', :username => 'kclark7', :password => 'pwd'},
@@ -31,10 +31,17 @@ more_cadets = [    {:cadetID => 0, :lastName =>'Nye', :firstName => 'Olivia', :e
     
 ]
     
-    
-    
-
-    
 more_cadets.each do |cadet|
     Cadet.create!(cadet)
+end
+
+more_events =  [{:eventID => 0, :eventDate => 20.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details" },
+{:eventID => 1, :eventDate => 19.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
+{:eventID => 2, :eventDate => 18.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details"},
+{:eventID => 3, :eventDate => 17.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"},
+{:eventID => 4, :eventDate => 16.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"}
+]
+
+more_events.each do |event|
+    Event.create!(event)
 end
