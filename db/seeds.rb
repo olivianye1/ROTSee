@@ -39,9 +39,24 @@ more_events =  [{:eventID => 0, :eventDate => 20.days.ago, :primaryType => "PT",
 {:eventID => 1, :eventDate => 19.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
 {:eventID => 2, :eventDate => 18.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details"},
 {:eventID => 3, :eventDate => 17.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"},
-{:eventID => 4, :eventDate => 16.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"}
-]
+{:eventID => 4, :eventDate => 16.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"},
+{:eventID => 5, :eventDate => 15.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
+{:eventID => 6, :eventDate => 14.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
+{:eventID => 7, :eventDate => 13.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
+{:eventID => 8, :eventDate => 12.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
+{:eventID => 9, :eventDate => 11.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details"},
+{:eventID => 10, :eventDate => 10.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details"},
+{:eventID => 11, :eventDate => 9.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details"},
+{:eventID => 12, :eventDate => 8.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details"},
+{:eventID => 13, :eventDate => 7.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
+{:eventID => 14, :eventDate => 6.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
+{:eventID => 15, :eventDate => 5.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"},
+{:eventID => 16, :eventDate => 4.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"},
+{:eventID => 17, :eventDate => 3.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"},
+{:eventID => 18, :eventDate => 2.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"},
+{:eventID => 19, :eventDate => 1.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details"},
 
+]
 more_events.each do |event|
     Event.create!(event)
 end
