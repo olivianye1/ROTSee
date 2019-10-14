@@ -38,3 +38,15 @@ more_cadets = [    {:cadetID => 0, :lastName =>'Nye', :firstName => 'Olivia', :e
 more_cadets.each do |cadet|
     Cadet.create!(cadet)
 end
+
+
+more_events =  [{:eventID => 0, :eventDate => 20.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details" },
+{:eventID => 1, :eventDate => 19.days.ago, :primaryType => "PT", :subType => "cardio", :details => "Details"},
+{:eventID => 2, :eventDate => 18.days.ago, :primaryType => "PT", :subType => "strength", :details => "Details"},
+{:eventID => 3, :eventDate => 17.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"},
+{:eventID => 4, :eventDate => 16.days.ago, :primaryType => "LLAB", :subType => "none", :details => "Details"}
+]
+
+more_events.each do |event|
+    Event.create!(event)
+end
