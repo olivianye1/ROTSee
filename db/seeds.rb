@@ -50,3 +50,30 @@ more_events =  [{:eventID => 0, :eventDate => 20.days.ago, :primaryType => "PT",
 more_events.each do |event|
     Event.create!(event)
 end
+
+
+
+
+more_attendances =  [{:cadetID => 3, :eventDate => 1,:attendance => true },
+{:cadetID => 2, :eventDate => 1,:attendance => true },
+{:cadetID => 4, :eventDate => 1,:attendance => true },
+{:cadetID => 1, :eventDate => 1,:attendance => false},
+{:cadetID => 3, :eventDate => 2,:attendance => true },
+{:cadetID => 2, :eventDate => 2,:attendance => true },
+{:cadetID => 4, :eventDate => 2,:attendance => true },
+{:cadetID => 1, :eventDate => 2,:attendance => false},
+{:cadetID => 3, :eventDate => 3,:attendance => false },
+{:cadetID => 2, :eventDate => 3,:attendance => false },
+{:cadetID => 4, :eventDate => 3,:attendance => false},
+{:cadetID => 1, :eventDate => 3,:attendance => false},
+{:cadetID => 3, :eventDate => 4,:attendance => true },
+{:cadetID => 2, :eventDate => 4,:attendance => false},
+{:cadetID => 4, :eventDate => 4,:attendance => true},
+{:cadetID => 1, :eventDate => 4,:attendance => false},
+]
+
+
+
+more_attendances.each do |attendance|
+    Attendance.create!(attendance)
+end
