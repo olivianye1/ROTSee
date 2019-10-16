@@ -64,22 +64,22 @@ end
 
 
 
-more_attendances =  [{:cadetID => 3, :eventDate => 1,:attendance => true },
-{:cadetID => 2, :eventDate => 1,:attendance => true },
-{:cadetID => 4, :eventDate => 1,:attendance => true },
-{:cadetID => 1, :eventDate => 1,:attendance => false},
-{:cadetID => 3, :eventDate => 2,:attendance => true },
-{:cadetID => 2, :eventDate => 2,:attendance => true },
-{:cadetID => 4, :eventDate => 2,:attendance => true },
-{:cadetID => 1, :eventDate => 2,:attendance => false},
-{:cadetID => 3, :eventDate => 3,:attendance => false },
-{:cadetID => 2, :eventDate => 3,:attendance => false },
-{:cadetID => 4, :eventDate => 3,:attendance => false},
-{:cadetID => 1, :eventDate => 3,:attendance => false},
-{:cadetID => 3, :eventDate => 4,:attendance => true },
-{:cadetID => 2, :eventDate => 4,:attendance => false},
-{:cadetID => 4, :eventDate => 4,:attendance => true},
-{:cadetID => 1, :eventDate => 4,:attendance => false},
+more_attendances =  [{:cadetID => 3, :eventID => 1,:attendance => true },
+{:cadetID => 2, :eventID => 1,:attendance => true },
+{:cadetID => 4, :eventID => 1,:attendance => true },
+{:cadetID => 1, :eventID => 1,:attendance => false},
+{:cadetID => 3, :eventID => 2,:attendance => true },
+{:cadetID => 2, :eventID => 2,:attendance => true },
+{:cadetID => 4, :eventID => 2,:attendance => true },
+{:cadetID => 1, :eventID => 2,:attendance => false},
+{:cadetID => 3, :eventID => 3,:attendance => false },
+{:cadetID => 2, :eventID => 3,:attendance => false },
+{:cadetID => 4, :eventID => 3,:attendance => false},
+{:cadetID => 1, :eventID => 3,:attendance => false},
+{:cadetID => 3, :eventID => 4,:attendance => true },
+{:cadetID => 2, :eventID => 4,:attendance => false},
+{:cadetID => 4, :eventID => 4,:attendance => true},
+{:cadetID => 1, :eventID => 4,:attendance => false},
 ]
 
 
