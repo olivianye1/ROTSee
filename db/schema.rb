@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_10_14_224529) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "cadetID"
-    t.datetime "eventDate"
+    t.integer "eventID"
     t.boolean "attendance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
