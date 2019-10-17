@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :attendances
   resources :events do
     get :takeAttendance
+    get :showAttendance
   end
   resources :cadets
   root 'cadets#index'

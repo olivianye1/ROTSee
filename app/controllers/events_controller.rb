@@ -63,6 +63,12 @@ class EventsController < ApplicationController
   
   def takeAttendance
     @cadets = Cadet.all
+    
+  end
+  
+  def showAttendance
+    @cadets = Cadet.all
+    
   end
 
   private

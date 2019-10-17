@@ -26,6 +26,7 @@
         <td><%= link_to 'Edit', edit_event_path(id: event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%=link_to 'Take Attendance', event_takeAttendance_path(event_id: event.id)%> </td> <!--takeAttendance_path(event)-->
+        <td><%=link_to 'Show Attendance', event_showAttendance_path(event_id: event.id)%> </td>
       </tr>
     <% end %>
   </tbody>
