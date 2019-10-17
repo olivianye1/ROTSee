@@ -13,15 +13,11 @@
 ActiveRecord::Schema.define(version: 2019_10_14_224529) do
 
   create_table "attendances", force: :cascade do |t|
-    t.integer "cadet_id"
-    t.integer "event_id"
     t.integer "cadetID"
     t.integer "eventID"
     t.boolean "attendance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cadet_id"], name: "index_attendances_on_cadet_id"
-    t.index ["event_id"], name: "index_attendances_on_event_id"
   end
 
   create_table "cadets", force: :cascade do |t|
