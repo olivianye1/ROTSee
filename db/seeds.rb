@@ -77,9 +77,20 @@ more_attendances =  [{:cadetID => 3, :eventID => 1,:attendance => true },
 {:cadetID => 4, :eventID => 3,:attendance => false},
 {:cadetID => 1, :eventID => 3,:attendance => false},
 {:cadetID => 3, :eventID => 4,:attendance => true },
-{:cadetID => 2, :eventID => 4,:attendance => false},
-{:cadetID => 4, :eventID => 4,:attendance => true},
-{:cadetID => 1, :eventID => 4,:attendance => false},
+{:cadetID => 2, :eventID => 18,:attendance => false},
+{:cadetID => 4, :eventID => 14,:attendance => true},
+{:cadetID => 9, :eventID => 14,:attendance => false},
+{:cadetID => 14, :eventID => 13,:attendance => false},
+{:cadetID => 13, :eventID => 17,:attendance => false},
+{:cadetID => 12, :eventID => 15,:attendance => true },
+{:cadetID => 18, :eventID => 12,:attendance => false},
+{:cadetID => 19, :eventID => 11,:attendance => true},
+{:cadetID => 7, :eventID => 10,:attendance => false},
+{:cadetID => 6, :eventID => 10,:attendance => true },
+{:cadetID => 5, :eventID => 10,:attendance => false},
+{:cadetID => 3, :eventID => 9,:attendance => false },
+{:cadetID => 2, :eventID => 8,:attendance => false },
+{:cadetID => 4, :eventID => 8,:attendance => false}
 ]
 
 
