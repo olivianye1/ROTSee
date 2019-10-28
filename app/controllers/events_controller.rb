@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_event_attendance, only: [:showAttendance]
 
   # GET /events
   # GET /events.json
@@ -11,6 +10,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @cadets = Cadet.all
   end
 
   # GET /events/new
@@ -20,6 +20,8 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @cadets = Cadet.all
+    @attendances = Attendance.all
   end
 
   # POST /events
@@ -35,6 +37,11 @@ class EventsController < ApplicationController
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
+    end
+    
+    @cadets = Cadet.all
+    @cadets.each do |cadet|
+      Attendance.create!(:attended => 'Present', :cadet_id => cadet.id, :event_id => @event.id)
     end
   end
 
@@ -61,30 +68,15 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def takeAttendance
-    @cadets = Cadet.all
-    
-  end
-  
-  def showAttendance
-    @cadets = Cadet.all
-    @attendances = Attendance.all
-    
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
     end
-    
-    def set_event_attendance
-      @event = Event.find(params[:event_id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:eventID, :eventDate, :primaryType, :subType, :details)
+      params.require(:event).permit(:eventDate, :primaryType, :subType, :details)
     end
 end

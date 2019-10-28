@@ -1,7 +1,6 @@
 class CreateCadets < ActiveRecord::Migration[6.0]
   def change
     create_table :cadets do |t|
-      t.integer :cadetID
       t.string :lastName
       t.string :firstName
       t.string :email

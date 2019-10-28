@@ -69,6 +69,6 @@ class CadetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cadet_params
-      params.require(:cadet).permit(:cadetID, :lastName, :firstName, :email, :phoneNumber, :school, :position, :course, :gradYear, :flight, :username, :password)
+      params.require(:cadet).permit(:lastName, :firstName, :email, :phoneNumber, :school, :position, :course, :gradYear, :flight, :username, :password)
     end
 end

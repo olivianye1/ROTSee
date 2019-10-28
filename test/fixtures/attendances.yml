@@ -1,11 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  cadetID: 1
-  eventDate: 2019-10-14 22:45:29
-  attendance: false
+  present: false
 
 two:
-  cadetID: 1
-  eventDate: 2019-10-14 22:45:29
-  attendance: false
+  present: false

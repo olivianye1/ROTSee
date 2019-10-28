@@ -2,13 +2,14 @@
 
 <h1>Events</h1>
 
+<%= link_to 'Cadets', cadets_path %>
+<%= link_to 'New Event', new_event_path %>
+
 <table>
   <thead>
     <tr>
-      <th>Event ID</th>
-      <th>Event Date</th>
-      <th>Primary Type</th>
-      <th>Subtype</th>
+      <th>Eventdate</th>
+      <th>Primarytype</th>
       <th>Details</th>
       <th colspan="3"></th>
     </tr>
@@ -17,24 +18,14 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.eventID %></td>
         <td><%= event.eventDate %></td>
         <td><%= event.primaryType %></td>
-        <td><%= event.subType %></td>
-        <td><%= event.details %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(id: event) %></td>
+        <td><%= link_to "#{event.details}", event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%=link_to 'Show Attendance', event_showAttendance_path(event_id: event.id)%> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_event_path %>
-<%= link_to 'Cadets Display', cadets_path %>
-<%= link_to 'Attendance Portal', attendances_path %>
-
-

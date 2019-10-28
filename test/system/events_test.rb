@@ -16,7 +16,6 @@ class EventsTest < ApplicationSystemTestCase
 
     fill_in "Details", with: @event.details
     fill_in "Eventdate", with: @event.eventDate
-    fill_in "Eventid", with: @event.eventID
     fill_in "Primarytype", with: @event.primaryType
     fill_in "Subtype", with: @event.subType
     click_on "Create Event"
@@ -31,7 +30,6 @@ class EventsTest < ApplicationSystemTestCase
 
     fill_in "Details", with: @event.details
     fill_in "Eventdate", with: @event.eventDate
-    fill_in "Eventid", with: @event.eventID
     fill_in "Primarytype", with: @event.primaryType
     fill_in "Subtype", with: @event.subType
     click_on "Update Event"

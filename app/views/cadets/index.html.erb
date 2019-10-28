@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Events', events_path %>
+<%= link_to 'New Cadet', new_cadet_path %>
+
 <h2>Cadets</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Cadet ID</th>
-      <th>Last Name</th>
-      <th>First Name</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +16,7 @@
   <tbody>
     <% @cadets.each do |cadet| %>
       <tr>
-        <td><%= cadet.cadetID %></td>
-        <td><%= cadet.lastName %></td>
-        <td><%= cadet.firstName %></td>
-        <td><%= link_to 'View Cadet Profile', cadet %></td>
+        <td><%= link_to "#{cadet.firstName} #{cadet.lastName}", cadet %></td>
         <td><%= link_to 'Edit', edit_cadet_path(cadet) %></td>
         <td><%= link_to 'Remove', cadet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -28,6 +26,3 @@
 
 <br>
 
-<%= link_to 'New Cadet', new_cadet_path %>
-<%= link_to 'Events Display', events_path %>
-<%= link_to 'Attendance Portal', attendances_path %>

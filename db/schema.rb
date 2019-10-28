@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_224529) do
+ActiveRecord::Schema.define(version: 2019_10_19_220738) do
 
   create_table "attendances", force: :cascade do |t|
-    t.integer "cadet_id"
-    t.integer "event_id"
-    t.integer "cadetID"
-    t.integer "eventID"
-    t.boolean "attendance"
+    t.string "attended"
+    t.integer "cadet_id", null: false
+    t.integer "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cadet_id"], name: "index_attendances_on_cadet_id"
@@ -25,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_10_14_224529) do
   end
 
   create_table "cadets", force: :cascade do |t|
-    t.integer "cadetID"
     t.string "lastName"
     t.string "firstName"
     t.string "email"
@@ -42,13 +39,14 @@ ActiveRecord::Schema.define(version: 2019_10_14_224529) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "eventID"
-    t.datetime "eventDate"
-    t.text "primaryType"
-    t.text "subType"
-    t.text "details"
+    t.date "eventDate"
+    t.string "primaryType"
+    t.string "subType"
+    t.string "details"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "attendances", "cadets"
+  add_foreign_key "attendances", "events"
 end

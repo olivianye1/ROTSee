@@ -1,7 +1,7 @@
 <%= form_with(model: attendance, local: true) do |form| %>
   <% if attendance.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
         <% attendance.errors.full_messages.each do |message| %>
@@ -12,18 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :cadetID %>
-    <%= form.number_field :cadetID %>
-  </div>
-
-  <div class="field">
-    <%= form.label :eventID %>
-    <%= form.number_field :eventID %>
-  </div>
-
-  <div class="field">
-    <%= form.label :attendance %>
-    <%= form.check_box :attendance %>
+    <%= form.label :attended %>
+    <%= form.text_field :attended %>
   </div>
 
   <div class="actions">

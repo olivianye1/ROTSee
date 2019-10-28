@@ -1,5 +1,5 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
+<%= form_with(model: @event, local: true) do |form| %>
+  <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
@@ -12,30 +12,48 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :eventID %>
-    <%= form.text_field :eventID %>
-  </div>
-
-  <div class="field">
     <%= form.label :eventDate %>
     <%= form.datetime_select :eventDate %>
   </div>
 
   <div class="field">
     <%= form.label :primaryType %>
-    <%= form.text_area :primaryType %>
+    <%= form.text_field :primaryType %>
   </div>
 
   <div class="field">
     <%= form.label :subType %>
-    <%= form.text_area :subType %>
+    <%= form.text_field :subType %>
   </div>
 
   <div class="field">
     <%= form.label :details %>
-    <%= form.text_area :details %>
+    <%= form.text_field :details %>
   </div>
+  
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Attendance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @event.attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.cadet.firstName %></td>
+        <td><%= attendance.attended %></td>
+        <div class="field">
+          <td><%= form.label :attended %></td>
+          <td><%= form.text_field :attended %></td>
+        </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

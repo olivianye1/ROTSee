@@ -1,4 +1,4 @@
 class Attendance < ApplicationRecord
-  belongs_to :cadet, optional: true
-  belongs_to :event, optional: true
+    belongs_to :cadet
+    belongs_to :event
 end
