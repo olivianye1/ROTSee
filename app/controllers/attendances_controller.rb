@@ -1,11 +1,13 @@
 class AttendancesController < ApplicationController
   
     def create
-      @attendance = Attendace.new(attendance_params)
+        @attendance = Attendace.new(attendance_params)
+        #flash[:notice] = "Attendance successfully recorded for the #{@attendance.eventDate} event."
     end
     
     def destroy
       @attendance.destroy
+      #flash[:notice] = "Attendance record successfully deleted."
     end
     
     def edit

@@ -28,7 +28,10 @@ class CadetsController < ApplicationController
 
     respond_to do |format|
       if @cadet.save
-        format.html { redirect_to @cadet, notice: 'Cadet was successfully created.' }
+        
+        flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName} has been successfully added to the ROTC roster."
+    
+        format.html { redirect_to @cadet}
         format.json { render :show, status: :created, location: @cadet }
       else
         format.html { render :new }
@@ -42,7 +45,10 @@ class CadetsController < ApplicationController
   def update
     respond_to do |format|
       if @cadet.update(cadet_params)
-        format.html { redirect_to @cadet, notice: 'Cadet was successfully updated.' }
+        
+        flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName}'s cadet profile has been successfully updated."
+    
+        format.html { redirect_to @cadet }
         format.json { render :show, status: :ok, location: @cadet }
       else
         format.html { render :edit }
@@ -56,7 +62,8 @@ class CadetsController < ApplicationController
   def destroy
     @cadet.destroy
     respond_to do |format|
-      format.html { redirect_to cadets_url, notice: 'Cadet was successfully destroyed.' }
+      flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName} was successfully removed from the ROTC roster."
+      format.html { redirect_to cadets_url}
       format.json { head :no_content }
     end
   end

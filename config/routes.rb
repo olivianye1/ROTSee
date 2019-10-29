@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :attendances do
     post "attendances/:id/edit"    => "attendances#edit"
   end
-  root 'cadets#index'
+  root 'cadets#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
