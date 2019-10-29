@@ -30,30 +30,7 @@
     <%= form.label :details %>
     <%= form.text_field :details %>
   </div>
-  
-  <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Attendance</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @event.attendances.each do |attendance| %>
-      <tr>
-        <td><%= attendance.cadet.firstName %></td>
-        <td><%= attendance.attended %></td>
-        <div class="field">
-          <td><%= form.label :attended %></td>
-          <td><%= form.text_field :attended %></td>
-        </div>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-  
   <div class="actions">
     <%= form.submit %>
   </div>
