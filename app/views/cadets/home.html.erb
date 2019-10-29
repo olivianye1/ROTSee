@@ -1,7 +1,54 @@
 <p id="notice"><%= notice %></p>
-
+<head>
+    <style>
+        /* Container holding the image and the text */
+        .container {
+          position: relative;
+          text-align: center;
+          color: white;
+        }
+        
+        /* Bottom left text */
+        .bottom-left {
+          position: absolute;
+          bottom: 8px;
+          left: 16px;
+        }
+        
+        /* Top left text */
+        .top-left {
+          position: absolute;
+          top: 8px;
+          left: 16px;
+        }
+        
+        /* Top right text */
+        .top-right {
+          position: absolute;
+          top: 8px;
+          right: 16px;
+        }
+        
+        /* Bottom right text */
+        .bottom-right {
+          position: absolute;
+          bottom: 8px;
+          right: 16px;
+        }
+        
+        /* Centered text */
+        .centered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
 <div class="container">
-    <!--img src="ROTSee.jpg" alt="Squares and Grunge 1" style="width:100%"></img-->
-    <div class="centered">Welcome to ROTSee</div>
+    <img src="https://github.com/olivianye1/ROTSee/blob/RJmilestone2/app/views/cadets/ROTSee.jpg?raw=true" alt="Squares and Grunge 1" width="800" height="400" ></img>
+    <div class="centered">
+        <h1 style="font-size:30px;color:black;">Welcome to ROTSee!</h1>
+    </div>
 </div>
 
