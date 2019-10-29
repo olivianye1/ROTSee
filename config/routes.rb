@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   end
   resources :events do
     resources :attendances
+    post "attendances/:id/edit"    => "attendances#edit"
   end
-  resources :attendances
+  resources :attendances do
+    post "attendances/:id/edit"    => "attendances#edit"
+  end
   root 'cadets#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
