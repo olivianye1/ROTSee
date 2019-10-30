@@ -11,15 +11,16 @@
     </div>
   <% end %>
   
-  <p>
-    <%= form.label :attended %><br>
+  <div class="field">
     <%= form.select(:attended) do %>
       <% ['Present', 'Absent', 'Tardy'].each do |c| -%>
       <%= content_tag(:option, c) %>
     <% end %>
   <% end %>
-  </p>
-  <p>
+  </div>
+  
+  <div class="actions">
     <%= form.submit %>
-  </p>
+  </div>
+  
 <% end %>
