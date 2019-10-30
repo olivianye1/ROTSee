@@ -4,20 +4,24 @@
     <title>RotcApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
     <%= favicon_link_tag asset_path('logo.png') %>
+    <style>
+      .top_header {
+        background-color: rgba(104,128,80,1);
+        border: 5px solid black;
+      }
+    </style>
   </head>
-
   <body>
-    <h1>ROTSee</h1>
-    
+    <div class="container text-center">
+      <div class = "top_header"><h1>ROTSee</h1></div>
     <!-- OUR TOP MENU -->
     <%= link_to 'Home', root_path %>
     <%= link_to 'Cadets', cadets_path %>
     <%= link_to 'Events', events_path %>
     <%= yield %>
+    </div>
   </body>
 </html>
