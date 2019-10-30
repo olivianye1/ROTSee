@@ -1,5 +1,11 @@
-<h2>Editing Cadet</h2>
+<head>
+  <style>
+    span {
+      font-size: 24px;
+    }
+  </style>
+</head>
 
-<%= link_to 'Show', @cadet %> 
-
+<h2 class="display-4">Editing Cadet <span><%= link_to 'Show Cadet', @cadet %> </span></h2>
+<p style="margin-top: 50px;"></p>
 <%= render 'form', cadet: @cadet %>

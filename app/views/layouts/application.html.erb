@@ -4,20 +4,35 @@
     <title>RotcApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
     <%= favicon_link_tag asset_path('logo.png') %>
+    <style>
+      .container {
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      
+    </style>
   </head>
-
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(130, 151, 108, 0.9)">
+    <a class="navbar-brand" href="#"><strong>ROTSee</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/" style="color:black;">Home</a>
+        <a class="nav-item nav-link" href="/cadets" style="color:black;">Cadets</a>
+        <a class="nav-item nav-link" href="/events" style="color:black;">Events</a>
+      </div>
+    </div>
+  </nav>
   <body>
-    <h1>ROTSee</h1>
-    
-    <!-- OUR TOP MENU -->
-    <%= link_to 'Home', root_path %>
-    <%= link_to 'Cadets', cadets_path %>
-    <%= link_to 'Events', events_path %>
-    <%= yield %>
+    <div class="container text-center">
+      <%= yield %>
+    </div>
   </body>
 </html>

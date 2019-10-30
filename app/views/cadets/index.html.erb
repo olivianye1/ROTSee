@@ -1,16 +1,22 @@
-<p id="notice"><%= notice %></p>
-<h2>Cadets</h2>
-
-<%= link_to 'New Cadet', new_cadet_path %>
-
-<table>
-  <thead>
+<head>
+  <style>
+    .table {
+    }
+  </style>
+</head>
+<div class="container text-left">
+  <p id="notice"><%= notice %></p>
+  <h2 class="display-4" style="margin-top: 30px;">Cadets</h2>
+  <%= link_to 'New Cadet', new_cadet_path %>
+</div>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th scope="col">Cadet Name</th>
+      <th scope="col">Update Cadet</th>
+      <th scope="col">Delete Cadet</th>
     </tr>
   </thead>
-
   <tbody>
     <% @cadets.each do |cadet| %>
       <tr>
