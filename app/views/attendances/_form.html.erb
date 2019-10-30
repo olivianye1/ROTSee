@@ -1,7 +1,7 @@
-<%= form_with(model: attendance, local: true) do |form| %>
-  <% if attendance.errors.any? %>
+<%= form_with(model: @attendance, local: true) do |form| %>
+  <% if @attendance.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h2><%= pluralize(attendance.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
         <% attendance.errors.full_messages.each do |message| %>
@@ -10,13 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :attended %>
-    <%= form.text_field :attended %>
-  </div>
-
-  <div class="actions">
+  
+  <p>
+    <%= form.label :attended %><br>
+    <%= form.select(:attended) do %>
+      <% ['Present', 'Absent', 'Tardy'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+    <% end %>
+  <% end %>
+  </p>
+  <p>
     <%= form.submit %>
-  </div>
+  </p>
 <% end %>

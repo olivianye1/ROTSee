@@ -56,3 +56,12 @@ more_events =  [ {:eventDate => Date.new(2019, 10, 17), :primaryType => "PT", :s
 more_events.each do |event|
     Event.create!(event)
 end
+
+@cadets = Cadet.all
+@events = Event.all
+
+@events.each do |event|
+    @cadets.each do |cadet|
+        Attendance.create!(:attended => 'Present', :cadet_id => cadet.id, :event_id => event.id)
+    end
+end
