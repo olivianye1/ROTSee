@@ -13,7 +13,11 @@
   
   <p>
     <%= form.label :attended %><br>
-    <%= form.text_field :attended %>
+    <%= form.select(:attended) do %>
+      <% ['Present', 'Absent', 'Tardy'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+    <% end %>
+  <% end %>
   </p>
   <p>
     <%= form.submit %>

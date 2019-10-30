@@ -18,12 +18,20 @@
 
   <div class="field">
     <%= form.label :primaryType %>
-    <%= form.text_field :primaryType %>
+    <%= form.select(:primaryType) do %>
+      <% ['LLAB', 'PT'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+    <% end %>
+  <% end %>
   </div>
 
   <div class="field">
     <%= form.label :subType %>
-    <%= form.text_field :subType %>
+    <%= form.select(:subType) do %>
+      <% ['None', 'Cardio', 'Strength Workout'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+    <% end %>
+  <% end %>
   </div>
 
   <div class="field">
