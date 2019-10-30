@@ -14,9 +14,10 @@
   </thead>
 
   <tbody>
-    <% @event.attendances.each do |attendance| %>
+    <% @ord_attendances = @event.attendances.joins(:cadet).order("cadets.lastName ASC") %>
+    <% @ord_attendances.each do |attendance| %>
       <tr>
-        <td><%= attendance.cadet.firstName %></td>
+        <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
         <td><%= attendance.attended %></td>
         <div class="field">
           <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>

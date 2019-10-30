@@ -14,7 +14,7 @@
   <tbody>
     <% @cadets.each do |cadet| %>
       <tr>
-        <td><%= link_to "#{cadet.firstName} #{cadet.lastName}", cadet %></td>
+        <td><%= link_to "#{cadet.lastName}, #{cadet.firstName} ", cadet %></td>
         <td><%= link_to 'Edit', edit_cadet_path(cadet) %></td>
         <td><%= link_to 'Remove', cadet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
