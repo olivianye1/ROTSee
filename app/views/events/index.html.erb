@@ -25,8 +25,8 @@
       <tr>
         <td><%= link_to "#{event.eventDate}", event %></td>
         <td><%= event.primaryType %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_event_path(event), :class => "btn btn-secondary btn-warning btn-sm" %></td>
+        <td><%= link_to 'Remove', event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> </td>
       </tr>
     <% end %>
   </tbody>
