@@ -9,6 +9,8 @@
   <h2 class="display-4" style="margin-top: 30px;">Cadets</h2>
   <%= link_to 'New Cadet', new_cadet_path %>
 </div>
+
+<!--Cadet Table-->
 <table class="table table-striped table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -31,7 +33,7 @@
 <br>
 
 <!-- Back to Top Button -->
-<button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+<button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
 <script>
   function topFunction() {
     document.body.scrollTop = 0; // For Safari
