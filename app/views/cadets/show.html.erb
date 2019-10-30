@@ -8,7 +8,14 @@
 <p id="notice"><%= notice %></p>
 
 <!--Cadet Information-->
-<h2 class = "display-4">Cadet <%= @cadet.lastName %><span> <%= link_to 'Edit', edit_cadet_path(@cadet) %></span></h2>
+<h2 class = "display-4">Cadet <%= @cadet.lastName %></h2>
+
+<div>
+  <%= link_to 'Edit', edit_cadet_path(@cadet), :class => "btn btn-secondary btn-warning btn-sm" %>
+
+  <%= link_to 'Delete', @cadet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> 
+  <br>
+</div>
 
 <p>
   <strong>Last Name:</strong>

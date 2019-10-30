@@ -5,7 +5,11 @@
     }
   </style>
 </head>
-<h2 class="display-4">Editing Event <span><%= link_to 'Show Event', @event %></span></h2>
+<h2 class="display-4">Editing Event </h2>
+<div>
+  <%= link_to 'View Event', @event, :class => "btn btn-secondary btn-sm"%>
+</div>
+<p style="margin-top: 20px;"></p>
 <%= render 'form', event: @event %>
 
 <!--Event Attendance Table-->

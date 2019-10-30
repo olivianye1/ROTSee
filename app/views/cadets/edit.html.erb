@@ -6,6 +6,9 @@
   </style>
 </head>
 
-<h2 class="display-4">Editing Cadet <span><%= link_to 'Show Cadet', @cadet %> </span></h2>
-<p style="margin-top: 50px;"></p>
+<h2 class="display-4">Editing Cadet</h2>
+<div>
+  <%= link_to 'View Cadet', @cadet, :class => "btn btn-secondary  btn-sm", :style => "float-right" %>
+</div>
+<p style="margin-top: 20px;"></p>
 <%= render 'form', cadet: @cadet %>

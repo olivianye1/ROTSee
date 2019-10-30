@@ -1,7 +1,7 @@
 <head>
   <style>
     .event-info{
-      text-align: left;
+      text-align: center;
     }
     span{
       font-size: 24px;
@@ -11,9 +11,15 @@
 
 <!--Event Information-->
 <p id="notice"><%= notice %></p>
+
 <div class="event-info">
-  <h2 class="display-4" style= "text-align: left;">Event Info <span><%= link_to 'Edit', edit_event_path(@event) %></span></h2>
-  <h3><%= @event.eventDate %></h3>
+  <h2 class="display-4" >Event Details: <%= @event.eventDate %> </h2>
+  <div>
+    <%= link_to 'Edit', edit_event_path(@event), :class => "btn btn-secondary btn-warning btn-sm" %>
+
+    <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> 
+    <br>
+</div>
   
   <p>
     <strong>Primarytype:</strong>
