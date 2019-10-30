@@ -11,24 +11,24 @@
   </style>
 </head>
 <div class="container text-left">
-<p id="notice"><%= notice %></p>
-<h2>Cadets</h2>
-
-<%= link_to 'New Cadet', new_cadet_path %>
-</div>
-<div class="container text-center">
-  <div class="row">
-    <div class="col-lg-4">Name</div>
-    <div class="col-lg-4"></div>
-    <div class="col-lg-4"></div>
+  <p id="notice"><%= notice %></p>
+  <h2>Cadets</h2>
+  
+  <%= link_to 'New Cadet', new_cadet_path %>
   </div>
-  <% @cadets.each do |cadet| %>
+  <div class="container text-center">
     <div class="row">
-      <div class="col-lg-4"><%= link_to "#{cadet.firstName} #{cadet.lastName}", cadet %></div>
-      <div class="col-lg-4"><%= link_to 'Edit', edit_cadet_path(cadet) %></div>
-      <div class="col-lg-4"><%= link_to 'Remove', cadet, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      <div class="col-lg-4">Name</div>
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4"></div>
     </div>
-  <% end %>
+    <% @cadets.each do |cadet| %>
+      <div class="row">
+        <div class="col-lg-4"><%= link_to "#{cadet.firstName} #{cadet.lastName}", cadet %></div>
+        <div class="col-lg-4"><%= link_to 'Edit', edit_cadet_path(cadet) %></div>
+        <div class="col-lg-4"><%= link_to 'Remove', cadet, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
+    <% end %>
 </div>
 <br>
 
