@@ -1,8 +1,13 @@
+<head>
+  <style>
+    span{
+      font-size: 24px;
+    }
+  </style>
+</head>
 <p id="notice"><%= notice %></p>
 
-<h2>Cadet <%= @cadet.lastName %></h2>
-
-<%= link_to 'Edit', edit_cadet_path(@cadet) %>
+<h2 class = "display-4">Cadet <%= @cadet.lastName %><span> <%= link_to 'Edit', edit_cadet_path(@cadet) %></span></h2>
 
 <p>
   <strong>Last Name:</strong>
@@ -59,16 +64,14 @@
   <%= @cadet.password %>
 </p>
 
-<h3>Attendance:</h3>
-<table>
+<h3 class="font-weight-light" style = "text-align: left; margin-top: 80px;">Attendance</h3>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>Event</th>
-      <th>Status</th>
-      <th colspan="3"></th>
+      <th scope="col">Event</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
-
   <tbody>
     <% @cadet.attendances.each do |attendance| %>
       <tr>
