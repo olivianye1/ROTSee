@@ -12,32 +12,6 @@
 <p style="margin-top: 20px;"></p>
 <%= render 'form', event: @event %>
 
-<!--Event Attendance Table-->
-<h3 class="font-weight-light" style = "margin-top: 80px; text-align:left;">Edit Attendance</h3>
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Attendance</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% #@ord_attendances = @event.attendances.joins(:cadet).order("cadets.lastName ASC") %>
-    <% @ord_attendances = @event.attendances %>
-    <% @ord_attendances.each do |attendance| %>
-      <tr>
-        <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
-        <td><%= attendance.attended %></td>
-        <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <!-- Back to Top Button -->
 <button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
 <script>

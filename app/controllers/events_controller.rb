@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   def edit
     @cadets = Cadet.all.order(:lastName)
     @attendances = Attendance.all.order(:event)
-    
+    @attendance = Attendance.find(params[:id])
   end
 
   # POST /events
@@ -52,6 +52,8 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    @attendance = Attendance.find(params[:id])
+    
     respond_to do |format|
       if @event.update(event_params)
         
@@ -86,6 +88,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:eventDate, :primaryType, :subType, :details)
+      params.require(:event).permit(:eventDate, :primaryType, :subType, :details, attendances_attributes: [:id, :attended, :cadet_id, :event_id, :created_at, :updated_at])
     end
 end
