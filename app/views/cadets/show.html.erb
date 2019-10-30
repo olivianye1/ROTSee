@@ -62,7 +62,8 @@
   </thead>
 
   <tbody>
-    <%@ord_cadets = @cadet.attendances.joins(:event).order("events.eventDate ASC")%>
+     <%#@ord_cadets = @cadet.attendances.joins(:event).order("events.eventDate ASC")%>
+     <%@ord_cadets = @cadet.attendances %>
     <% @ord_cadets.each do |attendance| %>
       <tr>
         <td><%= link_to "#{attendance.event.eventDate}", attendance.event %></td>
