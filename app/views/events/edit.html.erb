@@ -7,13 +7,15 @@
 </head>
 <h2 class="display-4">Editing Event </h2>
 <div>
-  <%= link_to 'View Event', @event, :class => "btn btn-secondary btn-sm"%>
+  <%= link_to 'View Event Info', @event, :class => "btn btn-secondary btn-sm"%>
+  <br>
+  <br>
 </div>
 
 <%= render 'form', event: @event %>
 
 
-
+<br>
 <!-- Back to Top Button -->
 <button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
 <script>
