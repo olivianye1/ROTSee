@@ -51,9 +51,9 @@
     <% #@ord_attendances = @event.attendances.joins(:cadet).order('"cadets.lastName"') %>
     <% #@ord_attendances = @event.attendances.includes(:cadet).order('"cadets.lastName"') %>
     
-    <% @ord_attendances = @event.attendances.includes(:cadet).order('"cadets.lastName"').references(:cadet) %>
+    <% #@ord_attendances = @event.attendances.includes(:cadet).order('"cadets.lastName"').references(:cadet) %>
     <% #@ord_attendances = @event.attendances.includes(:cadet).sort_by("cadets.lastName") %>
-    <% #@ord_attendances = @event.attendances %>
+    <% @ord_attendances = @event.attendances %>
     <% @ord_attendances.each do |attendance| %>
       <tr>
         <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
