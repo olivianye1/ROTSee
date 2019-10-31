@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   def edit
     @cadets = Cadet.all.order(:lastName)
     @attendances = Attendance.all.order(:event)
-    @attendance = Attendance.find(params[:id])
+    #@attendance = Attendance.find(params[:id])
   end
 
   # POST /events
@@ -52,7 +52,6 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    @attendance = Attendance.find(params[:id])
     
     respond_to do |format|
       if @event.update(event_params)
@@ -71,6 +70,9 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    
+    @event.attendances.destroy_all
+    
     @event.destroy
     respond_to do |format|
       
