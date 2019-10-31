@@ -44,7 +44,6 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Attendance</th>
-      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -54,7 +53,6 @@
       <tr>
         <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
         <td><%= attendance.attended %></td>
-        <td><%= link_to 'Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
