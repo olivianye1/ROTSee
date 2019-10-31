@@ -60,6 +60,8 @@ class CadetsController < ApplicationController
   # DELETE /cadets/1
   # DELETE /cadets/1.json
   def destroy
+    @cadet.attendances.destroy_all
+    
     @cadet.destroy
     respond_to do |format|
       flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName} was successfully removed from the ROTC roster."
