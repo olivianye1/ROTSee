@@ -48,7 +48,8 @@
     </tr>
   </thead>
   <tbody>
-    <% @ord_attendances = @event.attendances.joins(:cadet).order('"cadets.lastName"') %>
+    <% #@ord_attendances = @event.attendances.joins(:cadet).order('"cadets.lastName"') %>
+    <% @ord_attendances = @event.attendances.includes(:cadet).order("cadets.lastName") %>
     <% #@ord_attendances = @event.attendances %>
     <% @ord_attendances.each do |attendance| %>
       <tr>
