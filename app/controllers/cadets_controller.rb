@@ -4,8 +4,8 @@ class CadetsController < ApplicationController
   # GET /cadets
   # GET /cadets.json
   def index
-    @cadets=Cadet.where(["lastName::text LIKE ?","%#{params[:search]}%"])
-    #@cadets = Cadet.all.order(:lastName)
+    #@cadets=Cadet.where(["lastName::text LIKE ?","%#{params[:search]}%"])
+    @cadets = Cadet.all.order(:lastName)
   end
 
   # GET /cadets/1
