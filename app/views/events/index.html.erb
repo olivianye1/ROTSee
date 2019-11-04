@@ -7,16 +7,10 @@
   <p id="notice"><%= notice %></p>
   <h2 class="display-4" style="margin-top: 30px;">Events</h2>
   <%= link_to 'New Event', new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
+  <br>
+  <br>
 </div>
 
-<div class="container text-right" style="display: flex; justify-content: flex-end" >
-  <form class="form-inline my-2 my-lg-0" >
-    <%=text_field_tag :search, params[:search], :placeholder => "YYYY-MM-DD..." %>
-    <button class="btn btn-secondary btn-sm" type="submit_tag" >Search</button>
-    <br>
-    <br>
-  </form>
-</div>
 
 
 
