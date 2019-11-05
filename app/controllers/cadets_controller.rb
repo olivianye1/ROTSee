@@ -7,6 +7,9 @@ class CadetsController < ApplicationController
     #@cadets=Cadet.where(["lastName LIKE ?","%#{params[:search]}%"])
     if params[:term]
       @cadets = Cadet.search_by_full_name(params[:term])
+      if params[:term] == ''
+        @cadets = Cadet.all.order(:lastName)
+      end
     else
       @cadets = Cadet.all.order(:lastName)
     end
