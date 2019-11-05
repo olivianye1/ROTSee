@@ -8,58 +8,61 @@
 <p id="notice"><%= notice %></p>
 
 <!--Cadet Information-->
-<h2 class = "display-4">Cadet <%= @cadet.lastName %></h2>
+<h2 class = "display-4" style="margin-bottom:20px;">Cadet <%= @cadet.lastName %></h2>
 
 
+<div style="text-align: center;">
+  <div  style="display: inline-block; text-align: left;">
+    <p>
+      <strong>Last Name:</strong>
+      <%= @cadet.lastName %>
+    </p>
 
-<p  style="margin-top:20px;">
-  <strong>Last Name:</strong>
-  <%= @cadet.lastName %>
-</p>
+    <p>
+      <strong>First Name:</strong>
+      <%= @cadet.firstName %>
+    </p>
 
-<p>
-  <strong>First Name:</strong>
-  <%= @cadet.firstName %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @cadet.email %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @cadet.email %>
-</p>
+    <p>
+      <strong>Phone Number:</strong>
+      <%= @cadet.phoneNumber %>
+    </p>
 
-<p>
-  <strong>Phone Number:</strong>
-  <%= @cadet.phoneNumber %>
-</p>
+    <p>
+      <strong>School:</strong>
+      <%= @cadet.school %>
+    </p>
 
-<p>
-  <strong>School:</strong>
-  <%= @cadet.school %>
-</p>
+    <p>
+      <strong>Position:</strong>
+      <%= @cadet.position %>
+    </p>
 
-<p>
-  <strong>Position:</strong>
-  <%= @cadet.position %>
-</p>
+    <p>
+      <strong>Course:</strong>
+      <%= @cadet.course %>
+    </p>
+    
+    <p>
+      <strong>Grad Year:</strong>
+      <%= @cadet.gradYear %>
+    </p>
 
-<p>
-  <strong>Course:</strong>
-  <%= @cadet.course %>
-</p>
-
-<p>
-  <strong>Grad Year:</strong>
-  <%= @cadet.gradYear %>
-</p>
-
-<p>
-  <strong>Flight:</strong>
-  <%= @cadet.flight %>
-</p>
+    <p>
+      <strong>Flight:</strong>
+      <%= @cadet.flight %>
+    </p>
+  </div>
+</div>
 
 
 <!--Cadet Attendance Table-->
-<h3 class="font-weight-light" style = "text-align: left; margin-top: 20px;">Attendance</h3>
+<h3 class="font-weight-light" style = "text-align: left; margin-top: 80px;">Attendance</h3>
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
