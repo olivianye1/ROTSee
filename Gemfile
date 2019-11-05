@@ -10,6 +10,7 @@ gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.4', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'pg_search'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
