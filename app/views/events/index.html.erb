@@ -7,13 +7,8 @@
   <p id="notice"><%= notice %></p>
   <h2 class="display-4" style="margin-top: 30px;">Events</h2>
   <%= link_to 'New Event', new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
-  <br>
-  <br>
 </div>
 
-<<<<<<< HEAD
-
-=======
 <div class="container text-right" style="display: flex; justify-content: flex-end">
   <%= form_tag events_path, method: :get do %>
     <%= text_field_tag 'term', params[:term], placeholder: "YYYY-MM-DD" %>
@@ -22,8 +17,6 @@
   <br>
   <br>
 </div>
->>>>>>> search-branch
-
 
 
 <!--Event Table-->
