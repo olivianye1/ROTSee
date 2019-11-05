@@ -4,7 +4,15 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events=Event.where(["eventDate LIKE ?","%#{params[:search]}%"])
+    #@events=Event.where(["eventDate LIKE ?","%#{params[:search]}%"])
+    if params[:term]
+      @events = Event.search_by_date(params[:term])
+      if params[:term] == ''
+        @events = Event.all.order(:eventDate)
+      end
+    else
+      @events = Event.all.order(:eventDate)
+    end
   end
 
   # GET /events/1
