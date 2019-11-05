@@ -13,15 +13,13 @@
   <%= link_to 'New Cadet', new_cadet_path , :class => "btn btn-secondary btn-success btn-sm" %>
 </div>
 
-
-<div class="container text-right" style="display: flex; justify-content: flex-end" >
-  <form class="form-inline my-2 my-lg-0" >
-    <%=text_field_tag :search, params[:search], :placeholder => "Last Name" %>
-    <button class="btn btn-secondary btn-sm" type="submit_tag" >Search</button>
-    <br>
-    <br>
-  </form>
+<div class="container text-right" style="display: flex; justify-content: flex-end">
+  <%= form_tag cadets_path, method: :get do %>
+    <%= text_field_tag 'term', params[:term], placeholder: "Enter cadet's first or last name" %>
+    <%= submit_tag 'Search' %>
+  <% end %>
 </div>
+
 
 
 <!--Cadet Table-->
