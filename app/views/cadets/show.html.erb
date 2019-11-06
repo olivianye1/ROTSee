@@ -8,51 +8,49 @@
 <p id="notice"><%= notice %></p>
 
 <!--Cadet Information-->
-<h2 class = "display-4">Cadet <%= @cadet.lastName %></h2>
+<h2 class = "text-left display-4">Cadet <%= @cadet.lastName %></h2>
 
-
-
-<p  style="margin-top:20px;">
+<p class="text-left">
   <strong>Last Name:</strong>
   <%= @cadet.lastName %>
 </p>
 
-<p>
+<p class="text-left">
   <strong>First Name:</strong>
   <%= @cadet.firstName %>
 </p>
 
-<p>
+<p class="text-left">
   <strong>Email:</strong>
   <%= @cadet.email %>
 </p>
 
-<p>
+<p class="text-left">
   <strong>Phone Number:</strong>
-  <%= @cadet.phoneNumber %>
+  <%= "(#{(@cadet.phoneNumber.to_s)[0, 3]}) #{(@cadet.phoneNumber.to_s)[3, 3]}-#{(@cadet.phoneNumber.to_s)[6, 4]}" %>
 </p>
 
-<p>
+<p class="text-left">
   <strong>School:</strong>
   <%= @cadet.school %>
 </p>
 
-<p>
+<p class="text-left">
   <strong>Position:</strong>
   <%= @cadet.position %>
 </p>
 
-<p>
+<p class="text-left">
   <strong>Course:</strong>
   <%= @cadet.course %>
 </p>
 
-<p>
+<p class="text-left">
   <strong>Grad Year:</strong>
   <%= @cadet.gradYear %>
 </p>
 
-<p>
+<p class="text-left">
   <strong>Flight:</strong>
   <%= @cadet.flight %>
 </p>

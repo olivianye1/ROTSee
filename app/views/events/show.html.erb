@@ -12,27 +12,22 @@
 <!--Event Information-->
 <p id="notice"><%= notice %></p>
 
-<div class="event-info">
-  <h2 class="display-4" >Event Details: <%= @event.eventDate %> </h2>
-  <div>
-   
-</div>
+<h2 class = "text-left display-4">Event Details: <%= @event.eventDate %></h2>
   
-  <p style="margin-top:20px;">
+  <p class="text-left">
     <strong>Primary Type:</strong>
     <%= @event.primaryType %>
   </p>
   
-  <p>
+  <p class="text-left">
     <strong>Subtype:</strong>
     <%= @event.subType %>
   </p>
   
-  <p>
+  <p class="text-left">
     <strong>Details:</strong>
     <%= @event.details %>
   </p>
-</div>
 
 <!--Event Attendance Table-->
 <h3 class="font-weight-light" style = "text-align: left; margin-top: 20px;">Attendance</h3>
