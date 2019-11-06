@@ -3,6 +3,8 @@ class Event < ApplicationRecord
     has_many :cadets, through: :attendances
     accepts_nested_attributes_for :attendances
     
+    validates :eventDate, :primaryType, :subType, :details, :presence => true
+    
     include PgSearch
     pg_search_scope :search_by_date, against: [:eventDate],
         using: {
