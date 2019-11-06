@@ -42,22 +42,40 @@
   </div>
 
   <div class="field">
-    <%= form.label "School: *" %>
-    <%= form.text_field :school %>
+    <%= form.label "School: *" %><br>
+    <%= form.select(:school) do %>
+      <% ['Xavier University', 'Delgado Community College', 
+      'Dillard University', 'University of New Orleans', 
+      'University of Holy Cross', 'Loyola University', 
+      'Lousiana State University Nursing School', 
+      'Southern University of New Orleans', 'Tulane University'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+      <% end %>
+    <% end %>
   </div>
   
   <p></p>
 
   <div class="field">
-    <%= form.label "Position: *" %>
-    <%= form.text_field :position %>
+    <%= form.label "Position: *" %><br>
+    <%= form.select(:position) do %>
+      <% ['Cadet Wing Commander', 'Mission Support Group Commander', 
+      'Operations Group Commander', 'Squadron Commander', 
+      'A Flight Commander', 'B Flight Commander', 'Cadet'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+      <% end %>
+    <% end %>
   </div>
   
   <p></p>
 
   <div class="field">
-    <%= form.label "Course: *" %>
-    <%= form.text_field :course %>
+    <%= form.label "Course: *" %><br>
+    <%= form.select(:course) do %>
+      <% ['POC', 'GMC'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+      <% end %>
+    <% end %>
   </div>
   
   <p></p>
@@ -70,8 +88,12 @@
   <p></p>
 
   <div class="field">
-    <%= form.label "Flight: *" %>
-    <%= form.text_field :flight %>
+    <%= form.label "Flight: *" %><br>
+    <%= form.select(:flight) do %>
+      <% ['Alpha', 'Bravo'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+      <% end %>
+    <% end %>
   </div>
   
   <p></p>
