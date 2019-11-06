@@ -11,33 +11,45 @@
     </div>
   <% end %>
   
+  <%= "All Fields Required *" %>
+  
+  <p></p>
+  
   <div class="field">
-    <%= f.label :eventDate %>
+    <%= f.label "Event Date: *" %>
     <%= f.datetime_select :eventDate %>
   </div>
+  
+  <p></p>
 
   <div class="field">
-    <%= f.label :primaryType %>
+    <%= f.label "Event Type: *" %>
     <%= f.select(:primaryType) do %>
       <% ['LLAB', 'PT'].each do |c| -%>
       <%= content_tag(:option, c) %>
       <% end %>
     <% end %>
   </div>
+  
+  <p></p>
 
   <div class="field">
-    <%= f.label :subType %>
+    <%= f.label "Event Subtype: *" %>
     <%= f.select(:subType) do %>
       <% ['None', 'Cardio', 'Strength Workout'].each do |c| -%>
       <%= content_tag(:option, c) %>
       <% end %>
     <% end %>
   </div>
+  
+  <p></p>
 
   <div class="field">
-    <%= f.label :details %>
+    <%= f.label "Details: *" %>
     <%= f.text_field :details %>
   </div>
+  
+  <p></p>
   
   <div>
     
@@ -57,6 +69,8 @@
       <% i = i + 1 %>
     <% end %>
   </div>
+  
+  <p></p>
  
   <div class="actions">
     <p></p>
