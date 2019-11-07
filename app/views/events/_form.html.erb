@@ -11,15 +11,18 @@
     </div>
   <% end %>
   
+  <font color="red">All Fields Required *</font> 
+  <p></p>
+  
   <div style="text-align: center;">
     <div  style="display: inline-block; text-align: left;">
       <div class="field">
-        <%= f.label :eventDate %>
+        <%= f.label "Event Date: " %>
         <%= f.datetime_select :eventDate %>
       </div>
-
+      <p></p>
       <div class="field">
-        <%= f.label :primaryType %>
+        <%= f.label "Primary Type:" %>
         <%= f.select(:primaryType) do %>
           <% ['LLAB', 'PT'].each do |c| -%>
           <%= content_tag(:option, c) %>
@@ -27,35 +30,32 @@
         <% end %>
       </div>
 
-<<<<<<< HEAD
-=======
-  <div class="field">
-    <%= f.label "Details: *" %>
-    <%= f.text_field :details, maxlength: 500 %>
-  </div>
+
   
-  <p></p>
-  
-  <div>
-    
-    <% @ord_attendances = @event.attendances %>
     <p></p>
-    <% i = 0 %>
-    <%= f.fields_for :attendances, @event.attendances do |form| %>
->>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
       <div class="field">
-        <%= f.label :subType %>
+        <%= f.label "Sub-Type:"%>
         <%= f.select(:subType) do %>
           <% ['None', 'Cardio', 'Strength Workout'].each do |c| -%>
           <%= content_tag(:option, c) %>
           <% end %>
         <% end %>
       </div>
-
+  
+      <p></p>
       <div class="field">
-        <%= f.label :details %>
-        <%= f.text_field :details %>
+        <%= f.label "Details:" %>
+        <%= f.text_field :details, size:50 ,maxlength: 300 %>
       </div>
+
+  
+      <div>
+        <% @ord_attendances = @event.attendances %>
+        <p></p>
+        <% i = 0 %>
+        <%= f.fields_for :attendances, @event.attendances do |form| %>
+
+
 
       <div>
         <% @ord_attendances = @event.attendances %>
@@ -74,12 +74,12 @@
           <% i = i + 1 %>
         <% end %>
       </div>
-      </div>
+    </div>
   </div>
 
   <div class="actions">
     <p></p>
     <%= f.submit %>
   </div>
-
+<% end %>
 <% end %>

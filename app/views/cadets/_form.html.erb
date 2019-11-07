@@ -14,160 +14,108 @@
   <font color="red">All Fields Required *</font> 
 
   <p></p>
-<<<<<<< HEAD
   <div style="text-align: center;">
     <div  style="display: inline-block; text-align: left;">
       <div class="field">
         <%= form.label "Last Name:" %>
-        
-        <%= form.text_field :lastName %>
+        <%= form.text_field :lastName, maxlength: 50 %>
       </div>
-=======
-
-  <div class="field">
-    <%= form.label "Last Name: *" %>
-    <%= form.text_field :lastName, maxlength: 50 %>
-  </div>
->>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
-<<<<<<< HEAD
       <div class="field">
         <%= form.label "First Name:" %>
-        <%= form.text_field :firstName %>
-        
+        <%= form.text_field :firstName, maxlength: 50 %>
       </div>
-=======
-  <div class="field">
-    <%= form.label "First Name: *" %>
-    <%= form.text_field :firstName, maxlength: 50 %>
-  </div>
->>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
-<<<<<<< HEAD
       <div class="field">
         <%= form.label "Email:" %>
-        <%= form.text_field :email %>
+        <%= form.text_field :email, maxlength: 100 %>
+        <!--input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required /-->
       </div>
-=======
-  <div class="field">
-    <%= form.label "Email: *" %>
-    <%= form.text_field :email, maxlength: 100 %>
-    <!--input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required /-->
-  </div>
->>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
-<<<<<<< HEAD
       <div class="field">
         <%= form.label "Phone Number:" %>
-        <%= form.text_field :phoneNumber %>
+        <%= form.text_field :phoneNumber, maxlength: 50 %>
       </div>
-=======
-  <div class="field">
-    <%= form.label "Phone Number: *" %>
-    <%= form.text_field :phoneNumber, maxlength: 50 %>
-  </div>
->>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
-
+      <p></p>
       <div class="field">
-        <%= form.label "School:" %>
-        <%= form.select(:school) do %>
-          <% ['Xavier University', 'Delgado Community College', 
-          'Dillard University', 'University of New Orleans', 
-          'University of Holy Cross', 'Loyola University', 
-          'Lousiana State University Nursing School', 
-          'Southern University of New Orleans', 'Tulane University'].each do |c| -%>
-          <%= content_tag(:option, c) %>
+          <%= form.label "School:" %>
+          <%= form.select(:school) do %>
+            <% ['Xavier University', 'Delgado Community College', 
+            'Dillard University', 'University of New Orleans', 
+            'University of Holy Cross', 'Loyola University', 
+            'Lousiana State University Nursing School', 
+            'Southern University of New Orleans', 'Tulane University'].each do |c| -%>
+            <%= content_tag(:option, c) %>
+            <% end %>
           <% end %>
-        <% end %>
       </div>
   
       <p></p>
 
-      <div class="field">
-        <%= form.label "Position:" %>
-        <%= form.select(:position) do %>
-          <% ['Cadet Wing Commander', 'Mission Support Group Commander', 
-          'Operations Group Commander', 'Squadron Commander', 
-          'A Flight Commander', 'B Flight Commander', 'Cadet'].each do |c| -%>
-          <%= content_tag(:option, c) %>
-          <% end %>
-        <% end %>
-      </div>
+          <div class="field">
+            <%= form.label "Position:" %>
+            <%= form.select(:position) do %>
+              <% ['Cadet Wing Commander', 'Mission Support Group Commander', 
+              'Operations Group Commander', 'Squadron Commander', 
+              'A Flight Commander', 'B Flight Commander', 'Cadet'].each do |c| -%>
+              <%= content_tag(:option, c) %>
+              <% end %>
+            <% end %>
+          </div>
   
       <p></p>
 
-      <div class="field">
-        <%= form.label "Course:" %>
-        <%= form.select(:course) do %>
-          <% ['POC', 'GMC'].each do |c| -%>
-          <%= content_tag(:option, c) %>
-          <% end %>
-        <% end %>
-      </div>
+          <div class="field">
+            <%= form.label "Course:" %>
+            <%= form.select(:course) do %>
+              <% ['POC', 'GMC'].each do |c| -%>
+              <%= content_tag(:option, c) %>
+              <% end %>
+            <% end %>
+          </div>
   
       <p></p>
 
-<<<<<<< HEAD
       <div class="field">
         <%= form.label "Graduation Year:" %>
-        <%= form.text_field :gradYear %>
-      </div>
-=======
-  <div class="field">
-    <%= form.label "Graduation Year: *" %>
-    <%= form.select(:gradYear) do %>
-      <% ['2019','2020', '2021', '2022', '2023', '2024'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-    
-  </div>
->>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
-  
-      <p></p>
-
-      <div class="field">
-        <%= form.label "Flight:" %>
-        <%= form.select(:flight) do %>
-          <% ['Alpha', 'Bravo'].each do |c| -%>
+        <%= form.select(:gradYear) do %>
+          <% ['2019','2020', '2021', '2022', '2023', '2024'].each do |c| -%>
           <%= content_tag(:option, c) %>
           <% end %>
         <% end %>
+    
       </div>
   
       <p></p>
 
-<<<<<<< HEAD
+          <div class="field">
+            <%= form.label "Flight:" %>
+            <%= form.select(:flight) do %>
+              <% ['Alpha', 'Bravo'].each do |c| -%>
+              <%= content_tag(:option, c) %>
+              <% end %>
+            <% end %>
+          </div>
+  
+      <p></p>
+
       <div class="field">
         <%= form.label "Username:" %>
-        <%= form.text_field :username %>
+        <%= form.text_field :username, maxlength: 100 %>
       </div>
-=======
-  <div class="field">
-    <%= form.label "Username: *" %>
-    <%= form.text_field :username, maxlength: 100 %>
-  </div>
->>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
-<<<<<<< HEAD
       <div class="field">
         <%= form.label "Password:" %>
-        <%= form.text_field :password %>
+        <%= form.text_field :password, maxlength: 100 %>
       </div>
-=======
-  <div class="field">
-    <%= form.label "Password: *" %>
-    <%= form.text_field :password, maxlength: 100 %>
-  </div>
->>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
     </div>
