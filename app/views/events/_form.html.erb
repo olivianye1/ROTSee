@@ -27,6 +27,22 @@
         <% end %>
       </div>
 
+<<<<<<< HEAD
+=======
+  <div class="field">
+    <%= f.label "Details: *" %>
+    <%= f.text_field :details, maxlength: 500 %>
+  </div>
+  
+  <p></p>
+  
+  <div>
+    
+    <% @ord_attendances = @event.attendances %>
+    <p></p>
+    <% i = 0 %>
+    <%= f.fields_for :attendances, @event.attendances do |form| %>
+>>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
       <div class="field">
         <%= f.label :subType %>
         <%= f.select(:subType) do %>

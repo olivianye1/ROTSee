@@ -14,6 +14,7 @@
   <font color="red">All Fields Required *</font> 
 
   <p></p>
+<<<<<<< HEAD
   <div style="text-align: center;">
     <div  style="display: inline-block; text-align: left;">
       <div class="field">
@@ -21,28 +22,57 @@
         
         <%= form.text_field :lastName %>
       </div>
+=======
+
+  <div class="field">
+    <%= form.label "Last Name: *" %>
+    <%= form.text_field :lastName, maxlength: 50 %>
+  </div>
+>>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
+<<<<<<< HEAD
       <div class="field">
         <%= form.label "First Name:" %>
         <%= form.text_field :firstName %>
         
       </div>
+=======
+  <div class="field">
+    <%= form.label "First Name: *" %>
+    <%= form.text_field :firstName, maxlength: 50 %>
+  </div>
+>>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
+<<<<<<< HEAD
       <div class="field">
         <%= form.label "Email:" %>
         <%= form.text_field :email %>
       </div>
+=======
+  <div class="field">
+    <%= form.label "Email: *" %>
+    <%= form.text_field :email, maxlength: 100 %>
+    <!--input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required /-->
+  </div>
+>>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
+<<<<<<< HEAD
       <div class="field">
         <%= form.label "Phone Number:" %>
         <%= form.text_field :phoneNumber %>
       </div>
+=======
+  <div class="field">
+    <%= form.label "Phone Number: *" %>
+    <%= form.text_field :phoneNumber, maxlength: 50 %>
+  </div>
+>>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
 
       <div class="field">
         <%= form.label "School:" %>
@@ -83,10 +113,22 @@
   
       <p></p>
 
+<<<<<<< HEAD
       <div class="field">
         <%= form.label "Graduation Year:" %>
         <%= form.text_field :gradYear %>
       </div>
+=======
+  <div class="field">
+    <%= form.label "Graduation Year: *" %>
+    <%= form.select(:gradYear) do %>
+      <% ['2019','2020', '2021', '2022', '2023', '2024'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+      <% end %>
+    <% end %>
+    
+  </div>
+>>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
@@ -101,17 +143,31 @@
   
       <p></p>
 
+<<<<<<< HEAD
       <div class="field">
         <%= form.label "Username:" %>
         <%= form.text_field :username %>
       </div>
+=======
+  <div class="field">
+    <%= form.label "Username: *" %>
+    <%= form.text_field :username, maxlength: 100 %>
+  </div>
+>>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
 
+<<<<<<< HEAD
       <div class="field">
         <%= form.label "Password:" %>
         <%= form.text_field :password %>
       </div>
+=======
+  <div class="field">
+    <%= form.label "Password: *" %>
+    <%= form.text_field :password, maxlength: 100 %>
+  </div>
+>>>>>>> 4533709dd4c0f24b9b442280366f96aa594fad5c
   
       <p></p>
     </div>
