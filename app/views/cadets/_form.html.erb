@@ -11,106 +11,111 @@
     </div>
   <% end %>
   
-  <%= "All Fields Required *" %>
+  <font color="red">All Fields Required *</font> 
 
   <p></p>
-
-  <div class="field">
-    <%= form.label "Last Name: *" %>
-    <%= form.text_field :lastName %>
-  </div>
+  <div style="text-align: center;">
+    <div  style="display: inline-block; text-align: left;">
+      <div class="field">
+        <%= form.label "Last Name:" %>
+        
+        <%= form.text_field :lastName %>
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "First Name: *" %>
-    <%= form.text_field :firstName %>
-  </div>
+      <div class="field">
+        <%= form.label "First Name:" %>
+        <%= form.text_field :firstName %>
+        
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "Email: *" %>
-    <%= form.text_field :email %>
-  </div>
+      <div class="field">
+        <%= form.label "Email:" %>
+        <%= form.text_field :email %>
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "Phone Number: *" %>
-    <%= form.text_field :phoneNumber %>
-  </div>
+      <div class="field">
+        <%= form.label "Phone Number:" %>
+        <%= form.text_field :phoneNumber %>
+      </div>
 
-  <div class="field">
-    <%= form.label "School: *" %><br>
-    <%= form.select(:school) do %>
-      <% ['Xavier University', 'Delgado Community College', 
-      'Dillard University', 'University of New Orleans', 
-      'University of Holy Cross', 'Loyola University', 
-      'Lousiana State University Nursing School', 
-      'Southern University of New Orleans', 'Tulane University'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
+      <div class="field">
+        <%= form.label "School:" %>
+        <%= form.select(:school) do %>
+          <% ['Xavier University', 'Delgado Community College', 
+          'Dillard University', 'University of New Orleans', 
+          'University of Holy Cross', 'Loyola University', 
+          'Lousiana State University Nursing School', 
+          'Southern University of New Orleans', 'Tulane University'].each do |c| -%>
+          <%= content_tag(:option, c) %>
+          <% end %>
+        <% end %>
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "Position: *" %><br>
-    <%= form.select(:position) do %>
-      <% ['Cadet Wing Commander', 'Mission Support Group Commander', 
-      'Operations Group Commander', 'Squadron Commander', 
-      'A Flight Commander', 'B Flight Commander', 'Cadet'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
+      <div class="field">
+        <%= form.label "Position:" %>
+        <%= form.select(:position) do %>
+          <% ['Cadet Wing Commander', 'Mission Support Group Commander', 
+          'Operations Group Commander', 'Squadron Commander', 
+          'A Flight Commander', 'B Flight Commander', 'Cadet'].each do |c| -%>
+          <%= content_tag(:option, c) %>
+          <% end %>
+        <% end %>
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "Course: *" %><br>
-    <%= form.select(:course) do %>
-      <% ['POC', 'GMC'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
+      <div class="field">
+        <%= form.label "Course:" %>
+        <%= form.select(:course) do %>
+          <% ['POC', 'GMC'].each do |c| -%>
+          <%= content_tag(:option, c) %>
+          <% end %>
+        <% end %>
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "Graduation Year: *" %>
-    <%= form.text_field :gradYear %>
-  </div>
+      <div class="field">
+        <%= form.label "Graduation Year:" %>
+        <%= form.text_field :gradYear %>
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "Flight: *" %><br>
-    <%= form.select(:flight) do %>
-      <% ['Alpha', 'Bravo'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
+      <div class="field">
+        <%= form.label "Flight:" %>
+        <%= form.select(:flight) do %>
+          <% ['Alpha', 'Bravo'].each do |c| -%>
+          <%= content_tag(:option, c) %>
+          <% end %>
+        <% end %>
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "Username: *" %>
-    <%= form.text_field :username %>
-  </div>
+      <div class="field">
+        <%= form.label "Username:" %>
+        <%= form.text_field :username %>
+      </div>
   
-  <p></p>
+      <p></p>
 
-  <div class="field">
-    <%= form.label "Password: *" %>
-    <%= form.text_field :password %>
-  </div>
+      <div class="field">
+        <%= form.label "Password:" %>
+        <%= form.text_field :password %>
+      </div>
   
-  <p></p>
+      <p></p>
+    </div>
+  </div>
 
   <div class="actions">
     <p>
