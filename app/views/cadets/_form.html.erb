@@ -17,28 +17,28 @@
 
   <div class="field">
     <%= form.label "Last Name: *" %>
-    <%= form.text_field :lastName %>
+    <%= form.text_field :lastName, maxlength: 50 %>
   </div>
   
   <p></p>
 
   <div class="field">
     <%= form.label "First Name: *" %>
-    <%= form.text_field :firstName %>
+    <%= form.text_field :firstName, maxlength: 50 %>
   </div>
   
   <p></p>
 
   <div class="field">
     <%= form.label "Email: *" %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, maxlength: 100 %>
   </div>
   
   <p></p>
 
   <div class="field">
     <%= form.label "Phone Number: *" %>
-    <%= form.text_field :phoneNumber %>
+    <%= form.text_field :phoneNumber, maxlength: 50 %>
   </div>
 
   <div class="field">
@@ -82,7 +82,12 @@
 
   <div class="field">
     <%= form.label "Graduation Year: *" %>
-    <%= form.text_field :gradYear %>
+    <%= form.select(:gradYear) do %>
+      <% ['2019','2020', '2021', '2022', '2023', '2024'].each do |c| -%>
+      <%= content_tag(:option, c) %>
+      <% end %>
+    <% end %>
+    
   </div>
   
   <p></p>
@@ -100,14 +105,14 @@
 
   <div class="field">
     <%= form.label "Username: *" %>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, maxlength: 100 %>
   </div>
   
   <p></p>
 
   <div class="field">
     <%= form.label "Password: *" %>
-    <%= form.text_field :password %>
+    <%= form.text_field :password, maxlength: 100 %>
   </div>
   
   <p></p>
