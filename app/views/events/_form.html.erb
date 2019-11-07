@@ -11,53 +11,55 @@
     </div>
   <% end %>
   
-  <div class="field">
-    <%= f.label :eventDate %>
-    <%= f.datetime_select :eventDate %>
-  </div>
-
-  <div class="field">
-    <%= f.label :primaryType %>
-    <%= f.select(:primaryType) do %>
-      <% ['LLAB', 'PT'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :subType %>
-    <%= f.select(:subType) do %>
-      <% ['None', 'Cardio', 'Strength Workout'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :details %>
-    <%= f.text_field :details %>
-  </div>
-  
-  <div>
-    
-    <% @ord_attendances = @event.attendances %>
-    <p></p>
-    <% i = 0 %>
-    <%= f.fields_for :attendances, @event.attendances do |form| %>
+  <div style="text-align: center;">
+    <div  style="display: inline-block; text-align: left;">
       <div class="field">
-      
-        <%= form.label("#{@ord_attendances[i].cadet.lastName}, #{@ord_attendances[i].cadet.firstName}") %>
-        <%= form.select(:attended) do %>
-          <% ['Present', 'Absent', 'Tardy'].each do |c| -%>
+        <%= f.label :eventDate %>
+        <%= f.datetime_select :eventDate %>
+      </div>
+
+      <div class="field">
+        <%= f.label :primaryType %>
+        <%= f.select(:primaryType) do %>
+          <% ['LLAB', 'PT'].each do |c| -%>
           <%= content_tag(:option, c) %>
           <% end %>
         <% end %>
       </div>
-      <% i = i + 1 %>
-    <% end %>
+
+      <div class="field">
+        <%= f.label :subType %>
+        <%= f.select(:subType) do %>
+          <% ['None', 'Cardio', 'Strength Workout'].each do |c| -%>
+          <%= content_tag(:option, c) %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :details %>
+        <%= f.text_field :details %>
+      </div>
+
+      <div>
+        <% @ord_attendances = @event.attendances %>
+        <p></p>
+        <% i = 0 %>
+        <%= f.fields_for :attendances, @event.attendances do |form| %>
+          <div class="field">
+      
+            <%= form.label("#{@ord_attendances[i].cadet.lastName}, #{@ord_attendances[i].cadet.firstName}") %>
+            <%= form.select(:attended) do %>
+              <% ['Present', 'Absent', 'Tardy'].each do |c| -%>
+              <%= content_tag(:option, c) %>
+              <% end %>
+            <% end %>
+          </div>
+          <% i = i + 1 %>
+        <% end %>
+      </div>
+      </div>
   </div>
- 
   <div class="actions">
     <p></p>
     <%= f.submit %>
