@@ -17,7 +17,8 @@ class Cadet < ApplicationRecord
     validates :email,
         presence: true,
         length: {maximum: 100},
-        allow_nil: false
+        allow_nil: false,
+        format: { with: URI::MailTo::EMAIL_REGEXP } 
         
     validates :phoneNumber,
         presence: true,
