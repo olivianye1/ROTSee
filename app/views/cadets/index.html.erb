@@ -30,16 +30,18 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Cadet Name</th>
-      <th scope="col">Update Cadet</th>
-      <th scope="col">Delete Cadet</th>
+      <th scope="col">Flight</th>
+      <th scope="col">Position</th>
+      <th scope="col">School</th>
     </tr>
   </thead>
   <tbody>
     <% @cadets.each do |cadet| %>
       <tr>
-        <td><%= link_to "#{cadet.lastName}, #{cadet.firstName} ", cadet %></td>
-        <td><%= link_to 'Edit', edit_cadet_path(cadet), :class => "btn btn-secondary btn-warning btn-sm" %></td>
-                <td><%= link_to 'Remove', cadet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> </td>
+        <td style="font-weight:bold"><%= link_to "#{cadet.lastName}, #{cadet.firstName} ", cadet %></td>
+        <td><%= link_to "#{cadet.flight}", cadet %></td>
+        <td><%= link_to "#{cadet.position}", cadet %></td>
+        <td><%= link_to "#{cadet.school}", cadet %></td>
       </tr>
     <% end %>
   </tbody>
