@@ -11,7 +11,7 @@ class CreateCadets < ActiveRecord::Migration[6.0]
       t.integer :gradYear
       t.string :flight
       t.string :username
-      t.string :password
+      t.string :password_digest
 
       t.timestamps
     end

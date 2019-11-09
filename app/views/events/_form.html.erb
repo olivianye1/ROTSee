@@ -67,7 +67,7 @@
             <%= form.label("#{@ord_attendances[i].cadet.lastName}, #{@ord_attendances[i].cadet.firstName}") %>
             <%= form.select(:attended) do %>
               <% ['Present', 'Absent', 'Tardy'].each do |c| -%>
-              <%= content_tag(:option, c) %>
+                <%= content_tag(:option, c) %>
               <% end %>
             <% end %>
           </div>

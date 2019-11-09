@@ -31,7 +31,7 @@
 
     <p>
       <strong>Phone Number:</strong>
-      <%= @cadet.phoneNumber %>
+      <%= "(#{(@cadet.phoneNumber.to_s)[0, 3]}) #{(@cadet.phoneNumber.to_s)[3, 3]}-#{(@cadet.phoneNumber.to_s)[6, 4]}" %>
     </p>
 
     <p>

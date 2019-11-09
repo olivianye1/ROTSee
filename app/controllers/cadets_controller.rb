@@ -1,5 +1,6 @@
 class CadetsController < ApplicationController
   before_action :set_cadet, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:new, :create]
 
   # GET /cadets
   # GET /cadets.json
@@ -39,8 +40,10 @@ class CadetsController < ApplicationController
         
         flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName} has been successfully added to the ROTC roster."
     
-        format.html { redirect_to @cadet}
-        format.json { render :show, status: :created, location: @cadet }
+        session[:cadet_id] = @cadet.id
+        
+        redirect_to '/welcome'
+        
       else
         format.html { render :new }
         format.json { render json: @cadet.errors, status: :unprocessable_entity }
