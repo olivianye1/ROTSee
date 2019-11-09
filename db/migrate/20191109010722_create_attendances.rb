@@ -4,9 +4,8 @@ class CreateAttendances < ActiveRecord::Migration[6.0]
       t.string :attended
       t.references :cadet, null: false, foreign_key: true
       t.references :event, null: false, foreign_key: true
- 
+
       t.timestamps
     end
   end
 end
- 

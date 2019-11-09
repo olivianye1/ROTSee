@@ -11,6 +11,7 @@ gem 'bootsnap',   '1.4.4', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'pg_search'
+gem 'bcrypt', '~> 3.1.2'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

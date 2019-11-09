@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :primaryType
       t.string :subType
       t.string :details
-
+      
       t.timestamps
     end
   end
