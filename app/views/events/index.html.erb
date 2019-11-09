@@ -1,3 +1,5 @@
+<%= javascript_include_tag "sort_table" %>
+
 <head>
   <style>
 
@@ -20,11 +22,11 @@
 
 
 <!--Event Table-->
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered", id = "table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Event Date</th>
-      <th scope="col">Primary Type</th>
+      <th scope="col", onclick="sortTable(0)">Event Date</th>
+      <th scope="col", onclick="sortTable(1)">Primary Type</th>
       <th scope="col">Update Event</th>
       <th scope="col">Delete Event</th>
     </tr>
