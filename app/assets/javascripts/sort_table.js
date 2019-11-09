@@ -1,69 +1,4 @@
-<%= javascript_include_tag "sort_table" %>
-
-<head>
-  <style>
-    .table {
-    }
-  </style>
-</head>
-
-
-
-<div class="container text-left">
-  <p id="notice"><%= notice %></p>
-  <h4 class="display-4" style="margin-top: 30px;">Signed In As <%= current_cadet.username %></h4>
-  <h2 class="display-4" style="margin-top: 30px;">Cadets</h2>
-  <%= link_to 'New Cadet', new_cadet_path , :class => "btn btn-secondary btn-success btn-sm" %>
-</div>
-
-
-<div class="container text-right" style="display: flex; justify-content: flex-end">
-  <%= form_tag cadets_path, method: :get do %>
-    <%= text_field_tag 'term', params[:term], placeholder: "First or Last Name..." %>
-    <button class="btn btn-secondary btn-sm" type="submit_tag" >Search</button>
-  <% end %>
-  <br>
-  <br>
-</div>
-
-
-
-<!--Cadet Table-->
-<table class="table table-striped table-bordered", id = "table">
-  <thead class="thead-dark">
-    <tr>
-      <th onclick="sortTable(0)", scope = "col">Cadet Name</th>
-      <th onclick="sortTable(1)",scope="col">Flight</th>
-      <th onclick="sortTable(2)",scope="col">Position</th>
-      <th onclick="sortTable(3)",scope="col">School</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cadets.each do |cadet| %>
-      <tr>
-        <td style="font-weight:bold"><%= link_to "#{cadet.lastName}, #{cadet.firstName} ", cadet %></td>
-        <td><%= link_to "#{cadet.flight}", cadet %></td>
-        <td><%= link_to "#{cadet.position}", cadet %></td>
-        <td><%= link_to "#{cadet.school}", cadet %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<!-- Back to Top Button -->
-<button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
-<script>
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
-</script>
-
-
-<!--script>
-  function sortTable(n) {
+function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("table");
   switching = true;
@@ -122,4 +57,3 @@
     }
   }
 }
-</script--!>
