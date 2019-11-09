@@ -43,4 +43,47 @@
       <a href="/cadets/new" class="btn btn-dark btn-lg"  role="button">Sign Up</a>
       <a href="/login" class="btn btn-dark btn-lg"  role="button">Login</a>
     </div>
+<% else %>
+   <p id="notice"><%= notice %></p>
+    <head>
+        <style>
+        /* Container holding the image and the text */
+        .container {
+          position: relative;
+          text-align: center;
+          color: black;
+        }
+        
+        /* Centered text */
+        .centered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        
+        .front-page {
+          margin-top: 100px;
+        }
+        </style>
+    
+    <!--Front page banner-->
+    </head>
+    <div class="container">
+      <div class = "front-page">
+        <img src="https://github.com/olivianye1/ROTSee/blob/master/app/views/cadets/ROTSee2.jpg?raw=true" alt="Squares and Grunge 1" width="800" height="400" ></img>
+        <div class="centered">
+          <h1 style="font-size:100px;color:black;">Welcome to ROTSee!</h1>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 50px;"></p>
+
+    <div class="Site Features">
+      <a href="/cadets" class="btn btn-dark btn-lg" style = rgb(75,83,32) role="button">View All Cadets</a>
+      <a href="/events" class="btn btn-dark btn-lg"  role="button">View All Events</a>
+      <a href="/cadets/new" class="btn btn-dark btn-lg"  role="button">Sign Up</a>
+      <a href="/login" class="btn btn-dark btn-lg"  role="button">Login</a>
+    </div>
 <%end%>
