@@ -34,8 +34,7 @@ class CadetsController < ApplicationController
   # POST /cadets.json
   def create
     @cadet = Cadet.new(cadet_params)
-
-    respond_to do |format|
+    
       if @cadet.save
         
         flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName} has been successfully added to the ROTC roster."
@@ -45,10 +44,9 @@ class CadetsController < ApplicationController
         redirect_to '/welcome'
         
       else
-        format.html { render :new }
-        format.json { render json: @cadet.errors, status: :unprocessable_entity }
+        session[:cadet_id] = @cadet.id
+        redirect_to '/welcome'
       end
-    end
   end
 
   # PATCH/PUT /cadets/1
