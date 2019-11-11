@@ -19,6 +19,36 @@ class CadetsController < ApplicationController
   # GET /cadets/1.json
   def show
      @cadets = Cadet.all.order(:lastName)
+     @ord_attendance = @cadet.attendances
+     
+     @total_records = 0
+     @total_LLAB = 0
+     @total_PT = 0
+     @pres_total = 0
+     @pres_LLAB = 0
+     @pres_PT = 0
+
+    @ord_attendance.each do |attendance|
+      @total_records += 1
+      if attendance.event.primaryType == "LLAB"
+        @total_LLAB += 1
+        if attendance.attended == "Present"
+          @pres_LLAB += 1
+        end
+      elsif attendance.event.primaryType == "PT"
+        @total_PT += 1
+        if attendance.attended == "Present"
+          @pres_PT += 1
+        end
+      else
+      end
+    end
+    @pres_total = @pres_LLAB + @pres_PT
+    
+    @LLAB_percent = @pres_LLAB/@total_LLAB * 100
+    @PT_percent = @pres_PT/@total_PT * 100
+    @total_percent = @pres_total/@total_records * 100
+    
   end
 
   # GET /cadets/new
