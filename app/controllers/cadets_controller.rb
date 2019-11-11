@@ -45,9 +45,9 @@ class CadetsController < ApplicationController
     end
     @pres_total = @pres_LLAB + @pres_PT
     
-    @LLAB_percent = @pres_LLAB/@total_LLAB * 100
-    @PT_percent = @pres_PT/@total_PT * 100
-    @total_percent = @pres_total/@total_records * 100
+    @LLAB_percent = @pres_LLAB.to_f/@total_LLAB.to_f * 100.00
+    @PT_percent = @pres_PT.to_f/@total_PT.to_f * 100.00
+    @total_percent = @pres_total.to_f/@total_records.to_f * 100.00
     
   end
 
