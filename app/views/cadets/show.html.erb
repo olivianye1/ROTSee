@@ -5,6 +5,18 @@
     span{
       font-size: 24px;
     }
+    
+    .column {
+      float: left;
+      width: 19%;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   </style>
 </head>
 <p id="notice"><%= notice %></p>
@@ -65,14 +77,18 @@
 
 
 <!--Cadet Attendance Table-->
-<h3 class="font-weight-light" style = "text-align: left; margin-top: 80px;">Attendance Summary</h3>
 <%@ord_attendance = @cadet.attendances%>
-<p>Overall Attendance:<%= @total_percent %></p>
-<p>LLAB Attendance:<%= @total_percent %></p>
-<p>PT Attendance:<%= @total_percent %></p>
-
 
 <h3 class="font-weight-light" style = "text-align: left; margin-top: 80px;">Attendance Records</h3>
+
+<div class="row">
+  <div class="column"><p><strong>Overall Attendance:</strong><%= @total_percent %>%</p> </div>
+  <div class="column"><p><strong>LLAB Attendance:</strong><%= @total_percent %>%</p></div>
+  <div class="column"><p><strong>PT Attendance:</strong><%= @total_percent %>%</p></div>
+</div>
+
+
+
 <table class="table table-striped table-bordered", id = "table">
   <thead>
     <tr>
