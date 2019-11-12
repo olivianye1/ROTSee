@@ -63,14 +63,14 @@
       </div>
 
 
-      <div>
+      <div style="text-align: center;">
         <% @ord_attendances = @event.attendances %>
         <p></p>
         <% i = 0 %>
-        <strong><%= f.label "Attendance:" %></strong>
+        <div class="row"><strong><%= f.label "Attendance:" %></strong></div>
         <%= f.fields_for :attendances, @event.attendances do |form| %>
           
-          <div class="field">
+          <div class="field" style="text-align: left;">
             <div class="row">
             <div class="column"><%= form.label :attended,("#{@ord_attendances[i].cadet.lastName}, #{@ord_attendances[i].cadet.firstName}") %> </div>
             <div class="column"><%= form.select(:attended) do %>
