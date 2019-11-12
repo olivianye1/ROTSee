@@ -41,6 +41,10 @@
         <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;">Cadets</a>
         <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;">Events</a>
       </div>
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" style="color:white;"><%= current_cadet.username %></a>
+        <a class="nav-item nav-link font-weight-bold" href="/logout" style="color:white;">Logout</a>
+      </div>
     </div>
   </nav>
   
