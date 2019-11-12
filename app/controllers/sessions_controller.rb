@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if @cadet && @cadet.authenticate(params[:password])
       session[:cadet_id] = @cadet.id
       redirect_to '/welcome'
+      flash[:notice] = "You have been signed in as #{@cadet.username}."
     else
       redirect_to '/login'
     end
@@ -20,6 +21,7 @@ class SessionsController < ApplicationController
     session.delete(:cadet_id)
     @current_cadet = nil
     redirect_to '/welcome'
+    flash[:notice] = "You have been logged out."
   end
 
   def welcome
