@@ -15,6 +15,12 @@ class SessionsController < ApplicationController
 
   def login
   end
+  
+  def destroy
+    session.delete(:cadet_id)
+    @current_cadet = nil
+    redirect_to '/welcome'
+  end
 
   def welcome
   end
