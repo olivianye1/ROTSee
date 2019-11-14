@@ -48,4 +48,11 @@
 
 <br>
 
-<%= render "back_to_top" %>
+<!-- Back to Top Button -->
+<button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
+<script>
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>
