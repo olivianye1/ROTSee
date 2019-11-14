@@ -8,7 +8,9 @@
 <div class="container text-left">
   <p id="notice"><%= notice %></p>
   <h2 class="display-4" style="margin-top: 30px;">Events</h2>
-  <%= link_to 'New Event', new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
+  <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
+    <%= link_to 'New Event', new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
+  <%end%>
 </div>
 
 <div class="container text-right" style="display: flex; justify-content: flex-end">
@@ -27,8 +29,10 @@
     <tr>
       <th scope="col", onclick="sortTable(0)">Event Date</th>
       <th scope="col", onclick="sortTable(1)">Primary Type</th>
-      <th scope="col">Update Event</th>
-      <th scope="col">Delete Event</th>
+      <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
+        <th scope="col">Update Event</th>
+        <th scope="col">Delete Event</th>
+      <%end%>
     </tr>
   </thead>
   <tbody>
@@ -36,8 +40,10 @@
       <tr>
         <td><%= link_to "#{event.eventDate}", event %></td>
         <td><%= event.primaryType %></td>
-        <td><%= link_to 'Edit', edit_event_path(event), :class => "btn btn-secondary btn-warning btn-sm" %></td>
-        <td><%= link_to 'Remove', event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> </td>
+        <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
+          <td><%= link_to 'Edit', edit_event_path(event), :class => "btn btn-secondary btn-warning btn-sm" %></td>
+          <td><%= link_to 'Remove', event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> </td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

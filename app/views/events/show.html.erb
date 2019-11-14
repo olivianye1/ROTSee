@@ -40,37 +40,39 @@
   
 </div>
 
-<!--Event Attendance Table-->
-<h3 class="font-weight-light" style = "text-align: left; margin-top: 20px;">Attendance</h3>
-<table class = "table table-striped table-bordered", id = "table">
-  <thead>
-    <tr>
-      <th scope="col", onclick="sortTable(0)">Name</th>
-      <th scope="col", onclick="sortTable(1)">Attendance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @ord_attendances = @event.attendances %>
-    <% @ord_attendances.each do |attendance| %>
+<% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
+  <!--Event Attendance Table-->
+  <h3 class="font-weight-light" style = "text-align: left; margin-top: 20px;">Attendance</h3>
+  <table class = "table table-striped table-bordered", id = "table">
+    <thead>
       <tr>
-        <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
-        <td><%= attendance.attended %></td>
+        <th scope="col", onclick="sortTable(0)">Name</th>
+        <th scope="col", onclick="sortTable(1)">Attendance</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Edit Details and Attendance', edit_event_path(@event), :class => "btn btn-secondary btn-warning btn-sm" %>
-
-<%= link_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> 
-<br>
-<br>
-
-<!-- Back to Top Button --> 
-<button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
-<script>
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
-</script>
+    </thead>
+    <tbody>
+      <% @ord_attendances = @event.attendances %>
+      <% @ord_attendances.each do |attendance| %>
+        <tr>
+          <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
+          <td><%= attendance.attended %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <%= link_to 'Edit Details and Attendance', edit_event_path(@event), :class => "btn btn-secondary btn-warning btn-sm" %>
+  
+  <%= link_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> 
+  <br>
+  <br>
+  
+  <!-- Back to Top Button --> 
+  <button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
+  <script>
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+  </script>
+<%end%>
