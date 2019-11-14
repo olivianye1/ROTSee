@@ -17,21 +17,21 @@
   <div style="text-align: center;">
     <div  style="display: inline-block; text-align: left;">
       <div class="field">
-        <strong><%= form.label :lastName, "Last Name:" %></strong>
+        <%= form.label "Last Name:" %>
         <%= form.text_field :lastName, maxlength: 50 %>
       </div>
   
       <p></p>
 
       <div class="field">
-        <strong><%= form.label :firstName,"First Name:" %></strong>
+        <%= form.label "First Name:" %>
         <%= form.text_field :firstName, maxlength: 50 %>
       </div>
   
       <p></p>
 
       <div class="field">
-        <strong><%= form.label "Email:" %></strong>
+        <%= form.label "Email:" %>
         <%= form.text_field :email, maxlength: 100 %>
         <!--input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required /-->
       </div>
@@ -39,12 +39,12 @@
       <p></p>
 
       <div class="field">
-        <strong><%= form.label :phoneNumber,"Phone Number:" %></strong>
+        <%= form.label "Phone Number:" %>
         <%= form.text_field :phoneNumber, maxlength: 50 %>
       </div>
       <p></p>
       <div class="field">
-          <strong><%= form.label "School:" %></strong>
+          <%= form.label "School:" %>
           <%= form.select(:school) do %>
             <% ['Xavier University', 'Delgado Community College', 
             'Dillard University', 'University of New Orleans', 
@@ -59,7 +59,7 @@
       <p></p>
 
           <div class="field">
-            <strong><%= form.label "Position:" %></strong>
+            <%= form.label "Position:" %>
             <%= form.select(:position) do %>
               <% ['Cadet Wing Commander', 'Mission Support Group Commander', 
               'Operations Group Commander', 'Squadron Commander', 
@@ -72,7 +72,7 @@
       <p></p>
 
           <div class="field">
-            <strong><%= form.label "Course:" %></strong>
+            <%= form.label "Course:" %>
             <%= form.select(:course) do %>
               <% ['POC', 'GMC'].each do |c| -%>
               <%= content_tag(:option, c) %>
@@ -83,7 +83,7 @@
       <p></p>
 
       <div class="field">
-       <strong> <%= form.label :gradYear,"Graduation Year:" %></strong>
+        <%= form.label "Graduation Year:" %>
         <%= form.select(:gradYear) do %>
           <% ['2019','2020', '2021', '2022', '2023', '2024'].each do |c| -%>
           <%= content_tag(:option, c) %>
@@ -95,7 +95,7 @@
       <p></p>
 
           <div class="field">
-            <strong><%= form.label "Flight:" %></strong>
+            <%= form.label "Flight:" %>
             <%= form.select(:flight) do %>
               <% ['Alpha', 'Bravo'].each do |c| -%>
               <%= content_tag(:option, c) %>
@@ -106,14 +106,14 @@
       <p></p>
 
       <div class="field">
-        <strong><%= form.label "Username:" %></strong>
+        <%= form.label "Username:" %>
         <%= form.text_field :username, maxlength: 100 %>
       </div>
   
       <p></p>
 
       <div class="field">
-        <strong><%= form.label "Password:" %></strong>
+        <%= form.label "Password:" %>
         <%= form.password_field :password, maxlength: 100 %>
       </div>
   
