@@ -24,6 +24,31 @@
         color: white;
         text-align: center;
       }
+        
+      .navbar a {
+        color: white;
+      }
+        
+      /* Change the color of links on hover */
+        .navbar a:hover {
+          background-color: black;
+        }
+        
+        /* Add a color to the active/current link */
+        .navbar a.active {
+          background-color: #4CAF50;
+          color: black;
+        }
+      
+      .navbarB {
+        background-color: #4B5320;
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-top: 100px;
+      }
       
     </style>
   </head>
@@ -67,9 +92,11 @@
       <%= yield %>
     </div>
     <br>
-    <footer id="footer" style="background-color:rgb(75,83,32); color:white">
-      ROTSee developed by: Kennedy Dorsey, Jessica Hotsko, Olivia Nye, and Riley Juenemann
-    </footer>
+  <br>
+  <br>
+    <div class="navbarB">
+      <a class="nav-item nav-link font-weight-bold" style="color:white;">ROTSee developed by: Kennedy Dorsey, Jessica Hotsko, Olivia Nye, and Riley Juenemann</a>
+    </div>
   </body>
   
 
