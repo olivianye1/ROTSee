@@ -2,7 +2,6 @@
 
 <head>
   <style>
-
   </style>
 </head>
 <div class="container text-left">
@@ -27,8 +26,8 @@
 <table class="table table-striped table-bordered", id = "table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col", onclick="sortTable(0)">Event Date</th>
-      <th scope="col", onclick="sortTable(1)">Primary Type</th>
+      <th scope="col", onclick="sortTable(0)", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Event Date</th>
+      <th scope="col", onclick="sortTable(1)", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Primary Type</th>
       <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
         <th scope="col">Update Event</th>
         <th scope="col">Delete Event</th>
