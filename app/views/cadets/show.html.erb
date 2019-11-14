@@ -76,48 +76,46 @@
 </div>
 
 
-<!--Cadet Attendance Table-->
-<%@ord_attendance = @cadet.attendances%>
-
-<h3 class="font-weight-light" style = "text-align: left; margin-top: 80px;">Attendance Records</h3>
-
-<div class="row">
-  <div class="column"><p><strong>Overall Attendance: </strong><%= @total_percent %>%</p> </div>
-  <div class="column"><p><strong>LLAB Attendance: </strong><%= @LLAB_percent %>%</p></div>
-  <div class="column"><p><strong>PT Attendance: </strong><%= @PT_percent %>%</p></div>
-</div>
-
-
-<table class="table table-striped table-bordered", id = "table">
-  <thead>
-    <tr>
-      <th scope="col", onclick="sortTable(0)">Event</th>
-      <th scope="col", onclick="sortTable(1)">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @ord_attendance.each do |attendance| %>
+<% if (@cadet == Cadet.find_by(id: session[:cadet_id])) || (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
+  <!--Cadet Attendance Table-->
+  <%@ord_attendance = @cadet.attendances%>
+  
+  <h3 class="font-weight-light" style = "text-align: left; margin-top: 80px;">Attendance Records</h3>
+  
+  <div class="row">
+    <div class="column"><p><strong>Overall Attendance: </strong><%= (@total_percent*100).to_i/100.to_f %>%</p> </div>
+    <div class="column"><p><strong>LLAB Attendance: </strong><%= (@LLAB_percent*100).to_i/100.to_f%>%</p></div>
+    <div class="column"><p><strong>PT Attendance: </strong><%= (@PT_percent*100).to_i/100.to_f %>%</p></div>
+  </div>
+  
+  
+  <table class="table table-striped table-bordered", id = "table">
+    <thead class="thead-dark">
       <tr>
-        <td><%= link_to "#{attendance.event.eventDate}", attendance.event %></td>
-        <td><%= attendance.attended %></td>
+        <th scope="col", onclick="sortTable(0)", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Event</th>
+        <th scope="col", onclick="sortTable(1)", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Status</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @ord_attendance.each do |attendance| %>
+        <tr>
+          <td><%= link_to "#{attendance.event.eventDate}", attendance.event %></td>
+          <td><%= attendance.attended %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <div>
+    <%= link_to 'Edit', edit_cadet_path(@cadet), :class => "btn btn-secondary btn-warning btn-sm"%>
+  
+    <%= link_to 'Remove', @cadet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> 
+    <br>
+  </div>
 
-<div>
-  <%= link_to 'Edit', edit_cadet_path(@cadet), :class => "btn btn-secondary btn-warning btn-sm"%>
-
-  <%= link_to 'Remove', @cadet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> 
-  <br>
-</div>
 
 <br>
-<!-- Back to Top Button -->
-<button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
-<script>
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
-</script>
+
+<%= render "events/back_to_top" %>
+
+<% end %>
