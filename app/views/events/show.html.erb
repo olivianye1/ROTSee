@@ -42,7 +42,7 @@
 
 <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
   <!--Event Attendance Table-->
-  <h3 class="font-weight-light" style = "text-align: left; margin-top: 20px;">Attendance</h3>
+  <h2 class="font-weight-light" style = "text-align: left; margin-top: 20px;">Attendance</h2>
   <table class = "table table-striped table-bordered", id = "table">
     <thead class="thead-dark">
       <tr>
@@ -55,7 +55,15 @@
       <% @ord_attendances.each do |attendance| %>
         <tr>
           <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
-          <td><%= attendance.attended %></td>
+          <% if attendance.attended === "Absent"%>
+            <td class = "bg-danger text-white"><%= attendance.attended %></td>
+          <% elsif attendance.attended === "Present" %>
+             <td  class ="bg-success text-white"><%= attendance.attended %></td>
+          <% elsif attendance.attended === "Tardy" %>
+             <td  class ="bg-warning text-black"><%= attendance.attended %></td>
+          <% else %>
+             <td><%= attendance.attended %></td>
+          <% end %>            
         </tr>
       <% end %>
     </tbody>
