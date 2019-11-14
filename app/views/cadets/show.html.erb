@@ -80,7 +80,7 @@
   <!--Cadet Attendance Table-->
   <%@ord_attendance = @cadet.attendances%>
   
-  <h3 class="font-weight-light" style = "text-align: left; margin-top: 80px;">Attendance Records</h3>
+  <h2 class="font-weight-light" style = "text-align: left; margin-top: 20px;">Attendance Records</h2>
   
   <div class="row">
     <div class="column"><p><strong>Overall Attendance: </strong><%= (@total_percent*100).to_i/100.to_f %>%</p> </div>
@@ -100,7 +100,15 @@
       <% @ord_attendance.each do |attendance| %>
         <tr>
           <td><%= link_to "#{attendance.event.eventDate}", attendance.event %></td>
-          <td><%= attendance.attended %></td>
+          <% if attendance.attended === "Absent"%>
+            <td class = "bg-danger text-white"><%= attendance.attended %></td>
+          <% elsif attendance.attended === "Present" %>
+             <td  class ="bg-success text-white"><%= attendance.attended %></td>
+          <% elsif attendance.attended === "Tardy" %>
+             <td  class ="bg-warning text-black"><%= attendance.attended %></td>
+          <% else %>
+             <td><%= attendance.attended %></td>
+          <% end %>            
         </tr>
       <% end %>
     </tbody>
