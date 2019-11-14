@@ -85,10 +85,13 @@ class CadetsController < ApplicationController
     respond_to do |format|
       if @cadet.update(cadet_params)
         
-        flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName}'s cadet profile has been successfully updated."
+        #flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName}'s cadet profile has been successfully updated."
     
-        format.html { redirect_to @cadet }
-        format.json { render :show, status: :ok, location: @cadet }
+        #format.html { redirect_to @cadet }
+        #format.json { render :show, status: :ok, location: @cadet }
+        
+        format.html { redirect_to @cadet, notice: 'Cadet was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
         format.json { render json: @cadet.errors, status: :unprocessable_entity }
@@ -106,6 +109,7 @@ class CadetsController < ApplicationController
       flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName} was successfully removed from the ROTC roster."
       format.html { redirect_to cadets_url}
       format.json { head :no_content }
+      
     end
   end
 
