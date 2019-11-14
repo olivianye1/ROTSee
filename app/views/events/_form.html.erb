@@ -73,11 +73,7 @@
           <div class="field" style="text-align: left;">
             <div class="row">
             <div class="column"><%= form.label :attended,("#{@ord_attendances[i].cadet.lastName}, #{@ord_attendances[i].cadet.firstName}") %> </div>
-            <div class="column"><%= form.select(:attended) do %>
-              <% ['Present', 'Absent', 'Tardy'].each do |c| -%>
-                <%= content_tag(:option, c) %>
-              <% end %>
-            <% end %>
+            <div class="column"><%= form.select :attended, options_for_select(['Present', 'Absent', 'Tardy'], @ord_attendances[i].attended)  %>
             </div>
           </div>
           <% i = i + 1 %>
