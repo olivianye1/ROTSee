@@ -30,7 +30,6 @@
       <th scope="col", onclick="sortTable(1)", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Primary Type</th>
       <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
         <th scope="col">Update Event</th>
-        <th scope="col">Delete Event</th>
       <%end%>
     </tr>
   </thead>
@@ -41,7 +40,6 @@
         <td><%= event.primaryType %></td>
         <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
           <td><%= link_to 'Edit', edit_event_path(event), :class => "btn btn-secondary btn-warning btn-sm" %></td>
-          <td><%= link_to 'Remove', event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> </td>
         <%end%>
       </tr>
     <% end %>
@@ -50,11 +48,4 @@
 
 <br>
 
-<!-- Back to Top Button -->
-<button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
-<script>
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
-</script>
+<%= render "back_to_top" %>
