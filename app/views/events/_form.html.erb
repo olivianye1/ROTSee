@@ -31,17 +31,14 @@
   <div style="text-align: center;">
     <div  style="display: inline-block; text-align: left;">
       <div class="field">
+        <% @ord_event = @event %>
         <strong><%= f.label :eventDate,"Event Date: " %></strong>
         <%= f.datetime_select :eventDate %>
       </div>
       <p></p>
       <div class="field">
         <strong><%= f.label :primaryType, "Primary Type:" %></strong>
-        <%= f.select(:primaryType) do %>
-          <% ['LLAB', 'PT'].each do |c| -%>
-          <%= content_tag(:option, c) %>
-          <% end %>
-        <% end %>
+        <%= f.select :primaryType, options_for_select(['LLAB', 'PT'], @ord_event.primaryType) %>
       </div>
 
 
@@ -49,11 +46,7 @@
     <p></p>
       <div class="field">
         <strong><%= f.label :subType, "Sub Type:"%></strong>
-        <%= f.select(:subType) do %>
-          <% ['None', 'Cardio', 'Strength Workout'].each do |c| -%>
-          <%= content_tag(:option, c) %>
-          <% end %>
-        <% end %>
+        <%= f.select :subType, options_for_select(['None', 'Cardio', 'Strength Workout'], @ord_event.subType) %>
       </div>
   
       <p></p>
