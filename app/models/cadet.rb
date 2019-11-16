@@ -2,6 +2,8 @@ class Cadet < ApplicationRecord
     has_many :attendances, dependent: :destroy
     has_many :events, through: :attendances
     has_secure_password
+    validates :password, confirmation: { case_sensitive: true }
+    validates :username, :uniqueness => { :case_sensitive => false }
     
     validates :school, :position, :course, :gradYear, :flight, :presence => true
     
