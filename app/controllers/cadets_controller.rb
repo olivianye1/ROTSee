@@ -27,6 +27,10 @@ class CadetsController < ApplicationController
      @pres_total = 0
      @pres_LLAB = 0
      @pres_PT = 0
+     
+     @LLAB_percent = 0
+     @PT_percent = 0
+     @total_percent = 0
 
     @ord_attendance.each do |attendance|
       @total_records += 1
@@ -66,37 +70,22 @@ class CadetsController < ApplicationController
     @cadet = Cadet.new(cadet_params)
     
       if @cadet.save
-        
-        flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName} has been successfully added to the ROTC roster."
-    
+        redirect_to @cadet, success: "#{@cadet.firstName} #{@cadet.lastName} has been successfully added to the ROTC roster!"
         session[:cadet_id] = @cadet.id
-        
-        redirect_to '/welcome'
-        
       else
+        redirect_to '/cadets/new', danger: "Cadet was not added."
         session[:cadet_id] = @cadet.id
-        redirect_to '/welcome'
       end
   end
 
   # PATCH/PUT /cadets/1
   # PATCH/PUT /cadets/1.json
   def update
-    respond_to do |format|
       if @cadet.update(cadet_params)
-        
-        #flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName}'s cadet profile has been successfully updated."
-    
-        #format.html { redirect_to @cadet }
-        #format.json { render :show, status: :ok, location: @cadet }
-        
-        format.html { redirect_to @cadet, notice: 'Cadet was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        redirect_to @cadet, success: "Cadet was successfully updated."
       else
-        format.html { render :edit }
-        format.json { render json: @cadet.errors, status: :unprocessable_entity }
+        redirect_to edit_cadet_path(@cadet), danger: "Cadet was not updated."
       end
-    end
   end
 
   # DELETE /cadets/1
@@ -105,12 +94,7 @@ class CadetsController < ApplicationController
     @cadet.attendances.destroy_all
     
     @cadet.destroy
-    respond_to do |format|
-      flash[:notice] = "#{@cadet.firstName} #{@cadet.lastName} was successfully removed from the ROTC roster."
-      format.html { redirect_to cadets_url}
-      format.json { head :no_content }
-      
-    end
+    redirect_to cadets_url, info: "Cadet successfully removed from the ROTC roster."
   end
 
   private
@@ -121,6 +105,6 @@ class CadetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cadet_params
-      params.require(:cadet).permit(:lastName, :firstName, :email, :phoneNumber, :school, :position, :course, :gradYear, :flight, :username, :password)
+      params.require(:cadet).permit(:lastName, :firstName, :email, :phoneNumber, :school, :position, :course, :gradYear, :flight, :username, :password, :password_confirmation)
     end
 end

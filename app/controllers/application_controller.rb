@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    add_flash_types :danger, :info, :warning, :success
     before_action :authorized
     helper_method :current_cadet
     helper_method :logged_in?

@@ -1,6 +1,6 @@
 module SessionsHelper
   
   def logged_in?
-       !current_cadet.nil?  
-    end
+    !current_cadet.nil?  
+  end
 end
