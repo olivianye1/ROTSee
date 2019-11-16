@@ -62,12 +62,16 @@
               <%= f.text_field :details, size:50 ,maxlength: 300, hide_label: true %>
             </div>
           </div>
- 
+          
+          <div class="form-group row">
+            <label for="attendances" class="col-sm-3 col-form-label"><strong>Attendance: </strong></label>
+          </div>
+          
           <div class="form-group row" >
             <% @ord_attendances = @event.attendances %>
             <p></p>
             <% i = 0 %>
-            <label for="attendances" class="col-sm-3 col-form-label"><strong>Attendance: </strong></label>
+            <label for="attendances" class="col-sm-3 col-form-label"><strong></strong></label>
             <div class="col-sm">
             <%= f.fields_for :attendances, @event.attendances do |form| %>
 
