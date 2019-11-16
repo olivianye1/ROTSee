@@ -13,9 +13,14 @@
  
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "rails_bootstrap_forms";
 
 a{
 
   color: rgba(57, 73, 38, 1);
 
+}
+
+nav {
+    z-index: 9999;
 }
