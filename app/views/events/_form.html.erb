@@ -1,18 +1,15 @@
 <style>
-  .column {
-      float: left;
-      width: 40%;
+
+    .col-form-label{
+      text-align: right;
+    }
+    .col-sm{
+      text-align: left;
     }
     
-    /* Clear floats after the columns */
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
 </style>
 
-<%= form_for @event do |f| %>
+<%= bootstrap_form_for @event do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -26,56 +23,73 @@
   <% end %>
   
   <font color="red">All Fields Required *</font> 
-  <p></p>
   
-  <div style="text-align: center;">
-    <div  style="display: inline-block; text-align: left;">
-      <div class="field">
-        <% @ord_event = @event %>
-        <strong><%= f.label :eventDate,"Event Date: " %></strong>
-        <%= f.datetime_select :eventDate %>
-      </div>
-      <p></p>
-      <div class="field">
-        <strong><%= f.label :primaryType, "Primary Type:" %></strong>
-        <%= f.select :primaryType, options_for_select(['LLAB', 'PT'], @ord_event.primaryType) %>
-      </div>
-
-
+  <br></br>
   
-    <p></p>
-      <div class="field">
-        <strong><%= f.label :subType, "Sub Type:"%></strong>
-        <%= f.select :subType, options_for_select(['None', 'Cardio', 'Strength Workout'], @ord_event.subType) %>
-      </div>
-  
-      <p></p>
-      <div class="field">
-        <strong><%= f.label "Details:" %></strong>
-        <%= f.text_field :details, size:50 ,maxlength: 300 %>
-      </div>
+  <div class="container">
+    
+    <div class="row">
+      
+      <div class="col-md-1"></div>
+      
+      <div class="col-md-10">
 
-
-      <div style="text-align: center;">
-        <% @ord_attendances = @event.attendances %>
-        <p></p>
-        <% i = 0 %>
-        <div class="row"><strong><%= f.label "Attendance:" %></strong></div>
-        <%= f.fields_for :attendances, @event.attendances do |form| %>
-          
-          <div class="field" style="text-align: left;">
-            <div class="row">
-            <div class="column"><%= form.label :attended,("#{@ord_attendances[i].cadet.lastName}, #{@ord_attendances[i].cadet.firstName}") %> </div>
-            <div class="column"><%= form.select :attended, options_for_select(['Present', 'Absent', 'Tardy'], @ord_attendances[i].attended)  %>
+          <div class="form-group row">
+            <% @ord_event = @event %>
+            <label for="firstName" class="col-sm-3 col-form-label"><strong>Event Date: </strong></label>
+            <div class="col-sm">
+              <%= f.datetime_select :eventDate, hide_label: true %>
             </div>
           </div>
-          <% i = i + 1 %>
+  
+          <div class="form-group row">
+            <label for="primaryType" class="col-sm-3 col-form-label"><strong>Primary Type: </strong></label>
+            <div class="col-sm">
+              <%= f.select :primaryType, options_for_select(['LLAB', 'PT'], @ord_event.primaryType), hide_label: true %>
+            </div>
           </div>
-        <% end %>
+    
+          <div class="form-group row">
+            <label for="subType" class="col-sm-3 col-form-label"><strong>Sub Type: </strong></label>
+            <div class="col-sm">
+              <%= f.select :subType, options_for_select(['None', 'Cardio', 'Strength Workout'], @ord_event.subType), hide_label: true %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="details" class="col-sm-3 col-form-label"><strong>Details: </strong></label>
+            <div class="col-sm">
+              <%= f.text_field :details, size:50 ,maxlength: 300, hide_label: true %>
+            </div>
+          </div>
+ 
+          <div class="form-group row" >
+            <% @ord_attendances = @event.attendances %>
+            <p></p>
+            <% i = 0 %>
+            <label for="attendances" class="col-sm-3 col-form-label"><strong>Attendance: </strong></label>
+            <div class="col-sm">
+            <%= f.fields_for :attendances, @event.attendances do |form| %>
+
+                <%= form.label :attended,("#{@ord_attendances[i].cadet.lastName}, #{@ord_attendances[i].cadet.firstName}") %> 
+                <%= form.select :attended, options_for_select(['Present', 'Absent', 'Tardy'], @ord_attendances[i].attended), hide_label: true  %>
+           
+
+              <% i = i + 1 %>
+              
+            <% end %>
+            </div>
+          </div>
+            
+        </div>
+
+    
+    <div class="col-md-1"></div>
     </div>
   </div>
   <p></p>
-  <div class="actions">
-    <button type="submit" class="btn btn-success btn-md">Submit</button>
+  
+  <div class="actions" style="text-align:center;">
+    <button type="submit" class="btn btn-success">Submit</button>
   </div>
 <% end %>

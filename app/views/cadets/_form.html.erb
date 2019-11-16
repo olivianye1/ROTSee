@@ -1,4 +1,18 @@
-<%= form_with(model: cadet, local: true) do |form| %>
+<header>
+  <style>
+  
+    .col-form-label{
+      text-align: right;
+    }
+    
+    .col-sm{
+      text-align: left;
+    }
+
+  </style>
+</header>
+
+<%= bootstrap_form_with(model: cadet, local: true) do |form| %>
   <% if cadet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cadet.errors.count, "error") %> prohibited this cadet from being saved:</h2>
@@ -13,97 +27,115 @@
   
   <font color="red">All Fields Required *</font>
   
-  <br>
-<div style="text-align: center;">
-  <div  style="display: inline-block; text-align: left;">
-  <div class="field">
-    <strong><%= form.label "First Name:" %></strong><br>
-    <%= form.text_field :firstName %>
-  </div>
+  <br></br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+
+      <div class="form-group row">
+        <label for="firstName" class="col-sm-3 col-form-label"><strong>First Name: </strong></label>
+        <div class="col-sm">
+          <%= form.text_field :firstName, hide_label: true %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label for="lastName" class="col-sm-3 col-form-label"><strong>Last Name: </strong></label>
+        <div class="col-sm">
+          <%= form.text_field :lastName, hide_label: true %>
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label"><strong>Email Address: </strong><br></label>
+        <div class="col-sm">
+          <%= form.text_field :email, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="phoneNumber" class="col-sm-3 col-form-label"><strong>Phone Number: </strong><br></label>
+        <div class="col-sm">
+          <%= form.phone_field :phoneNumber, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="school" class="col-sm-3 col-form-label"><strong>School: </strong><br></label>
+        <div class="col-sm">
+          <%= form.select :school, ['Xavier University', 'Delgado Community College', 
+            'Dillard University', 'University of New Orleans', 
+            'University of Holy Cross', 'Loyola University', 
+            'Lousiana State University Nursing School', 
+            'Southern University of New Orleans', 'Tulane University'], {hide_label: true}%>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="position" class="col-sm-3 col-form-label"><strong>Position: </strong><br></label>
+        <div class="col-sm">
+          <%= form.select :position, ['Cadet Wing Commander', 'Mission Support Group Commander', 
+            'Operations Group Commander', 'Squadron Commander', 
+            'A Flight Commander', 'B Flight Commander', 'Cadet'], {hide_label: true}%>
+
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="course" class="col-sm-3 col-form-label"><strong>Course: </strong><br></label>
+        <div class="col-sm">
+          <%= form.select :course, ['POC', 'GMC'], {hide_label: true}%>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="gradYear" class="col-sm-3 col-form-label"><strong>Graduation Year: </strong><br></label>
+        <div class="col-sm">
+          <%= form.number_field :gradYear, :value => Date.today.year, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="flight" class="col-sm-3 col-form-label"><strong>Flight: </strong><br></label>
+        <div class="col-sm">
   
-  <div class="field">
-    <strong><%= form.label "Last Name:" %></strong><br>
-    <%= form.text_field :lastName %>
+          <%= form.select :flight, ["Alpha", "Bravo"], { hide_label: true}%>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="username" class="col-sm-3 col-form-label"><strong>Username: </strong><br></label>
+        <div class="col-sm">
+          <%= form.text_field :username, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="password" class="col-sm-3 col-form-label"><strong>Password: </strong><br></label>
+        <div class="col-sm">
+          <%= form.password_field :password, hide_label: true %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label for="password_confirmation" class="col-sm-3 col-form-label"><strong>Confirm Password: </strong><br></label>
+        <div class="col-sm">
+          <%= form.password_field :password_confirmation, hide_label: true%>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-2"></div>
+      </div>
+      <br>
+    
   </div>
 
-  <div class="field">
-    <strong><%= form.label "Email:" %></strong><br>
-    <%= form.text_field :email %>
-  </div>
+    
 
-  <div class="field">
-    <strong><%= form.label "Phone Number:" %></strong><br>
-    <%= form.text_field :phoneNumber %>
-  </div>
-
-  <div class="field">
-    <strong><%= form.label "School:" %></strong><br>
-    <%= form.select(:school) do %>
-      <% ['Xavier University', 'Delgado Community College', 
-      'Dillard University', 'University of New Orleans', 
-      'University of Holy Cross', 'Loyola University', 
-      'Lousiana State University Nursing School', 
-      'Southern University of New Orleans', 'Tulane University'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <strong><%= form.label "Position:" %></strong><br>
-    <%= form.select(:position) do %>
-      <% ['Cadet Wing Commander', 'Mission Support Group Commander', 
-      'Operations Group Commander', 'Squadron Commander', 
-      'A Flight Commander', 'B Flight Commander', 'Cadet'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <strong><%= form.label "Course:" %></strong><br>
-    <%= form.select(:course) do %>
-      <% ['POC', 'GMC'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <strong><%= form.label "Graduation Year:" %></strong><br>
-    <%= form.number_field :gradYear, :value => Date.today.year %>
-  </div>
-
-  <div class="field">
-    <strong><%= form.label "Flight:" %></strong><br>
-    <%= form.select(:flight) do %>
-      <% ['Alpha', 'Bravo'].each do |c| -%>
-      <%= content_tag(:option, c) %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <strong><%= form.label "Username:" %></strong><br>
-    <%= form.text_field :username %>
-  </div>
-
-  <div class="field">
-    <strong><%= form.label "Password:" %></strong><br>
-    <%= form.password_field :password %>
-  </div>
-  
-  <div class="field">
-    <strong><%= form.label "Password Confirmation:" %></strong><br>
-    <%= form.password_field :password_confirmation %>
-  </div>
-  
-  <br>
-
-  <div class="actions">
-    <button type="submit" class="btn btn-success btn-sm">Submit</button>
-  </div>
-  </div>
-</div>
+  <div class="actions" style="text-align:center;">
+    <button type="submit" class="btn btn-success">Submit</button>
 <% end %>
-
+  </div>
