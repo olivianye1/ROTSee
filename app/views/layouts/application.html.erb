@@ -93,9 +93,13 @@
 
   <!--Main-->
   <body>
-    <br>
   <br>
   <br>
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name %>">
+      <%= msg %>
+    </div>
+  <% end %>
     <div class="container text-center">
       <%= yield %>
     </div>
