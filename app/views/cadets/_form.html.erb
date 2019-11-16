@@ -31,6 +31,7 @@
 
   <div class="container">
     <div class="row">
+      <% @ord_cadet = @cadet %>
       <div class="col-md-2"></div>
       <div class="col-md-8">
 
@@ -66,27 +67,29 @@
       <div class="form-group row">
         <label for="school" class="col-sm-3 col-form-label"><strong>School: </strong><br></label>
         <div class="col-sm">
-          <%= form.select :school, ['Xavier University', 'Delgado Community College', 
+          <%= form.select :school, options_for_select( ['Xavier University', 'Delgado Community College', 
             'Dillard University', 'University of New Orleans', 
             'University of Holy Cross', 'Loyola University', 
             'Lousiana State University Nursing School', 
-            'Southern University of New Orleans', 'Tulane University'], {hide_label: true}%>
+            'Southern University of New Orleans', 'Tulane University'], @ord_cadet.school), hide_label: true %>
         </div>
       </div>
       
       <div class="form-group row">
         <label for="gradYear" class="col-sm-3 col-form-label"><strong>Graduation Year: </strong><br></label>
         <div class="col-sm">
-          <%= form.number_field :gradYear, :value => Date.today.year, hide_label: true %>
+          <%= form.number_field :gradYear, :value => @ord_cadet.gradYear, hide_label: true %>
         </div>
       </div>
     
       <div class="form-group row">
         <label for="position" class="col-sm-3 col-form-label"><strong>Position: </strong><br></label>
         <div class="col-sm">
-          <%= form.select :position, ['Cadet Wing Commander', 'Mission Support Group Commander', 
+          <%= form.select :position, options_for_select(['Cadet Wing Commander', 'Mission Support Group Commander', 
             'Operations Group Commander', 'Squadron Commander', 
-            'A Flight Commander', 'B Flight Commander', 'Cadet'], {hide_label: true}%>
+            'A Flight Commander', 'B Flight Commander', 'Cadet'], @ord_cadet.position), hide_label: true%>
+            
+            
 
         </div>
       </div>
@@ -94,7 +97,8 @@
       <div class="form-group row">
         <label for="course" class="col-sm-3 col-form-label"><strong>Course: </strong><br></label>
         <div class="col-sm">
-          <%= form.select :course, ['POC', 'GMC'], {hide_label: true}%>
+          
+          <%= form.select :course, options_for_select(['POC', 'GMC'], @ord_cadet.course), hide_label: true%>
         </div>
       </div>
 
@@ -102,7 +106,7 @@
         <label for="flight" class="col-sm-3 col-form-label"><strong>Flight: </strong><br></label>
         <div class="col-sm">
   
-          <%= form.select :flight, ["Alpha", "Bravo"], { hide_label: true}%>
+          <%= form.select :flight, options_for_select(["Alpha", "Bravo"], @ord_cadet.flight), hide_label: true%>
         </div>
       </div>
     
