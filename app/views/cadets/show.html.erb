@@ -83,9 +83,9 @@
   <h2 class="font-weight-light" style = "text-align: left; margin-top: 20px;">Attendance Records</h2>
   
   <div class="row">
-    <div class="column"><p><strong>Overall Attendance: </strong><%= (@total_percent*100).to_i/100.to_f %>%</p> </div>
-    <div class="column"><p><strong>LLAB Attendance: </strong><%= (@LLAB_percent*100).to_i/100.to_f%>%</p></div>
-    <div class="column"><p><strong>PT Attendance: </strong><%= (@PT_percent*100).to_i/100.to_f %>%</p></div>
+    <div class="column"><p><strong>Overall Attendance: </strong><%= @total_percent %>%</p> </div>
+    <div class="column"><p><strong>LLAB Attendance: </strong><%= @LLAB_percent%></p> </div>
+    <div class="column"><p><strong>LLAB Attendance: </strong><%= @PT_percent %>%</p> </div>
   </div>
   
   

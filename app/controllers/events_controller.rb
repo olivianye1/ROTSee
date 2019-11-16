@@ -29,7 +29,6 @@ class EventsController < ApplicationController
   def edit
     @cadets = Cadet.all.order(:lastName)
     @attendances = Attendance.all.order(:event)
-    #@attendance = Attendance.find(params[:id])
   end
 
   # POST /events
@@ -37,40 +36,26 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     
-    respond_to do |format|
-      if @event.save
-        
-        flash[:notice] = "New #{@event.primaryType} event on #{@event.eventDate} has been successfully created."
-    
-        format.html { redirect_to @event}
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      redirect_to @event, success: "New #{@event.primaryType} event on #{@event.eventDate} has been successfully created."
+    else
+      redirect_to '/events/new', danger: "Event not created."
     end
     
     @cadets = Cadet.all.order(:lastName)
     @cadets.each do |cadet|
-      Attendance.create!(:attended => 'Present', :cadet_id => cadet.id, :event_id => @event.id)
+    Attendance.create!(:attended => 'Present', :cadet_id => cadet.id, :event_id => @event.id)
     end
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    
-    respond_to do |format|
-      if @event.update(event_params)
-        
-        flash[:notice] = "Event on #{@event.eventDate} was successfully updated."
-    
-        format.html { redirect_to @event }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+
+    if @event.update(event_params)
+      redirect_to @event, success: "Event was successfully updated."
+    else
+      redirect_to edit_event_path(@event), danger: "Event was not updated."
     end
   end
 
@@ -81,12 +66,7 @@ class EventsController < ApplicationController
     @event.attendances.destroy_all
     
     @event.destroy
-    respond_to do |format|
-      
-      flash[:notice] = "#{@event.primaryType} event on #{@event.eventDate} has been deleted."
-      format.html { redirect_to events_url}
-      format.json { head :no_content }
-    end
+    redirect_to events_url, info: "Event successfully deleted."
   end
 
   private

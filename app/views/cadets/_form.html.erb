@@ -83,7 +83,7 @@
       <p></p>
 
       <div class="field">
-        <strong> <%= form.label :gradYear,"Graduation Year:" %></strong>
+       <strong> <%= form.label :gradYear,"Graduation Year:" %></strong>
         <%= form.select(:gradYear) do %>
           <% ['2019','2020', '2021', '2022', '2023', '2024'].each do |c| -%>
           <%= content_tag(:option, c) %>
