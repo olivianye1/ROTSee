@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
       session[:cadet_id] = @cadet.id
       redirect_to '/welcome', success: "You have been signed in as #{@cadet.username}."
     else
-      redirect_to '/login'
-      redirect_to '/login', danger: "Invalied username and/or password"
+      redirect_to '/login', danger: "Invalid username and/or password"
     end
   end
 
