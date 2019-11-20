@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'pg_search'
 gem 'bcrypt', '~> 3.1.2'
 gem "bootstrap_form", "~> 4.0"
+gem 'figaro'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
