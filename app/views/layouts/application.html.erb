@@ -66,7 +66,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" role="navigation">
       <div class="navbar-nav">
         <a class="nav-item nav-link font-weight-bold" href="/" style="color:white;">Home</a>
         <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;">Cadets</a>
@@ -100,14 +100,14 @@
       <%= msg %>
     </div>
   <% end %>
-    <div class="container text-center">
+    <div class="container text-center" role="main">
       <%= yield %>
     </div>
     <br>
   <br>
   <br>
-    <div class="navbarB">
-      <a class="nav-item nav-link font-weight-bold">ROTSee developed by: Kennedy Dorsey, Jessica Hotsko, Olivia Nye, and Riley Juenemann</a>
+    <div class="navbarB" role="contentinfo">
+      <a class="nav-item nav-link font-weight-bold">ROTSee developed by: Kennedy Dorsey, Jessica Hotsko, Riley Juenemann, and Olivia Nye</a>
     </div>
   </body>
 
