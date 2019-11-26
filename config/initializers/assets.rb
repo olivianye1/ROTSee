@@ -15,3 +15,4 @@ Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( sort_table.js )
 
 Rails.application.config.assets.precompile += ['bootstrap.css']
+Rails.application.config.assets.precompile += %w( nested_form.js application.css.scss application.js )
