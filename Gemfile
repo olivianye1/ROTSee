@@ -17,15 +17,17 @@ gem 'figaro'
 
 
 
-group :production do
- gem 'wkhtmltopdf-heroku'
-end
+# group :production do
+# gem 'wkhtmltopdf-heroku'
+# end
+
 
 gem 'wicked_pdf'
-
-group :development, :test do
-  gem 'wkhtmltopdf-binary'
-end
+gem 'wkhtmltopdf-binary'
+# group :development, :test do
+#   gem 'wicked_pdf'
+#   gem 'wkhtmltopdf-binary'
+# end
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
