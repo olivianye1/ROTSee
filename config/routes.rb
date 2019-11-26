@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   
   get "cadets/roster" => "cadets#roster"
   resources :cadets do
-    #get "/pdf"         => "cadets#pdf"
-    
-    
     resources :attendances
   end
   resources :events do
