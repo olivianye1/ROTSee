@@ -1,0 +1,32 @@
+<%= wicked_pdf_stylesheet_link_tag "application" %>
+<%= wicked_pdf_stylesheet_link_tag "bootstrap" %>
+<%= wicked_pdf_stylesheet_link_tag "scaffolds" %>
+
+
+
+<h3 class="display-4 container text-left" style="margin-top: 50px;">Roster</h3>
+
+
+
+
+
+<!--Cadet Table-->
+<table class="table table-bordered", id = "table">
+  <thead>
+    <tr>
+      <th scope = "col" style="font-weight:bold"> Cadet Name</th>
+      <th scope = "col" style="font-weight:bold"> Attendance (Present, Absent, or Tardy)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cadets.each do |cadet| %>
+      <tr>
+        <td style="font-weight:bold"><%= "#{cadet.lastName}, #{cadet.firstName}" %></td>
+        <!--td> <span>PRESENT </span>    <span>ABSENT </span> ABSENT        TARDY </td-->
+        <td height="50"></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p class="display-4 container text-left" style="margin-top: 30px;">Event Details: </p>
