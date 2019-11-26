@@ -14,6 +14,16 @@ gem 'pg_search'
 gem 'bcrypt', '~> 3.1.2'
 gem "bootstrap_form", "~> 4.0"
 
+gem 'wicked_pdf'
+
+group :production do
+  gem 'wkhtmltopdf-heroku'
+end
+
+group :development, :test do
+  gem 'wkhtmltopdf-binary'
+end
+
 group :development, :test do
   gem 'sqlite3', '1.4.1'
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]

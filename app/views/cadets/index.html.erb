@@ -46,7 +46,18 @@
   </tbody>
 </table>
 
-<br>
+<p></p>
 
+<%= link_to 'Download Roster', cadets_roster_path( format: 'pdf'), :class => 'btn btn-secondary btn-sm'%>
+<!--%= link_to 'Download Roster 2', @cadets, :method => 'roster', :format => 'pdf',  :class => 'btn btn-secondary btn-sm' %-->
+<!--%= link_to 'Download Roster', cadets_path( @cadets, :format => :pdf), :format => :pdf, :target => "_blank", :class => "btn btn-secondary btn-success btn-sm"%--> 
+
+<!--%= link_to 'Download Roster 2', roster(@cadets, format: 'pdf'), :class => 'btn btn-secondary btn-sm' %-->
+
+
+<br>
+<p>
+</p>
+<br>
 <%= render "events/back_to_top" %>
 

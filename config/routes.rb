@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
   
+  
+  get "cadets/roster" => "cadets#roster"
   resources :cadets do
+    #get "/pdf"         => "cadets#pdf"
+    
+    
     resources :attendances
   end
   resources :events do

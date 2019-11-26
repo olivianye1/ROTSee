@@ -1,5 +1,4 @@
 <%= javascript_include_tag "sort_table" %>
-
 <head>
   <style>
     span{
@@ -117,7 +116,8 @@
     <div>
       <%= link_to 'Edit', edit_cadet_path(@cadet), :class => "btn btn-secondary btn-info btn-sm"%>
   
-      <%= link_to 'Remove', @cadet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> 
+      <%= link_to 'Remove', @cadet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %>
+      
       <br>
     </div>
   <% end %>

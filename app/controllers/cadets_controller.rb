@@ -53,6 +53,7 @@ class CadetsController < ApplicationController
     @PT_percent = @pres_PT.to_f/@total_PT.to_f * 100.00
     @total_percent = @pres_total.to_f/@total_records.to_f * 100.00
     
+    
   end
 
   # GET /cadets/new
@@ -95,6 +96,23 @@ class CadetsController < ApplicationController
     
     @cadet.destroy
     redirect_to cadets_url, info: "Cadet successfully removed from the ROTC roster."
+  end
+
+  
+  def roster
+    @cadets = Cadet.all.order(:lastName)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => 'roster',
+        :template => 'cadets/index.pdf.erb',
+        :layout => 'roster.html.erb'
+        #:layout => 'cadets/index.pdf.erb'
+       # disposition: 'inline',
+        #stream: false,
+        #layout: 'layouts/pdf.html.erb'
+      end
+    end
   end
 
   private
