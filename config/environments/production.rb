@@ -107,7 +107,7 @@ Rails.application.configure do
   config.assets.precompile += ['application.scss', 'bootstrap.js']
   
   #configuration necessary for downloads in heroku
-  config.serve_static_assets = true
+  #config.serve_static_assets = true
   
   
   # Inserts middleware to perform automatic connection switching.
