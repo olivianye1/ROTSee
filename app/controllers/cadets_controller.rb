@@ -107,8 +107,8 @@ class CadetsController < ApplicationController
       format.pdf do
         render :pdf => 'roster',
         :template => 'cadets/index.pdf.erb',
-        :layout => 'roster.html.erb'
-        #disposition: 'inline',
+        :layout => 'roster.html.erb',
+        disposition: 'attachment'
         #:layout => 'cadets/index.pdf.erb'
        # disposition: 'inline',
         #stream: false
