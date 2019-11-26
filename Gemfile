@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'pg_search'
 gem 'bcrypt', '~> 3.1.2'
 gem "bootstrap_form", "~> 4.0"
+gem 'figaro'
 
 gem 'wicked_pdf'
 
@@ -41,6 +42,10 @@ group :test do
   gem 'capybara',           '3.28.0'
   gem 'selenium-webdriver', '3.142.4'
   gem 'webdrivers',         '4.1.2'
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions  
+  gem 'database_cleaner' # to clear Cucumber's test database between runs
+  gem 'launchy'          # a useful debugging aid for user stories
 end
 
 group :production do

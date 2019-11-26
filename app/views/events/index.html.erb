@@ -12,7 +12,7 @@
   <%end%>
 </div>
 
-<div class="container text-right" style="display: flex; justify-content: flex-end">
+<div class="container text-right" style="display: flex; justify-content: flex-end" role="search">
   <%= form_tag events_path, method: :get do %>
     <%= text_field_tag 'term', params[:term], placeholder: "YYYY-MM-DD" %>
     <button class="btn btn-secondary btn-sm" type="submit_tag" >Search</button>

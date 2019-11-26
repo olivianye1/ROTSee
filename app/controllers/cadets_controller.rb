@@ -71,6 +71,7 @@ class CadetsController < ApplicationController
     @cadet = Cadet.new(cadet_params)
     
       if @cadet.save
+        CadetMailer.with(cadet: @cadet).new_cadet_email.deliver_later
         redirect_to @cadet, success: "#{@cadet.firstName} #{@cadet.lastName} has been successfully added to the ROTC roster!"
         session[:cadet_id] = @cadet.id
       else
