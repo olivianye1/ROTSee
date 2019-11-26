@@ -19,7 +19,7 @@ gem 'wicked_pdf'
 gem 'combine_pdf'
 
 group :production do
-  gem 'wkhtmltopdf-heroku'
+  gem 'wkhtmltopdf-heroku' , '2.12.5.0'
 end
 
 group :development, :test do

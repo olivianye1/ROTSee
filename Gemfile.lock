@@ -310,7 +310,7 @@ DEPENDENCIES
   webpacker (= 4.0.7)
   wicked_pdf
   wkhtmltopdf-binary
-  wkhtmltopdf-heroku
+  wkhtmltopdf-heroku (= 2.12.5.0)
 
 BUNDLED WITH
    1.17.2
