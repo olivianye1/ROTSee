@@ -24,37 +24,38 @@
 #   formats: [:html],
 #   zoom: 0.8
 # }
-if Rails.env.staging? || Rails.env.production?
-  WickedPdf.config = {
-    exe_path: Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s,
-    layout: 'roster.html.erb',
-    print_media_type: true,
-    page_size: 'A4',
-    encoding: 'utf-8',
-    formats: [:html],
-    zoom: 0.8
-  }
-else
-  WickedPdf.config = {
-    #exe_path:  'C:\wkhtmltopdf\bin\wkhtmltopdf.exe',
-    layout: 'roster.html.erb',
-    print_media_type: true,
-    page_size: 'A4',
-    encoding: 'utf-8',
-    formats: [:html],
-    zoom: 0.8
+
+# if Rails.env.staging? || Rails.env.production?
+#   WickedPdf.config = {
+#     exe_path: Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s,
+#     layout: 'roster.html.erb',
+#     print_media_type: true,
+#     page_size: 'A4',
+#     encoding: 'utf-8',
+#     formats: [:html],
+#     zoom: 0.8
+#   }
+# else
+#   WickedPdf.config = {
+#     #exe_path:  'C:\wkhtmltopdf\bin\wkhtmltopdf.exe',
+#     layout: 'roster.html.erb',
+#     print_media_type: true,
+#     page_size: 'A4',
+#     encoding: 'utf-8',
+#     formats: [:html],
+#     zoom: 0.8
      
-  }
-end
+#   }
+# end
 
 
-# WickedPdf.config ||= {}
-# WickedPdf.config.merge!({
-#   # your extra configurations here
-#   layout: 'roster.html.erb',
-#   print_media_type: true,
-#   page_size: 'A4',
-#   encoding: 'utf-8',
-#   formats: [:html],
-#   zoom: 0.8
-# })
+WickedPdf.config ||= {}
+WickedPdf.config.merge!({
+  # your extra configurations here
+  layout: 'roster.html.erb',
+  print_media_type: true,
+  page_size: 'A4',
+  encoding: 'utf-8',
+  formats: [:html],
+  zoom: 0.8
+})

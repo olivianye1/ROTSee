@@ -17,10 +17,11 @@ gem 'figaro'
 
 
 
-#group :production do
- # gem 'wkhtmltopdf-heroku' , '2.12.5.0'
-#end
+group :production do
+ gem 'wkhtmltopdf-heroku'
+end
 
+gem 'wicked_pdf'
 
 group :development, :test do
   gem 'wkhtmltopdf-binary'
