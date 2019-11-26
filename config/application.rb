@@ -11,7 +11,7 @@ module RotcApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.web_console.whitelisted_ips = '129.81.195.170/16'
+    #config.web_console.whitelisted_ips = '129.81.195.170/16'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
