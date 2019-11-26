@@ -15,14 +15,14 @@ gem 'bcrypt', '~> 3.1.2'
 gem "bootstrap_form", "~> 4.0"
 gem 'figaro'
 
-gem 'wicked_pdf'
-gem 'combine_pdf'
 
-group :production do
-  gem 'wkhtmltopdf-heroku' , '2.12.5.0'
-end
+
+#group :production do
+ # gem 'wkhtmltopdf-heroku' , '2.12.5.0'
+#end
 
 group :development, :test do
+  gem 'wicked_pdf'
   gem 'wkhtmltopdf-binary'
 end
 
