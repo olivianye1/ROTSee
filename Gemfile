@@ -21,8 +21,8 @@ gem 'figaro'
  # gem 'wkhtmltopdf-heroku' , '2.12.5.0'
 #end
 
+
 group :development, :test do
-  gem 'wicked_pdf'
   gem 'wkhtmltopdf-binary'
 end
 
