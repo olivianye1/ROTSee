@@ -16,6 +16,7 @@ gem "bootstrap_form", "~> 4.0"
 gem 'figaro'
 
 gem 'wicked_pdf'
+gem 'combine_pdf'
 
 group :production do
   gem 'wkhtmltopdf-heroku'
