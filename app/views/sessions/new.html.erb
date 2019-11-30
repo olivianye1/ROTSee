@@ -1,12 +1,59 @@
-<br></br>
-<h1>Login</h1>
-<br></br>
-<%= form_tag '/login' do %>
-   <%= label_tag :username%>
-   <%= text_field_tag :username %>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%>
-   <%= submit_tag "Login"%>
+<style>
+
+    .col-form-label{
+      text-align: right;
+    }
+    .col-sm{
+      text-align: left;
+    }
+    
+</style>
+
+<h2 class = "display-4" style="margin-bottom:20px;">Login</h2>
+
+<form_tag>
+<%= form_tag '/login' do  %>
+
+   <div class="row">
+      <label for='username' class="col-sm-4 col-form-label"><strong>Username: </strong></label>
+      <div class="col-sm-4">
+         <%= text_field_tag :username, params[:username], class: 'form-control', autofocus: true %>
+      </div>
+      <div class="col-sm-4"></div>
+   </div>
+   
+   <br>
+
+   <div class="row">
+      <label for='password' class="col-sm-4 col-form-label"><strong>Password: </strong></label>
+      <div class="col-sm-4">
+         <%= password_field_tag :password, nil, class: 'form-control'  %>
+      </div>
+      <div class="col-sm-4"></div>
+   </div>
+   
+   <br>
+   
+   <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-2">
+         <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+         </div>
+      </div>
+      
+      <div class="col-sm-1">
+         <button type="submit" class="btn btn-primary btn-sm">Login</button>
+      </div>
+      
+      <div class="col-sm-5"></div>
+   </div>
+   
 <%end%>
-<p style="margin-top: 20px;">New user? <%= link_to "Sign up now!", '/cadets/new' %></p>
+</form_tag>
+
+<br>
+
+<p class = "display" style="margin-bottom:20px;">New user?      <a href="/cadets/new" class="btn btn-dark btn-sm"  role="button">Sign Up Now!</a></p>
+
 
