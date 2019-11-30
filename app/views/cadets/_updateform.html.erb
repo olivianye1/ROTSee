@@ -1,0 +1,116 @@
+<header>
+  <style>
+  
+    .col-form-label{
+      text-align: right;
+    }
+    
+    .col-sm{
+      text-align: left;
+    }
+
+  </style>
+</header>
+
+<%= bootstrap_form_with(model: cadet, local: true) do |form| %>
+  <% if cadet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cadet.errors.count, "error") %> prohibited this cadet from being saved:</h2>
+
+      <ul>
+        <% cadet.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <font color="red">All Fields Required *</font>
+  
+  <br></br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+      <div class="form-group row">
+        <label for="firstName" class="col-sm-4 col-form-label"><strong>First Name: </strong></label>
+        <div class="col-sm">
+          <%= form.text_field :firstName, maxlength: 50, size: 20, hide_label: true %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label for="lastName" class="col-sm-4 col-form-label"><strong>Last Name: </strong></label>
+        <div class="col-sm">
+          <%= form.text_field :lastName, maxlength: 50, size: 20, hide_label: true %>
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="email" class="col-sm-4 col-form-label"><strong>Email Address: </strong><br></label>
+        <div class="col-sm">
+          <%= form.text_field :email, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="phoneNumber" class="col-sm-4 col-form-label"><strong>Phone Number: </strong><br></label>
+        <div class="col-sm">
+          <%= form.text_field :phoneNumber, placeholder: '1234567890', minlength: 10, maxlength: 10, size: 20, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="school" class="col-sm-4 col-form-label"><strong>School: </strong><br></label>
+        <div class="col-sm">
+          <%= form.select :school, options_for_select(@schoolList, selected: cadet.school), :include_blank => true, hide_label: true %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label for="gradYear" class="col-sm-4 col-form-label"><strong>Graduation Year: </strong><br></label>
+        <div class="col-sm">
+          <%= form.number_field :gradYear, :value => Date.today.year, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="position" class="col-sm-4 col-form-label"><strong>Position: </strong><br></label>
+        <div class="col-sm">
+          <%= form.select :position, options_for_select(@positionList, selected: cadet.position), :include_blank => true, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="course" class="col-sm-4 col-form-label"><strong>Course: </strong><br></label>
+        <div class="col-sm">
+          <%= form.select :course, options_for_select(@courseList, selected: cadet.course), :include_blank => true, hide_label: true %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="flight" class="col-sm-4 col-form-label"><strong>Flight: </strong><br></label>
+        <div class="col-sm">
+          <%= form.select :flight, options_for_select(@flightList, selected: cadet.flight), :include_blank => true, hide_label: true %>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <label for="username" class="col-sm-4 col-form-label"><strong>Username: </strong><br></label>
+        <div class="col-sm">
+          <%= form.text_field :username, maxlength: 15, size: 20, hide_label: true %>
+        </div>
+      </div>
+      
+      </div>
+      </div>
+      <br>
+    
+  </div>
+
+  <div class="actions" style="text-align:center;">
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
+<% end %>

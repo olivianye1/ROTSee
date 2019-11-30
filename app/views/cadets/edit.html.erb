@@ -11,5 +11,9 @@
   <%= link_to 'View Cadet Info', @cadet, :class => "btn btn-secondary  btn-sm", :style => "float-right" %>
 </div>
 <p style="margin-top: 20px;"></p>
-<%= render 'form', cadet: @cadet %>
 
+<% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
+  <%= render 'adminupdateform', cadet: @cadet %>
+<% else %>
+  <%= render 'updateform', cadet: @cadet %>
+<% end %>
