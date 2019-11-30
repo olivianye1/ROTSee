@@ -43,7 +43,7 @@ class EventsController < ApplicationController
       redirect_to '/events/new', danger: "Event not created."
     end
     
-    @cadets = Cadet.all.order(:lastName)
+    @cadets = Cadet.where(approved: true).order(:lastName)
     @cadets.each do |cadet|
       Attendance.create!(:attended => 1, :cadet_id => cadet.id, :event_id => @event.id)
     end
