@@ -35,6 +35,7 @@ class Cadet < ApplicationRecord
         :uniqueness => { :case_sensitive => false }
     
     validates :password,
+        :if => :password,
         presence: true,
         length: {maximum: 100},
         allow_nil: false

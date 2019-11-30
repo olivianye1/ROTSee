@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'logout'  => 'sessions#destroy'
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
+  get 'unapproved', to: 'cadets#unapproved'
   
   resources :cadets do
     resources :attendances

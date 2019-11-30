@@ -1,0 +1,30 @@
+<head>
+  <style>
+  .table {
+    }
+  </style>
+</head>
+
+<div class="container text-left">
+  <p id="notice"><%= notice %></p>
+  <h2 class="display-4" style="margin-top: 30px;">Unapproved Cadets</h2>
+</div>
+
+<br>
+
+<table class="table table-striped table-bordered", id = "table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Cadet Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cadets.each do |cadet| %>
+      <tr>
+        <td><%= "#{cadet.lastName}, #{cadet.firstName} "%></td>
+        <td><%= link_to "Edit", edit_cadet_path(cadet) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

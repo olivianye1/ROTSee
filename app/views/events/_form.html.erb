@@ -76,9 +76,7 @@
             <%= f.fields_for :attendances, @event.attendances do |form| %>
 
                 <%= form.label :attended,("#{@ord_attendances[i].cadet.lastName}, #{@ord_attendances[i].cadet.firstName}") %> 
-                <%= form.select :attended, options_for_select(['Present', 'Absent', 'Tardy'], @ord_attendances[i].attended), hide_label: true  %>
-           
-
+                <%= form.select :attended, options_for_select(@attendance_options, @ord_attendances[i].attended), hide_label: true  %>
               <% i = i + 1 %>
               
             <% end %>

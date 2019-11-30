@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_09_021714) do
+ActiveRecord::Schema.define(version: 2019_11_30_194120) do
 
   create_table "attendances", force: :cascade do |t|
-    t.string "attended"
+    t.integer "attended"
     t.integer "cadet_id", null: false
     t.integer "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_11_09_021714) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "approved", default: false, null: false
+    t.index ["approved"], name: "index_cadets_on_approved"
   end
 
   create_table "events", force: :cascade do |t|

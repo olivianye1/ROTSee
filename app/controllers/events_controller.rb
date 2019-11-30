@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   def edit
     @cadets = Cadet.all.order(:lastName)
     @attendances = Attendance.all.order(:event)
+    @attendance_options = {'Absent' => 0, 'Present' => 1, 'Tardy' => 2}
   end
 
   # POST /events
@@ -44,7 +45,7 @@ class EventsController < ApplicationController
     
     @cadets = Cadet.all.order(:lastName)
     @cadets.each do |cadet|
-    Attendance.create!(:attended => 'Present', :cadet_id => cadet.id, :event_id => @event.id)
+      Attendance.create!(:attended => 1, :cadet_id => cadet.id, :event_id => @event.id)
     end
   end
 
