@@ -75,8 +75,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" role="navigation">
       <div class="navbar-nav">
         <a class="nav-item nav-link font-weight-bold" href="/" style="color:white;">Home</a>
-        <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;">Cadets</a>
-        <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;">Events</a>
+        
         <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
@@ -90,6 +89,8 @@
         <% else %>
           <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;">Cadets</a>
         <% end %>
+        <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;">Events</a>
+        
       </div>
       <div class="navbar-nav ml-auto">
         <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" style="color:white;">Cadet <%= current_cadet.lastName %></a>
