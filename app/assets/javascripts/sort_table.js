@@ -1,6 +1,13 @@
-function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+function sortTable(n,f) {
+  var table, rows, switching, c, clim, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("table");
+  rows = table.rows;
+  clim = [4,2]
+  for(c = 0; c < clim[f]; c++){
+    document.getElementById(`${c}up`).style.color="white";
+    document.getElementById(`${c}down`).style.color="white";
+  }
+  document.getElementById(`${n}up`).style.color="#ADFF2F";
   switching = true;
   // Set the sorting direction to ascending:
   dir = "asc";
@@ -52,6 +59,8 @@ function sortTable(n) {
       set the direction to "desc" and run the while loop again. */
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
+        document.getElementById(`${n}up`).style.color="white";
+        document.getElementById(`${n}down`).style.color="#ADFF2F";
         switching = true;
       }
     }

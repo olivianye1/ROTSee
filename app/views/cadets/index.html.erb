@@ -2,6 +2,12 @@
 
 <head>
   <style>
+    .up-arrow {
+      text-align: right;
+    }
+    .down-arrow{
+      text-align: right;
+    }
   </style>
 </head>
 
@@ -28,10 +34,10 @@
 <table class="table table-striped table-bordered", id = "table">
   <thead class="thead-dark">
     <tr>
-      <th onclick="sortTable(0)", scope = "col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Cadet Name</th>
-      <th onclick="sortTable(1)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Flight</th>
-      <th onclick="sortTable(2)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Position</th>
-      <th onclick="sortTable(3)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">School</th>
+      <th onclick="sortTable(0,0)", scope = "col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Cadet Name <div class="up-arrow", id = "0up">&#9650</div> <div class="down-arrow", id = "0down">&#9660</div> </th>
+      <th onclick="sortTable(1,0)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Flight <div class="up-arrow", id = "1up">&#9650</div> <div class="down-arrow", id = "1down">&#9660</div> </th>
+      <th onclick="sortTable(2,0)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Position <div class="up-arrow", id = "2up">&#9650</div> <div class="down-arrow", id = "2down">&#9660</div> </th>
+      <th onclick="sortTable(3,0)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">School <div class="up-arrow", id = "3up">&#9650</div> <div class="down-arrow", id = "3down">&#9660</div> </th>
     </tr>
   </thead>
   <tbody>
