@@ -126,11 +126,6 @@
   
       <%= link_to 'Remove', @cadet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %>
     </div
-    
-  <% elsif (@cadet == Cadet.find_by(id: session[:cadet_id])) %> 
-    <div>
-      <%= link_to 'Edit', edit_cadet_path(@cadet), :class => "btn btn-secondary btn-info btn-sm"%>
-    </div>
   <% end %>
 
 
