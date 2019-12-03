@@ -72,11 +72,12 @@
       <strong>Flight:</strong>
       <%= @cadet.flight %>
     </p>
-    
+    <% if (@cadet == Cadet.find_by(id: session[:cadet_id])) || (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
     <p>
       <strong>Approved:</strong>
       <%= "#{@cadet.approved}" %>
     </p>
+    <% end %>
     
   </div>
 </div>
