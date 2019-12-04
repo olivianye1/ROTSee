@@ -22,7 +22,7 @@
 <div class="container text-right" style="display: flex; justify-content: flex-end" role="search">
   <%= form_tag cadets_path, method: :get do %>
     <%= text_field_tag 'term', params[:term], placeholder: "First or Last Name..." %>
-    <button class="btn btn-secondary btn-sm" type="submit_tag" >Search</button>
+    <button class="btn btn-secondary btn-sm" type="submit_tag" ><i class="fas fa-search"></i> Search</button>
   <% end %>
   <br>
   <br>

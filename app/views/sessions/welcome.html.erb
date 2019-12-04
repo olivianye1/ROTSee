@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 <% if logged_in? %>
     <p id="notice"><%= notice %></p>
     <head>
@@ -82,7 +83,7 @@
     <p style="margin-top: 50px;"></p>
 
     <div class="Site Features">
-      <a href="/cadets/new" class="btn btn-dark btn-lg"  role="button">Sign Up</a>
-      <a href="/login" class="btn btn-dark btn-lg"  role="button">Login</a>
+      <a href="/cadets/new" class="btn btn-dark btn-lg"  role="button"><i class="fas fa-user-plus"></i> Sign Up</a>
+      <a href="/login" class="btn btn-dark btn-lg"  role="button"><i class="fas fa-sign-in-alt"></i> Login</a>
     </div>
 <%end%>

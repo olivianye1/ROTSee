@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <title>ROTSee</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -74,12 +75,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" role="navigation">
       <div class="navbar-nav">
-        <a class="nav-item nav-link font-weight-bold" href="/" style="color:white;">Home</a>
+        <a class="nav-item nav-link font-weight-bold" href="/" style="color:white;"> <i class="fas fa-home"></i> Home</a>
         
         <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
-              Cadets
+              <i class="fas fa-users"></i> Cadets
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="/cadets" style="color:black;">Approved Cadets</a>
@@ -87,14 +88,14 @@
             </div>
           </div>
         <% else %>
-          <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;">Cadets</a>
+          <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;"> <i class="fas fa-users"></i> Cadets</a>
         <% end %>
-        <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;">Events</a>
+        <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;"> <i class="fas fa-calendar-alt"></i> Events</a>
         
       </div>
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" style="color:white;">Cadet <%= current_cadet.lastName %></a>
-        <a class="nav-item nav-link font-weight-bold" href="/logout" style="color:white;">Logout</a>
+        <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" style="color:white;"> <i class="fas fa-user-circle"></i> Cadet <%= current_cadet.lastName %></a>
+        <a class="nav-item nav-link font-weight-bold" href="/logout" style="color:white;"> <i class="fas fa-sign-out-alt"></i> Logout</a>
       </div>
     </div>
   </nav>

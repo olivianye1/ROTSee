@@ -14,14 +14,14 @@
   <p id="notice"><%= notice %></p>
   <h2 class="display-4" style="margin-top: 30px;">Events</h2>
   <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
-    <%= link_to 'New Event', new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
+    <%= link_to '<i class="far fa-calendar-plus"></i> New Event'.html_safe, new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
   <%end%>
 </div>
 
 <div class="container text-right" style="display: flex; justify-content: flex-end">
   <%= form_tag events_path, method: :get do %>
     <%= text_field_tag 'term', params[:term], placeholder: "YYYY-MM-DD" %>
-    <button class="btn btn-secondary btn-sm" type="submit_tag" >Search</button>
+    <button class="btn btn-secondary btn-sm" type="submit_tag" ><i class="fas fa-search"></i> Search</button>
   <% end %>
   <br>
   <br>
@@ -45,7 +45,7 @@
         <td><%= link_to "#{event.eventDate}", event %></td>
         <td><%= event.primaryType %></td>
         <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
-          <td><%= link_to 'Edit', edit_event_path(event), :class => "btn btn-secondary btn-info btn-sm" %></td>
+          <td><%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_event_path(event), :class => "btn btn-secondary btn-info btn-sm" %></td>
         <%end%>
       </tr>
     <% end %>
