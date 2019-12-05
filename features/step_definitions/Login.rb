@@ -17,12 +17,12 @@ Then(/^I am redirected to login page$/) do
   assert_equal page.current_path, '/login'
 end
 
-When(/^I sign in as "(\w+)" with password "(\w+)"$/) do |username, password|
+When(/^I sign in as "(.*)" with password "(.*)"$/) do |username, password|
   log_in(username,password)
 end
 
 Then(/^I am redirected to home page$/) do
-  assert_equal current_path, root_path
+  assert_equal root_path, current_path
 
 end
 
