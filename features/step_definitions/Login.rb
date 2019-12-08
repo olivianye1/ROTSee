@@ -1,8 +1,8 @@
 def log_in(username,password)
-  visit '/login'
+  #visit '/login'
   fill_in "username", :with => username
   fill_in "password", :with => password
-  click_button "Login"
+  click_button('Login')
 end
 
 #Given(/^I am on the home page$/) do
@@ -18,11 +18,13 @@ Then(/^I am redirected to login page$/) do
 end
 
 When(/^I sign in as "(.*)" with password "(.*)"$/) do |username, password|
-  log_in(username,password)
+  fill_in "username", :with => username
+  fill_in "password", :with => password
+  click_button('Login')
 end
 
 Then(/^I am redirected to home page$/) do
-  assert_equal page.current_path, '/welcome'
+  assert_equal '/welcome', page.current_path 
 end
 
 Then(/^I am not redirected to home page$/) do

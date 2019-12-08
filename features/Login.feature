@@ -4,7 +4,7 @@ Scenario: Successful login
 Given I am on the home page
 When I click on login button
 Then I am redirected to login page
-When I sign in as "kdorsey3" with password "password"
+When I sign in as "rjuenemann" with password "password"
 Then I am redirected to home page
 And There is "View All Cadets" button
 And "Cadets" link is in navigation bar
