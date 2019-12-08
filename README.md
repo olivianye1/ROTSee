@@ -2,4 +2,4 @@ ROTSee is a personnel manager for ROTC members. Officers can create events, trac
 
 Developed by: Kennedy Dorsey, Jessica Hotsko, Riley Juenemann, and Olivia Nye
 
-Heroku: https://rotsee.herokuapp.com/
+Created using Ruby on Rails and hosted on Heroku at https://rotsee.herokuapp.com/
