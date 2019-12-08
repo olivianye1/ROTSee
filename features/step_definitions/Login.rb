@@ -23,7 +23,10 @@ end
 
 Then(/^I am redirected to home page$/) do
   assert_equal page.current_path, '/welcome'
+end
 
+Then(/^I am not redirected to home page$/) do
+  assert_equal page.current_path, '/login'
 end
 
 Then(/^"Cadets" link is in navigation bar$/) do
