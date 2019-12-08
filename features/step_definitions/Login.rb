@@ -5,9 +5,9 @@ def log_in(username,password)
   click_button "Login"
 end
 
-Given(/^I am on the home page$/) do
-  visit root_path
-end
+#Given(/^I am on the home page$/) do
+#  visit root_path
+#end
 
 When(/^I click on login button$/) do
   click_link("Login")
@@ -22,7 +22,7 @@ When(/^I sign in as "(.*)" with password "(.*)"$/) do |username, password|
 end
 
 Then(/^I am redirected to home page$/) do
-  assert_equal root_path, current_path
+  assert_equal page.current_path, '/welcome'
 
 end
 
