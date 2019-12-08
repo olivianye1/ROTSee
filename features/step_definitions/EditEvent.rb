@@ -7,7 +7,7 @@ Given (/^I am on the Event "20" show page$/) do
 end
 
 When (/^I click "Edit Details and Attendance" button/) do
-  click_button("<i class="fas fa-edit"></i> Edit Details and Attendance")
+  click_button("Edit Details and Attendance")
 end
 
 Then (/^I am redirected to Event "20" edit page$/) do
