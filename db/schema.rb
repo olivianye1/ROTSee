@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_202129) do
+ActiveRecord::Schema.define(version: 2019_11_30_194120) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "attended"
@@ -45,16 +45,6 @@ ActiveRecord::Schema.define(version: 2019_12_09_202129) do
     t.string "primaryType"
     t.string "subType"
     t.string "details"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.string "name"
-    t.string "detachment"
-    t.string "email"
-    t.string "subject"
-    t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
