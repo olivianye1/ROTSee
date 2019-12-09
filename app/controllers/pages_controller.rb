@@ -3,4 +3,7 @@ class PagesController < ApplicationController
   def about
   end
   
+  def contact
+    redirect_to '/messages#new'
+  end
 end
