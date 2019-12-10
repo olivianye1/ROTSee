@@ -57,7 +57,7 @@ more_events.each do |event|
     Event.create!(event)
 end
 
-@cadets = Cadet.all
+@cadets = Cadet.all.order(:lastName)
 @events = Event.all
 
 @events.each do |event|
