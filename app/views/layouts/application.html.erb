@@ -36,15 +36,10 @@
         color: white;
       }
         
-      /* Change the color of links on hover */
-        .navbar a:hover {
-          background-color: black;
-        }
-        
         /* Add a color to the active/current link */
-        .navbar a.active {
-          background-color: #4CAF50;
-          color: black;
+      .navbar a.active {
+        background-color: #4CAF50;
+        color: black;
         }
       .navbar {
         position: fixed;
@@ -62,27 +57,43 @@
         margin-top: 100px;
         color: white;
       }
+        
       .dropdown a:hover{
+        background-image:  none;
         background-color: lightgray;
+        color: black;
       }
       
+      #navlink{
+        color: white;
+      }
+      
+      /* Change the color of links on hover */
+      #navlink:hover {
+        color: black;
+      }
+      
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; // remove the gap so it doesn't close
+       }
     </style>
   </head>
   <% if logged_in? %>
   
   <!--Navigation Bar-->
   <nav class="navbar navbar-expand-lg navbar-light " style="background-color: 	rgb(75,83,32)">
-    <a class="navbar-brand font-weight-bold" href="/" style="background-color: rgb(75,83,32); color: white;">ROTSee</a>
+    <a class="navbar-brand font-weight-bold" href="/" id="navlink" style="background-color: rgb(75,83,32);">ROTSee</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" role="navigation">
       <div class="navbar-nav">
-        <a class="nav-item nav-link font-weight-bold" href="/" style="color:white;"> <i class="fas fa-home"></i> Home</a>
+        <a class="nav-item nav-link font-weight-bold" id= "navlink" href="/"> <i class="fas fa-home"></i> Home</a>
         
         <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
           <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+            <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="navlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
               <i class="fas fa-user"></i> Cadets
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -91,11 +102,11 @@
             </div>
           </div>
         <% else %>
-          <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;"><i class="fas fa-user"></i> Cadets</a>
+          <a class="nav-item nav-link font-weight-bold" href="/cadets" id= "navlink"><i class="fas fa-user"></i> Cadets</a>
         <% end %>
         
         <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+        <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="navlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-users"></i> Flights
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -103,14 +114,14 @@
               <a class="dropdown-item" href=<%="/flights/Bravo"%> style="color:black;"> Bravo </a>
           </div>
         </div>
-        <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;"> <i class="fas fa-calendar-alt"></i> Events</a>
-        <a class="nav-item nav-link font-weight-bold" href="/articles" style="color:white;"> <i class="fas fa-sticky-note"></i></i> Posts</a>
+        <a class="nav-item nav-link font-weight-bold" href="/events" id="navlink"> <i class="fas fa-calendar-alt"></i> Events</a>
+        <a class="nav-item nav-link font-weight-bold" href="/articles" id="navlink"> <i class="fas fa-sticky-note"></i></i> Posts</a>
 
 
       </div>
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" style="color:white;"> <i class="fas fa-user-circle"></i> Cadet <%= current_cadet.lastName %></a>
-        <a class="nav-item nav-link font-weight-bold" href="/logout" style="color:white;"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" id="navlink"> <i class="fas fa-user-circle"></i> Cadet <%= current_cadet.lastName %></a>
+        <a class="nav-item nav-link font-weight-bold" href="/logout" id="navlink"> <i class="fas fa-sign-out-alt"></i> Logout</a>
       </div>
     </div>
   </nav>
