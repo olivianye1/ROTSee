@@ -24,16 +24,29 @@
     
   <div class="col md  ">
     <% @articles.each do |article| %>
-    <div class="blog-post">
+    <% if article.tag == "All"%>
+      <div class="blog-post">
+    
   
-
-      <div class="row" style="text-align:left;"><h3><%= link_to "#{article.title}", article %></h3></div>
-      <div class="row" style="text-align:left;"><%= article.date %></div>
-      
-      <div class="row"><p style="text-align:left;"><%= article.body %></p></div>
-      <hr>
-    </div>
-     <% end %>
+        <div class="row" style="text-align:left;"><h3><%= link_to "#{article.title}", article %></h3></div>
+        <div class="row" style="text-align:left;"><%= article.date %></div>
+        
+        <div class="row"><p style="text-align:left;"><%= article.body %></p></div>
+        <hr>
+      </div>
+    <% end %>
+    <% if article.tag == Cadet.find_by(id: session[:cadet_id]).flight %>
+      <div class="blog-post">
+    
+  
+        <div class="row" style="text-align:left;"><h3><%= link_to "#{article.title}", article %></h3></div>
+        <div class="row" style="text-align:left;"><%= article.date %></div>
+        
+        <div class="row"><p style="text-align:left;"><%= article.body %></p></div>
+        <hr>
+      </div>
+    <% end %>
+    <% end %>
   </div>
 
    
