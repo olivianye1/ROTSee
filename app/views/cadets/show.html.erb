@@ -93,7 +93,7 @@
   <div class="row">
     <div class="column"><p><strong>Overall Attendance: </strong><%= @total_percent.round(2) %>%</p> </div>
     <div class="column"><p><strong>LLAB Attendance: </strong><%= @LLAB_percent.round(2)%>%</p> </div>
-    <div class="column"><p><strong>PT Attendance: </strong><%= @PT_percent.round(2) %>%</p> </div>
+    <div class="column"><p><strong>PT Attendance: </strong><%= "#{@cadet.pt_attendance.round(2)}%" %></p> </div>
   </div>
   
   
