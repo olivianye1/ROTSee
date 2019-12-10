@@ -65,3 +65,38 @@ end
         Attendance.create!(:attended => 1, :cadet_id => cadet.id, :event_id => event.id)
     end
 end
+
+more_articles = [{:date => Date.new(2019,9,5), :title => "Alpha Post 1", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,9,7), :title => "Alpha Post 2", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,9,9), :title => "Alpha Post 3", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,9,10), :title => "Alpha Post 4", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,10,1), :title => "Alpha Post 5", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,10,22), :title => "Alpha Post 6", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,10,27), :title => "Alpha Post 7", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,11,8), :title => "Alpha Post 8", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,11,9), :title => "Alpha Post 9", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,11,28), :title => "Alpha Post 10", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,11,10), :title => "Bravo Post 1", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,11), :title => "Bravo Post 2", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,15), :title => "Bravo Post 3", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,16), :title => "Bravo Post 4", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,22), :title => "Bravo Post 5", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,29), :title => "Bravo Post 6", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,1), :title => "Bravo Post 7", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,3), :title => "Bravo Post 8", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,5), :title => "Bravo Post 9", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,10), :title => "Bravo Post 10", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,9,20), :title => "All Cadets Post 1", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,21), :title => "All Cadets Post 2", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,12), :title => "All Cadets Post 3", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,27), :title => "All Cadets Post 4", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,28), :title => "All Cadets Post 5", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,29), :title => "All Cadets Post 6", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,1), :title => "All Cadets Post 7", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,2), :title => "All Cadets Post 8", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,3), :title => "All Cadets Post 9", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,4), :title => "All Cadets Post 10", :body => "This is a post for all cadets.", :tag => "All"}]
+
+more_articles.each do |article|
+    Article.create!(article)
+end
