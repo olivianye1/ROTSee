@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<header>
+  <style>
+    
+  </style>
+</header>
+<h2 class="display-4" style="margin-top: 30px;">Posts</h2>
+
+<br>
+<div class="container">
+  <div class="col md"></div>
+    
+  <div class="col md  ">
+    <% @articles.each do |article| %>
+    <div class="blog-post">
+  
+
+      <div class="row" style="text-align:left;"><h3><%= link_to "#{article.title}", article %></h3></div>
+      <div class="row" style="text-align:left;"><%= article.date %></div>
+      
+      <div class="row"><p style="text-align:left;"><%= article.body %></p></div>
+      <hr>
+    </div>
+     <% end %>
+  </div>
+
+   
+    
+  <div class="col md"></div>
+</div>
+
+
+
+<% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
+  <%= link_to 'Add New Post', new_article_path %>
+<% end %>
+</div>
