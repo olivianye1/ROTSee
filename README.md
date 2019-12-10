@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ROTSee is a personnel manager for ROTC members. Officers can create events, track attendance, and manage the roster, while every cadet can view their own attendance records and contact information for other cadets.
 
-Things you may want to cover:
+Developed by: Kennedy Dorsey, Jessica Hotsko, Riley Juenemann, and Olivia Nye
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Created using Ruby on Rails and hosted on Heroku at https://rotsee.herokuapp.com/
