@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
   get 'unapproved', to: 'cadets#unapproved'
+  get 'flights/:flight', to: 'cadets#flights'
   
   resources :cadets do
     resources :attendances

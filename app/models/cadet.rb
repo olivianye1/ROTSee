@@ -48,5 +48,51 @@ class Cadet < ApplicationRecord
                 prefix: true
             }
         }
+        
+    def pt_attendance
+    
+        @PT_percent = 0
+        @total_PT = 0
+        @pres_PT = 0
+        @attendances = self.attendances
+    
+        @attendances.each do |attendance|
+            if attendance.event.primaryType == "PT"
+                @total_PT += 1
+                if attendance.attended == 1
+                    @pres_PT += 1
+                elsif attendance.attended == 2
+                    @pres_PT += 0.5
+                end
+            end
+        end
+        if @total_PT != 0
+            @PT_percent = @pres_PT.to_f / @total_PT.to_f * 100
+        end
+        @PT_percent
+    end
+    
+    def llab_attendance
+    
+        @llab_percent = 0
+        @total_llab = 0
+        @pres_llab = 0
+        @attendances = self.attendances
+    
+        @attendances.each do |attendance|
+            if attendance.event.primaryType == "LLAB"
+                @total_llab += 1
+                
+                if attendance.attended == 1
+                    @pres_llab += 1
+                elsif attendance.attended == 2
+                    @pres_llab += 0.5
+                end
+            end
+        end
+        if @total_llab != 0
+            @llab_percent = @pres_llab.to_f / @total_llab.to_f * 100
+        end
+        @llab_percent
+    end
 end
-

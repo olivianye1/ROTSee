@@ -1,0 +1,71 @@
+<%= javascript_include_tag "sort_table" %>
+
+<html lang="en">
+<head>
+  <style>
+    span{
+      font-size: 24px;
+    }
+    
+    .column {
+      float: left;
+      width: 20%;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    .up-arrow {
+      text-align: right;
+    }
+    .down-arrow{
+      text-align: right;
+    }
+  </style>
+</head>
+
+<div class="container text-left">
+  <p id="notice"><%= notice %></p>
+  <h2 class="display-4" style="margin-top: 30px;"><%= "#{@flight} Flight"%></h2>
+  <p><strong>Total Cadets: </strong><%= @cadets.count %></p>
+  <p><strong>Flight Total Attendance Percentage: </strong><%= "#{@total_percent.round(2)}%" %></p>
+  <p><strong>Flight PT Attendance Percentage: </strong><%= "#{@pt_percent.round(2)}%" %></p>
+  <p><strong>Flight LLAB Attendance Percentage: </strong><%= "#{@llab_percent.round(2)}%" %></p>
+</div>
+
+<!--Cadet Table-->
+<table class="table table-striped table-bordered", id = "table">
+  <thead class="thead-dark">
+    <tr>
+        <th onclick="sortTable(0,0)", scope = "col"> Cadet Name <div class="up-arrow", id = "0up">&#9650</div> <div class="down-arrow", id = "0down">&#9660</div> </th>
+        <th onclick="sortTable(1,0)",scope="col"> Position <div class="up-arrow", id = "1up">&#9650</div> <div class="down-arrow", id = "1down">&#9660</div> </th>
+        <th onclick="sortTable(2,0)",scope="col"> School <div class="up-arrow", id = "2up">&#9650</div> <div class="down-arrow", id = "2down">&#9660</div> </th>
+        <th onclick="sortTable(3,0)",scope="col"> PT Attendance <div class="up-arrow", id = "3up">&#9650</div> <div class="down-arrow", id = "3down">&#9660</div> </th>
+        <th onclick="sortTable(4,0)",scope="col"> LLAB Attendance <div class="up-arrow", id = "4up">&#9650</div> <div class="down-arrow", id = "4down">&#9660</div> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cadets.each do |cadet| %>
+      <tr>
+        <td style="font-weight:bold"><%= link_to "#{cadet.lastName}, #{cadet.firstName} ", cadet %></td>
+        <td><%= cadet.position %></td>
+        <td><%= cadet.school %></td>
+        <td><%= "#{cadet.pt_attendance.round(2)}%" %></td>
+        <td><%= "#{cadet.llab_attendance.round(2)}%" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- Back to Top Button -->
+<button onclick="topFunction()" type="button" class="btn btn-dark">Back to Top</button>
+<script>
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>

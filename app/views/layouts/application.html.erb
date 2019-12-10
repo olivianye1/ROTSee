@@ -90,8 +90,23 @@
         <% else %>
           <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;"> <i class="fas fa-users"></i> Cadets</a>
         <% end %>
+    
+        <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+          Flights
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= Cadet.distinct.pluck(:flight).each do |flight| %>
+              <a class="dropdown-item" href=<%="/flights/#{flight}"%> style="color:black;"><%= flight %></a>
+            <%end%>
+          </div>
+        </div>
+        
         <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;"> <i class="fas fa-calendar-alt"></i> Events</a>
+
         <a class="nav-item nav-link font-weight-bold" href="/articles" style="color:white;"> <i class="fas fa-sticky-note"></i></i> Posts</a>
+
+
       </div>
       <div class="navbar-nav ml-auto">
         <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" style="color:white;"> <i class="fas fa-user-circle"></i> Cadet <%= current_cadet.lastName %></a>
@@ -121,6 +136,7 @@
       <%= msg %>
     </div>
   <% end %>
+    
     <div class="container text-center" role="main">
       <%= yield %>
     </div>

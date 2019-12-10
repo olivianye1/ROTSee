@@ -1,20 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @article.date %>
-</p>
+<div class="card border-0 shadow my-5">
+  <div class="card-body p-5">
+    <h1 class="font-weight-light" style="text-align: left;"><%= @article.title %></h1> 
+    <p style="text-align: left;"><%= @article.date %></p>
+    <p style="text-align: left;"><%= @article.body %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% if (Cadet.find_by(id: session[:cadet_id]).position == "Squadron Commander") %>
+  <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
 <%= link_to 'Back', articles_path %>

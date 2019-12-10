@@ -32,6 +32,6 @@
 
 
 <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
-  <%= link_to 'Add New Post', new_article_path %>
+  <p style="text-align:left"><%= link_to 'Add New Post', new_article_path %></p>
 <% end %>
 </div>
