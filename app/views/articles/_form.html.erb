@@ -1,4 +1,14 @@
-<%= form_with(model: article, local: true) do |form| %>
+<html lang="en">
+<header>
+  <style>
+    
+    .col-form-label{
+      text-align: right;
+    }
+    
+  </style>
+</header>
+<%= bootstrap_form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -10,23 +20,40 @@
       </ul>
     </div>
   <% end %>
+  
+<div class="container">
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <% @ord_article  = @article %>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="row">
+    <label for="colFormLabel" class="col-sm-2 col-form-label"><strong>Title</strong></label>
+    <div class="col-sm-10"><%= form.text_field :title, required: true, hide_label: true, placeholder: "Post Title" %></div>
+    </div>
+ 
+     <div class="row">
+     <label for="colFormLabel" class="col-sm-2 col-form-label"><strong>Tag</strong></label>
+     <div class="col-sm-10"><%= form.select :tag, options_for_select( @tagList, @ord_article), required: true, hide_label: true %></div>
+     </div>
+
+
+    <div class="row">
+    <label for="colFormLabel" class="col-sm-2 col-form-label"><strong>Text</strong></label>
+    <div class="col-sm-10"><%= form.text_area :body, required: true, hide_label: true, placeholder: "Enter Text Here..."%></div>
+    </div>
+
+  
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+</div>
+
+
+
+  <% end %>
+
+
+
+
+</html>
