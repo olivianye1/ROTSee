@@ -1,6 +1,7 @@
-<h1>Editing Article</h1>
-
+<h1 style="margin-top:20px;">Editing Post</h1>
+<div>
+  <%= link_to 'Show Post', @article, :class => "btn btn-secondary  btn-sm", :style => "float-right", :role => 'button', :tabindex => '0' %>
+</div>
+<br>
 <%= render 'form', article: @article %>
 
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>

@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
+<html lang="en">
 <header>
   <style>
     
   </style>
 </header>
+
+<p id="notice"><%= notice %></p>
 
 <div class="container" style="height: 100px; background-color: #dbe6c1; display: flex;">
 <h2 class="display-4" style="margin-top: 30px; vertical-align: middle; margin: auto;">Posts</h2>
@@ -13,7 +15,10 @@
     <%= link_to '<i class="far fa-calendar-plus"></i> New Post'.html_safe, new_article_path, 
       :class => "btn btn-secondary btn-success btn-sm", :style => "margin-top:20px;"%>
   <%end%>
+
+
 <br>
+
 <div class="container">
   <div class="col md"></div>
     
@@ -36,3 +41,4 @@
   <div class="col md"></div>
 </div>
 
+</html>
