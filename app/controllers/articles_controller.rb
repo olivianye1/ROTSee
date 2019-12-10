@@ -27,8 +27,12 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
+    @cadets = Cadet.all
+    
     if @article.save
+      @cadets.each do |cadet|
+        ArticleMailer.with(article: @article, cadet: cadet).new_article_email.deliver_later
+      end
       redirect_to @article, success: "New post has been successfully created."
         
     else
