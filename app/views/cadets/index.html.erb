@@ -12,8 +12,6 @@
   </style>
 </head>
 
-
-
 <div class="container text-left">
   <p id="notice"><%= notice %></p>
   <h2 class="display-4" style="margin-top: 30px;">Cadets</h2>
@@ -45,9 +43,9 @@
     <% @cadets.each do |cadet| %>
       <tr>
         <td style="font-weight:bold"><%= link_to "#{cadet.lastName}, #{cadet.firstName} ", cadet %></td>
-        <td><%= link_to "#{cadet.flight}", cadet %></td>
-        <td><%= link_to "#{cadet.position}", cadet %></td>
-        <td><%= link_to "#{cadet.school}", cadet %></td>
+        <td><%= link_to cadet.flight, "/flights/#{cadet.flight}" %></td>
+        <td><%= cadet.position %></td>
+        <td><%= cadet.school %></td>
       </tr>
     <% end %>
   </tbody>

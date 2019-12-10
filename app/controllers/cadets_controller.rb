@@ -125,6 +125,30 @@ class CadetsController < ApplicationController
   def unapproved
     @cadets = Cadet.where(approved: false).order(:lastName)
   end
+  
+  def flights
+    @cadets = []
+    @flight = params[:flight]
+    Cadet.where(flight: @flight).find_each do |cadet|
+      @cadets << cadet
+    end
+    
+    @total_attendance = 0
+    @pt_attendance = 0
+    @llab_attendance = 0
+    @llab_percent = 0
+    @pt_percent = 0
+    @total_percent = 0
+    
+    @cadets.each do |cadet|
+      @pt_attendance += cadet.pt_attendance
+      @llab_attendance += cadet.llab_attendance
+      @total_attendance += (cadet.pt_attendance + cadet.llab_attendance)
+    end
+    @pt_percent = @pt_attendance.to_f / @cadets.count.to_f
+    @llab_percent = @llab_attendance.to_f / @cadets.count.to_f
+    @total_percent = @total_attendance.to_f / (@cadets.count.to_f * 2)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
