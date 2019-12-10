@@ -1,0 +1,59 @@
+<html lang="en">
+<header>
+  <style>
+    
+  </style>
+</header>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container" style="height: 100px; background-color: #dbe6c1; display: flex;">
+<h2 class="display-4" style="margin-top: 30px; vertical-align: middle; margin: auto;">Posts</h2>
+</div>
+
+<% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
+    <%= link_to '<i class="far fa-calendar-plus"></i> New Post'.html_safe, new_article_path, 
+      :class => "btn btn-secondary btn-success btn-sm", :style => "margin-top:20px;"%>
+  <%end%>
+
+
+<br>
+
+<div class="container">
+  <div class="col md"></div>
+    
+  <div class="col md  ">
+    <% @articles.each do |article| %>
+    <% if article.tag == "All"%>
+      <div class="blog-post">
+    
+  
+        <div class="row" style="text-align:left;"><h3><%= link_to "#{article.title}", article %></h3></div>
+        <div class="row" style="text-align:left;"><%= article.date %></div>
+        
+        <div class="row"><p style="text-align:left;"><%= article.body %></p></div>
+        <hr>
+      </div>
+    <% end %>
+    <% if article.tag == Cadet.find_by(id: session[:cadet_id]).flight %>
+      <div class="blog-post">
+    
+  
+        <div class="row" style="text-align:left;"><h3><%= link_to "#{article.title}", article %></h3></div>
+        <div class="row" style="text-align:left;"><%= article.date %></div>
+        
+        <div class="row"><p style="text-align:left;"><%= article.body %></p></div>
+        <hr>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+
+   
+    
+  <div class="col md"></div>
+</div>
+
+<%= render "events/back_to_top" %>
+
+</html>
