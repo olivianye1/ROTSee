@@ -83,7 +83,7 @@
         <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
-              <i class="fas fa-users"></i> Cadets
+              <i class="fas fa-user"></i> Cadets
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="/cadets" style="color:black;">Approved Cadets</a>
@@ -91,12 +91,12 @@
             </div>
           </div>
         <% else %>
-          <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;"> <i class="fas fa-users"></i> Cadets</a>
+          <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;"><i class="fas fa-user"></i> Cadets</a>
         <% end %>
-        <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;"> <i class="fas fa-calendar-alt"></i> Events</a>
+        
         <div class="dropdown">
         <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
-          Flights
+          <i class="fas fa-users"></i> Flights
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <%= Cadet.distinct.pluck(:flight).each do |flight| %>
@@ -104,6 +104,7 @@
             <%end%>
           </div>
         </div>
+        <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;"> <i class="fas fa-calendar-alt"></i> Events</a>
         
       </div>
       <div class="navbar-nav ml-auto">
