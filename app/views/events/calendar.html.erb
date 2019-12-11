@@ -1,0 +1,12 @@
+<br>
+<br>
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div>
+        <%= link_to "#{event.primaryType}", event %>
+    </div>
+  <% end %>
+<% end %>

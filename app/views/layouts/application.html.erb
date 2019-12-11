@@ -114,7 +114,16 @@
               <a class="dropdown-item" href=<%="/flights/Bravo"%> style="color:black;"> Bravo </a>
           </div>
         </div>
-        <a class="nav-item nav-link font-weight-bold" href="/events" id="navlink"> <i class="fas fa-calendar-alt"></i> Events</a>
+        
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="navlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+            <i class="fas fa-calendar-alt"></i> Events
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/events" style="color:black;">All Events</a>
+            <a class="dropdown-item" href="/calendar" style="color:black;">Calendar</a>
+          </div>
+        </div>
         <a class="nav-item nav-link font-weight-bold" href="/articles" id="navlink"> <i class="fas fa-sticky-note"></i></i> Posts</a>
 
 

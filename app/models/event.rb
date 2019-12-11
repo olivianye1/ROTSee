@@ -17,4 +17,8 @@ class Event < ApplicationRecord
                 prefix: true
             }
         }
+        
+    def start_time
+        self.eventDate
+    end
 end
