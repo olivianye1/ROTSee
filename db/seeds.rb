@@ -7,26 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-more_cadets = [ {:lastName =>'Nye', :firstName => 'Olivia', :email => 'onye@tulane.edu', :phoneNumber => '8477701060', :school => 'Tulane University', :position => 'Cadet Wing Commander', :course => 'POC', :gradYear => 2020 , :flight => 'Alpha', :username => 'onye', :password => 'password'},
-    {:lastName =>'Juenemann', :firstName => 'Riley', :email => 'rjuenemann@tulane.edu', :phoneNumber => '7204288077', :school => 'Tulane University', :position => 'Operations Group Commander', :course => 'POC', :gradYear => 2020 , :flight => 'Bravo', :username => 'rjuenemann', :password => 'password'},
-    {:lastName =>'Dorsey', :firstName => 'Kennedy', :email => 'kdorsey3@tulane.edu', :phoneNumber => '5046384147', :school => 'Tulane University', :position => 'Mission Support Group Commander', :course => 'POC', :gradYear => 2020, :flight => 'Alpha', :username => 'kdorsey3', :password => 'password'},
-    {:lastName => 'Hotsko', :firstName => 'Jessica', :email => 'jhotsko@tulane.edu', :phoneNumber => '4109243357', :school => 'Tulane University', :position => 'Squadron Commander', :course => 'POC', :gradYear => 2020, :flight => 'Bravo', :username => 'jhotsko',:password => 'password'},
-    {:lastName =>'Dewitt', :firstName => 'Marie', :email => 'mdewitt@tulane.edu', :phoneNumber => '1230001234', :school => 'Tulane University', :position => 'Alpha Flight Commander', :course => 'POC', :gradYear => 2020 , :flight => 'Alpha', :username => 'mdewitt', :password => 'password'},
-    {:lastName =>'Clark', :firstName => 'Kyra', :email => 'kclark7@tulane.edu', :phoneNumber => '4560004567', :school => 'Tulane University', :position => 'Bravo Flight Commander', :course => 'POC', :gradYear => 2021 , :flight => 'Bravo', :username => 'kclark7', :password => 'pwd'},
-    {:lastName =>'Westlake', :firstName => 'Alexa', :email => 'awestlak@tulane.edu', :phoneNumber => '7890006789', :school => 'Tulane University', :position => 'Deputy Squadron Commander', :course => 'POC', :gradYear => 2021 , :flight => 'Alpha', :username => 'awestlak', :password => 'pwd1'},
-    {:lastName => 'Wells', :firstName => 'Rachel', :email => 'rwells3@tulane.edu', :phoneNumber => '1110002222', :school => 'Tulane University', :position => 'MWR Officer', :course => 'POC', :gradYear => 2021 , :flight => 'Bravo', :username => 'rwells3', :password => 'pwd11'},
-    {:lastName => 'Kurdia', :firstName => 'Anastasia', :email => 'akurdia@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'GMCA', :course => 'GMC', :gradYear => 2022 , :flight => 'Alpha', :username => 'akurdia', :password => 'pwd11'},    
-    {:lastName => 'Anne', :firstName => 'Carri', :email => 'canne@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Bravo', :username => 'canne', :password => 'pwd'},
-    {:lastName => 'Edward', :firstName => 'Nathan', :email => 'nedward@tulane.edu', :phoneNumber => '1119999111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Alpha', :username => 'nedward', :password => 'pwd11'},
-    {:lastName => 'Paige', :firstName => 'Allyson', :email => 'apaige@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Bravo', :username => 'apaige', :password => 'pwd11'},
-    {:lastName => 'Bildstein', :firstName => 'Joseph', :email => 'jbildstein@tulane.edu', :phoneNumber => '111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Alpha', :username => 'jbildstein', :password => 'pwd11'},
-    {:lastName => 'Grant', :firstName => 'Daniel', :email => 'dgrant@tulane.edu', :phoneNumber => '9999999999', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'dgrant', :password => 'pwd11'},
-    {:lastName => 'Elliot', :firstName => 'Mason', :email => 'melliot@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'melliot', :password => 'pwd11'},
-    {:lastName => 'Louise', :firstName => 'Jaime', :email => 'jlouise@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'jlouise', :password => 'pwd11'},
-    {:lastName => 'James', :firstName => 'Landon', :email => 'ljames@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'ljames', :password => 'pwd11'},
-    {:lastName => 'Ryan', :firstName => 'Chase', :email => 'cryan@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'cryan', :password => 'pwd11'},
-    {:lastName => 'Day', :firstName => 'Jessica', :email => 'jday@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'jday', :password => 'pwd11'},
-    {:lastName => 'Miller', :firstName => 'Nicholas', :email => 'nmiller@tulane.edu', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'nmiller', :password => 'pwd11'} ]
+more_cadets = [ {:lastName =>'Nye', :firstName => 'Olivia', :email => 'rotseetest@gmail.com', :phoneNumber => '8477701060', :school => 'Tulane University', :position => 'Cadet Wing Commander', :course => 'POC', :gradYear => 2020 , :flight => 'Alpha', :username => 'onye', :password => 'password', :approved => true},
+    {:lastName =>'Juenemann', :firstName => 'Riley', :email => 'rotseetest@gmail.com', :phoneNumber => '7204288077', :school => 'Tulane University', :position => 'Operations Group Commander', :course => 'POC', :gradYear => 2020 , :flight => 'Bravo', :username => 'rjuenemann', :password => 'password', :approved => true},
+    {:lastName =>'Dorsey', :firstName => 'Kennedy', :email => 'rotseetest@gmail.com', :phoneNumber => '5046384147', :school => 'Tulane University', :position => 'Mission Support Group Commander', :course => 'POC', :gradYear => 2020, :flight => 'Alpha', :username => 'kdorsey3', :password => 'password', :approved => true},
+    {:lastName => 'Hotsko', :firstName => 'Jessica', :email => 'rotseetest@gmail.com', :phoneNumber => '4109243357', :school => 'Tulane University', :position => 'Squadron Commander', :course => 'POC', :gradYear => 2020, :flight => 'Bravo', :username => 'jhotsko',:password => 'password', :approved => true},
+    {:lastName =>'Dewitt', :firstName => 'Marie', :email => 'rotseetest@gmail.com', :phoneNumber => '1230001234', :school => 'Tulane University', :position => 'Alpha Flight Commander', :course => 'POC', :gradYear => 2020 , :flight => 'Alpha', :username => 'mdewitt', :password => 'password', :approved => true},
+    {:lastName =>'Clark', :firstName => 'Kyra', :email => 'rotseetest@gmail.com', :phoneNumber => '4560004567', :school => 'Tulane University', :position => 'Bravo Flight Commander', :course => 'POC', :gradYear => 2021 , :flight => 'Bravo', :username => 'kclark7', :password => 'password', :approved => true},
+    {:lastName =>'Westlake', :firstName => 'Alexa', :email => 'rotseetest@gmail.com', :phoneNumber => '7890006789', :school => 'Tulane University', :position => 'Deputy Squadron Commander', :course => 'POC', :gradYear => 2021 , :flight => 'Alpha', :username => 'awestlak', :password => 'password', :approved => true},
+    {:lastName => 'Wells', :firstName => 'Rachel', :email => 'rotseetest@gmail.com', :phoneNumber => '1110002222', :school => 'Tulane University', :position => 'MWR Officer', :course => 'POC', :gradYear => 2021 , :flight => 'Bravo', :username => 'rwells3', :password => 'password', :approved => true},
+    {:lastName => 'Kurdia', :firstName => 'Anastasia', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'GMCA', :course => 'GMC', :gradYear => 2022 , :flight => 'Alpha', :username => 'akurdia', :password => 'password', :approved => true},    
+    {:lastName => 'Anne', :firstName => 'Carri', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Bravo', :username => 'canne', :password => 'password', :approved => true},
+    {:lastName => 'Edward', :firstName => 'Nathan', :email => 'rotseetest@gmail.com', :phoneNumber => '1119999111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Alpha', :username => 'nedward', :password => 'password', :approved => true},
+    {:lastName => 'Paige', :firstName => 'Allyson', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Bravo', :username => 'apaige', :password => 'password', :approved => true},
+    {:lastName => 'Edward', :firstName => 'Joseph', :email => 'rotseetest@gmail.com', :phoneNumber => '111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Alpha', :username => 'jbildstein', :password => 'password', :approved => true},
+    {:lastName => 'Grant', :firstName => 'Daniel', :email => 'rotseetest@gmail.com', :phoneNumber => '9999999999', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'dgrant', :password => 'password', :approved => true},
+    {:lastName => 'Elliot', :firstName => 'Mason', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'melliot', :password => 'password', :approved => true},
+    {:lastName => 'Louise', :firstName => 'Jaime', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'jlouise', :password => 'password', :approved => true},
+    {:lastName => 'James', :firstName => 'Landon', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'ljames', :password => 'password', :approved => true},
+    {:lastName => 'Ryan', :firstName => 'Chase', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'cryan', :password => 'password', :approved => true},
+    {:lastName => 'Day', :firstName => 'Jessica', :email => 'jrotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'jday', :password => 'password', :approved => true},
+    {:lastName => 'Miller', :firstName => 'Nicholas', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'nmiller', :password => 'password', :approved => true} ]
     
 more_cadets.each do |cadet|
     Cadet.create!(cadet)
@@ -57,11 +57,51 @@ more_events.each do |event|
     Event.create!(event)
 end
 
-@cadets = Cadet.all
+@cadets = Cadet.all.order(:lastName)
 @events = Event.all
 
 @events.each do |event|
     @cadets.each do |cadet|
-        Attendance.create!(:attended => 'Present', :cadet_id => cadet.id, :event_id => event.id)
+        Attendance.create!(:attended => 1, :cadet_id => cadet.id, :event_id => event.id)
     end
+end
+
+more_articles = [{:date => Date.new(2019,9,5), :title => "Alpha Post 1", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,9,7), :title => "Alpha Post 2", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,9,9), :title => "Alpha Post 3", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,9,10), :title => "Alpha Post 4", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,10,1), :title => "Alpha Post 5", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,10,22), :title => "Alpha Post 6", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,10,27), :title => "Alpha Post 7", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,11,8), :title => "Alpha Post 8", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,11,9), :title => "Alpha Post 9", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,12,9), :title => "Alpha: Winning Attendance Competition", :body => "We won the attendance competition! Pizza party Friday to celebrate.", :tag => "Alpha"},
+{:date => Date.new(2019,11,10), :title => "Bravo Post 1", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,11), :title => "Bravo Post 2", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,15), :title => "Bravo Post 3", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,16), :title => "Bravo Post 4", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,22), :title => "Bravo Post 5", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,11,29), :title => "Bravo Post 6", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,1), :title => "Bravo Post 7", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,3), :title => "Bravo Post 8", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,5), :title => "Bravo Post 9", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,10), :title => "Bravo: Losing Attendance Competition", :body => "It's a bummer that we lost the attendance competition. Better luck next semester!", :tag => "Bravo"},
+{:date => Date.new(2019,9,20), :title => "All Cadets Post 1", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,21), :title => "All Cadets Post 2", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,12), :title => "All Cadets Post 3", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,27), :title => "All Cadets Post 4", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,28), :title => "All Cadets Post 5", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,11,29), :title => "All Cadets Post 6", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,1), :title => "All Cadets Post 7", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,2), :title => "All Cadets Post 8", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,3), :title => "All Cadets Post 9", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,4), :title => "All Cadets Post 10", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,5), :title => "Volunteer Opportunity", :body => "Volunteer opportunity on Dec 15th serving dinner - contact Cadet Juenemann if interested.", :tag => "All"},
+{:date => Date.new(2019,12,6), :title => "Reminder", :body => "Turn in your end of semester feedback form, due Dec 9th.", :tag => "All"},
+{:date => Date.new(2019,12,8), :title => "Congrats!", :body => "Congrats to Alpha flight, who won the semester attendance challenge!", :tag => "All"},
+{:date => Date.new(2019,12,11), :title => "Workouts over break", :body => "Please remember to follow the weekly workout schedule over break.", :tag => "All"},
+{:date => Date.new(2019,12,9), :title => "Forms Due", :body => "Last reminder - forms due today!", :tag => "All"}]
+
+more_articles.each do |article|
+    Article.create!(article)
 end

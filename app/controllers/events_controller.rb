@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /events
   # GET /events.json
   def index
@@ -10,7 +10,8 @@ class EventsController < ApplicationController
         @events = Event.all.order(:eventDate)
       end
     else
-      @events = Event.all.order(:eventDate)
+      @events = Event.all.order(eventDate: :desc).page(params[:page]).per_page(15)
+     
     end
   end
 
@@ -29,6 +30,7 @@ class EventsController < ApplicationController
   def edit
     @cadets = Cadet.all.order(:lastName)
     @attendances = Attendance.all.order(:event)
+    @attendance_options = {'Absent' => 0, 'Present' => 1, 'Tardy' => 2}
   end
 
   # POST /events
@@ -42,9 +44,9 @@ class EventsController < ApplicationController
       redirect_to '/events/new', danger: "Event not created."
     end
     
-    @cadets = Cadet.all.order(:lastName)
+    @cadets = Cadet.where(approved: true).order(:lastName)
     @cadets.each do |cadet|
-    Attendance.create!(:attended => 'Present', :cadet_id => cadet.id, :event_id => @event.id)
+      Attendance.create!(:attended => 1, :cadet_id => cadet.id, :event_id => @event.id)
     end
   end
 
@@ -54,6 +56,16 @@ class EventsController < ApplicationController
 
     if @event.update(event_params)
       redirect_to @event, success: "Event was successfully updated."
+      @event.attendances.each do |attendance|
+        @cadet = Cadet.find_by_id(attendance.cadet_id)
+        if attendance.attended == 0
+          CadetMailer.with(cadet: @cadet, event: @event).absent_email.deliver_later
+        elsif attendance.attended == 2
+          CadetMailer.with(cadet: @cadet, event: @event).tardy_email.deliver_later
+        else
+          CadetMailer.with(cadet: @cadet, event: @event).present_email.deliver_later
+        end
+      end
     else
       redirect_to edit_event_path(@event), danger: "Event was not updated."
     end
@@ -67,6 +79,10 @@ class EventsController < ApplicationController
     
     @event.destroy
     redirect_to events_url, info: "Event successfully deleted."
+  end
+  
+  def calendar
+    @events = Event.all
   end
 
   private

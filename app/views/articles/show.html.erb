@@ -1,0 +1,30 @@
+<html lang="en">
+<header>
+  <style>
+    .btn-secondary{
+    
+    }
+  </style>
+</header>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card border-0 shadow my-5">
+  <div class="card-body p-5">
+    <h1 class="font-weight-light" style="text-align: left;"><%= @article.title %></h1> 
+    <p style="text-align: left;"><%= @article.date %></p>
+    <p style="text-align: left;"><%= @article.body %></p>
+
+  </div>
+</div>
+
+
+<% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
+    <div>
+      <%= link_to '<i class="fas fa-user-edit"></i> Edit'.html_safe, edit_article_path(@article), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0'%>
+  
+      <%= link_to ' <i class="fas fa-user-times"></i> Remove'.html_safe, @article, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm", :role => 'button', :tabindex => '0'  %>
+    </div>
+<% end %>
+
+</html>

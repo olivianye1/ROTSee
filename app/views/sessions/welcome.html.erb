@@ -1,49 +1,30 @@
-<% if logged_in? %>
-    <p id="notice"><%= notice %></p>
-    <head>
-        <style>
-        /* Container holding the image and the text */
-        .container {
-          position: relative;
-          text-align: center;
-          color: black;
-        }
-        
-        /* Centered text */
-        .centered {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-        
-        .front-page {
-          margin-top: 50px;
-          margin-bottom: 50px;
-        }
-        </style>
-    
-    <!--Front page banner-->
-    </head>
-    <div class="container">
-      <div class = "front-page">
-        <img src="https://github.com/olivianye1/ROTSee/blob/master/app/views/cadets/ROTSee2.jpg?raw=true" alt="Green Squares and Grunge Background" width="800" height="400" ></img>
-        <div class="centered">
-          <h1 style="font-size:100px;color:black;">Welcome to ROTSee!</h1>
-        </div>
-      </div>
-    </div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<html lang="en">
 
-    <p style="margin-top: 50px;"></p>
-
-    <div class="Site Features">
-      <a href="/cadets" class="btn btn-dark btn-lg" style = rgb(75,83,32) role="button">View All Cadets</a>
-      <a href="/events" class="btn btn-dark btn-lg"  role="button">View All Events</a>
-    </div>
-<% else %>
   <p id="notice"><%= notice %></p>
-    <head>
-        <style>
+  <head>
+      <style>
+        body {
+          background: url('') no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          background-size: cover;
+          -o-background-size: cover;
+          background-color: white;
+        }
+        
+        body::after {
+          content: "";
+          background: url("https://github.com/olivianye1/ROTSee/blob/master/app/views/cadets/ROTSee2.jpg?raw=true");
+          opacity: 0.2;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          z-index: -1;   
+}
+        
         /* Container holding the image and the text */
         .container {
           position: relative;
@@ -60,29 +41,125 @@
         }
         
         .front-page {
-          margin-top: 50px;
-          margin-bottom: 50px;
+ 
+          margin-bottom: 25px;
         }
-        
-        
-        </style>
+      </style>
+  </head>
+  <body>
+    <!--Front page banner-->
+  <% if logged_in? %>
+   <div class="container">
+ 
+
+      <h1 class="display-2">Welcome to Rotsee</h1>
     
-    </head>
-    
-     <!--Front page banner-->   
-    <div class="container">
       <div class = "front-page">
-        <img src="https://github.com/olivianye1/ROTSee/blob/master/app/views/cadets/ROTSee2.jpg?raw=true" alt="Squares and Grunge 1" width="800" height="400" ></img>
+        <p style="font-size: 6rem; color: rgb(75,83,32)"><i class="fas fa-plane-departure"></i></p>
+
         <div class="centered">
-          <h1 style="font-size:100px;color:black;">Welcome to ROTSee!</h1>
+         
+        </div>
+      </div>
+ 
+  
+    </div>
+    
+    <p style="margin-top: 30px; font-size: 24px;">ROTSee is a personnel manager designed for ROTC members. </p>
+    
+    <p style="font-size:24px;">Everything that's needed to manage ROTC members is right here, all in one place.</p>
+    <a href="/about" style="font-sizeL 24px; color: black;">Learn More About ROTSee Here.</a>
+    <br>
+    <br>
+    <p style="margin-top:40px; font-size:24px;">Get started.</p>
+ 
+    <div class="Site Features">
+      <a href="/cadets" class="btn btn-dark btn-lg" style = rgb(75,83,32) role="button" tabindex='0'>View All Cadets</a>
+      <a href="/events" class="btn btn-dark btn-lg"  role="button" tabindex='0'>View All Events</a>
+    </div>
+    
+  <% else %>
+   <!--Front page banner--> 
+   <div class="container">
+    <div class="row">
+      <div class="col">
+      <h1 class="display-2">Welcome to Rotsee</h1>
+    
+      <div class = "front-page">
+        <span style="font-size: 6rem; color: rgb(75,83,32)"><i class="fas fa-plane-departure"></i></span>
+
+        <div class="centered">
+         
         </div>
       </div>
     </div>
-
-    <p style="margin-top: 50px;"></p>
-
-    <div class="Site Features">
-      <a href="/cadets/new" class="btn btn-dark btn-lg"  role="button">Sign Up</a>
-      <a href="/login" class="btn btn-dark btn-lg"  role="button">Login</a>
+      <div class="col">
+        <div class="card border-0 shadow my-5">
+          <div class="card-body p-5">
+            <form_tag>
+            <%= form_tag '/login' do  %>
+  
+            <div class="row">
+       <div class="col-sm-2"></div>
+        <label for='username' class="col-sm-4 col-form-label"><strong>Username: </strong></label>
+        <div class="col-sm-4">
+           <%= text_field_tag :username, params[:username], class: 'form-control', autofocus: true %>
+        </div>
+        <div class="col-sm-4"></div>
+     </div>
+     
+            <br>
+  
+            <div class="row">
+       <div class="col-sm-2"></div>
+        <label for='password' class="col-sm-4 col-form-label"><strong>Password: </strong></label>
+        <div class="col-sm-4">
+           <%= password_field_tag :password, nil, class: 'form-control'  %>
+        </div>
+        <div class="col-sm-4"></div>
+     </div>
+     
+            <br>
+     
+            <div class="row">
+       <div class="col-sm-2"></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+           <div class="checkbox">
+              <label><input type="checkbox"> Remember me</label>
+           </div>
+      
+        
+  
+           <!-- onclick="alert('Login')" -->
+           <button id = "Login" type="submit" class="btn btn-primary"> <i class="fas fa-sign-in-alt"></i> Login</button>
+     </div>
+     <div class="col-sm-2"></div>
+     </form_tag>
+     </div>
+            <p class = "display" style="margin-top: 20px; margin-bottom:20px;"><%= link_to 'Forgot password?', new_password_reset_path %></p>
+  
+          </div>
+        </div>
+      </div>
     </div>
+    </div>
+    
+    <p style="margin-top: 30px; font-size: 24px;">ROTSee is a personnel manager designed for ROTC members. </p>
+    
+    <p style="font-size:24px;">Everything that's needed to manage ROTC members is right here, all in one place.</p>
+    <a href="/about" style="font-sizeL 24px;">Learn More About ROTSee Here.</a>
+    <br>
+    <br>
+    <p style="margin-top:40px; font-size:24px;">Get started.</p>
+    <div class="Site Features">
+      <a href="/cadets/new" class="btn btn-dark btn-lg" style = rgb(75,83,32) role="button" tabindex='0'>Sign Up</a>
+      <a href="/login" class="btn btn-dark btn-lg"  role="button" tabindex='0'>Login</a>
+    </div>
+
+    
 <%end%>
+<%end%>
+
+  </body>
+</html>

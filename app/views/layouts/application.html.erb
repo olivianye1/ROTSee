@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <title>ROTSee</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag asset_path('logo.png') %>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
     <style>
       .container {
         padding-right: 0;
@@ -29,15 +36,10 @@
         color: white;
       }
         
-      /* Change the color of links on hover */
-        .navbar a:hover {
-          background-color: black;
-        }
-        
         /* Add a color to the active/current link */
-        .navbar a.active {
-          background-color: #4CAF50;
-          color: black;
+      .navbar a.active {
+        background-color: #4CAF50;
+        color: black;
         }
       .navbar {
         position: fixed;
@@ -55,26 +57,80 @@
         margin-top: 100px;
         color: white;
       }
+        
+      .dropdown a:hover{
+        background-image:  none;
+        background-color: lightgray;
+        color: black;
+      }
       
+      #navlink{
+        color: white;
+      }
+      
+      /* Change the color of links on hover */
+      #navlink:hover {
+        color: black;
+      }
+      
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; // remove the gap so it doesn't close
+       }
     </style>
   </head>
   <% if logged_in? %>
   
   <!--Navigation Bar-->
   <nav class="navbar navbar-expand-lg navbar-light " style="background-color: 	rgb(75,83,32)">
-    <a class="navbar-brand font-weight-bold" href="/" style="background-color: rgb(75,83,32); color: white;">ROTSee</a>
+    <a class="navbar-brand font-weight-bold" href="/" id="navlink" style="background-color: rgb(75,83,32);"><i class="fas fa-plane-departure"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" role="navigation">
       <div class="navbar-nav">
-        <a class="nav-item nav-link font-weight-bold" href="/" style="color:white;">Home</a>
-        <a class="nav-item nav-link font-weight-bold" href="/cadets" style="color:white;">Cadets</a>
-        <a class="nav-item nav-link font-weight-bold" href="/events" style="color:white;">Events</a>
+        <a class="nav-item nav-link font-weight-bold" id= "navlink" href="/"> <i class="fas fa-home"></i> Home</a>
+        
+        <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="navlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <i class="fas fa-user"></i> Cadets
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/cadets" style="color:black;">Approved Cadets</a>
+              <a class="dropdown-item" href="/unapproved" style="color:black;">Unapproved Cadets</a>
+            </div>
+          </div>
+        <% else %>
+          <a class="nav-item nav-link font-weight-bold" href="/cadets" id= "navlink"><i class="fas fa-user"></i> Cadets</a>
+        <% end %>
+        
+        <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="navlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-users"></i> Flights
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href=<%="/flights/Alpha"%> style="color:black;"> Alpha </a>
+              <a class="dropdown-item" href=<%="/flights/Bravo"%> style="color:black;"> Bravo </a>
+          </div>
+        </div>
+        
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="navlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+            <i class="fas fa-calendar-alt"></i> Events
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/events" style="color:black;">All Events</a>
+            <a class="dropdown-item" href="/calendar" style="color:black;">Calendar</a>
+          </div>
+        </div>
+        <a class="nav-item nav-link font-weight-bold" href="/articles" id="navlink"> <i class="fas fa-sticky-note"></i></i> Posts</a>
+
+
       </div>
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" style="color:white;">Cadet <%= current_cadet.lastName %></a>
-        <a class="nav-item nav-link font-weight-bold" href="/logout" style="color:white;">Logout</a>
+        <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" id="navlink"> <i class="fas fa-user-circle"></i> Cadet <%= current_cadet.lastName %></a>
+        <a class="nav-item nav-link font-weight-bold" href="/logout" id="navlink"> <i class="fas fa-sign-out-alt"></i> Logout</a>
       </div>
     </div>
   </nav>
@@ -83,10 +139,15 @@
   
     <!--Navigation Bar-->
   <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(75,83,32)">
-    <a class="navbar-brand font-weight-bold" href="/" style="color:white;">ROTSee</a>
+    <a class="navbar-brand font-weight-bold" href="/" style="color:white;"><i class="fas fa-plane-departure"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
+    <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link font-weight-bold" href="/login" id="navlink"> <i class="fas fa-sign-in-alt"></i> Login </a>
+        <a class="nav-item nav-link font-weight-bold" href="/cadets/new" id="navlink"> <i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
   </nav>
   
   <% end %>
@@ -95,11 +156,13 @@
   <body>
   <br>
   <br>
+  
   <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name %>">
       <%= msg %>
     </div>
   <% end %>
+  
     <div class="container text-center" role="main">
       <%= yield %>
     </div>
@@ -111,9 +174,4 @@
     </div>
   </body>
 
-
-
-
-
-  
 </html>

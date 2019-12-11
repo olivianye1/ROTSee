@@ -1,12 +1,64 @@
-<br></br>
-<h1>Login</h1>
-<br></br>
-<%= form_tag '/login' do %>
-   <%= label_tag :username%>
-   <%= text_field_tag :username %>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%>
-   <%= submit_tag "Login"%>
-<%end%>
-<p style="margin-top: 20px;">New user? <%= link_to "Sign up now!", '/cadets/new' %></p>
+<html lang="en">
 
+<style>
+
+    .col-form-label{
+      text-align: right;
+    }
+    .col-sm{
+      text-align: left;
+    }
+    
+</style>
+
+<h2 class = "display-4" style="margin-bottom:20px;">Login</h2>
+
+<form_tag>
+<%= form_tag '/login' do  %>
+
+   <div class="row">
+      <label for='username' class="col-sm-4 col-form-label"><strong>Username: </strong></label>
+      <div class="col-sm-4">
+         <%= text_field_tag :username, params[:username], class: 'form-control', autofocus: true %>
+      </div>
+      <div class="col-sm-4"></div>
+   </div>
+   
+   <br>
+
+   <div class="row">
+      <label for='password' class="col-sm-4 col-form-label"><strong>Password: </strong></label>
+      <div class="col-sm-4">
+         <%= password_field_tag :password, nil, class: 'form-control'  %>
+      </div>
+      <div class="col-sm-4"></div>
+   </div>
+   
+   <br>
+   
+   <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-2">
+         <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+         </div>
+      </div>
+      
+      <div class="col-sm-2">
+         <!-- onclick="alert('Login')" -->
+         <button id = "Login" type="submit" class="btn btn-primary btn-sm"> <i class="fas fa-sign-in-alt"></i> Login</button>
+      </div>
+      
+      <div class="col-sm-5"></div>
+   </div>
+   
+<%end%>
+</form_tag>
+
+<br>
+
+<p class = "display" style="margin-bottom:20px;"><%= link_to 'Forgot password?', new_password_reset_path %></p>
+
+<p class = "display" style="margin-bottom:20px;">New user?         <a href="/cadets/new" class="btn btn-dark btn-sm"  role="button" tabindex='0'> <i class="fas fa-user-plus"></i> Sign Up Now!</a></p>
+
+</html>

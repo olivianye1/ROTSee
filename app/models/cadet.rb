@@ -35,6 +35,7 @@ class Cadet < ApplicationRecord
         :uniqueness => { :case_sensitive => false }
     
     validates :password,
+        :if => :password,
         presence: true,
         length: {maximum: 100},
         allow_nil: false
@@ -47,5 +48,65 @@ class Cadet < ApplicationRecord
                 prefix: true
             }
         }
-end
+        
+    def pt_attendance
+    
+        @PT_percent = 0
+        @total_PT = 0
+        @pres_PT = 0
+        @attendances = self.attendances
+    
+        @attendances.each do |attendance|
+            if attendance.event.primaryType == "PT"
+                @total_PT += 1
+                if attendance.attended == 1
+                    @pres_PT += 1
+                elsif attendance.attended == 2
+                    @pres_PT += 0.5
+                end
+            end
+        end
+        if @total_PT != 0
+            @PT_percent = @pres_PT.to_f / @total_PT.to_f * 100
+        end
+        @PT_percent
+    end
+    
+    def llab_attendance
+    
+        @llab_percent = 0
+        @total_llab = 0
+        @pres_llab = 0
+        @attendances = self.attendances
+    
+        @attendances.each do |attendance|
+            if attendance.event.primaryType == "LLAB"
+                @total_llab += 1
+                
+                if attendance.attended == 1
+                    @pres_llab += 1
+                elsif attendance.attended == 2
+                    @pres_llab += 0.5
+                end
+            end
+        end
+        if @total_llab != 0
+            @llab_percent = @pres_llab.to_f / @total_llab.to_f * 100
+        end
+        @llab_percent
+    end
+    
+    def send_password_reset
+      generate_token(:password_reset_token)
+      self.password_reset_sent_at = Time.zone.now
+      save!(validate: false)
+      CadetMailer.forgot_password(self).deliver# This sends an e-mail with a link for the user to reset the password
+    end
 
+    # This generates a random password reset token for the user
+    def generate_token(column)
+      begin
+        self[column] = SecureRandom.urlsafe_base64
+      end while Cadet.exists?(column => self[column])
+    end
+end

@@ -1,0 +1,13 @@
+<html lang="en">
+<h2 style="margin-top: 20px;">New Post</h2>
+
+
+<div>
+  <%= link_to 'All Posts', articles_path, :class => "btn btn-secondary  btn-sm", :style => "float-right", :role => 'button', :tabindex => '0' %>
+</div>
+<br>
+<br>
+<%= render 'form', article: @article %>
+
+
+</html>

@@ -1,0 +1,54 @@
+<html lang="en">
+
+<style>
+
+    .col-form-label{
+      text-align: right;
+    }
+    .col-sm{
+      text-align: left;
+    }
+    
+</style>
+
+<br>
+
+<h2 class="display-4">Reset Password</h2>
+
+<%= form_for @cadet, :url => password_reset_path(params[:id]) do |f| %>
+  <% if @cadet.errors.any? %>
+    <div class='error_messages'>
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @cadet.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="row">
+      <label for='username' class="col-sm-4 col-form-label"><strong>New Password: </strong></label>
+      <div class="col-sm-6">
+         <%= f.password_field :password, required: true, hide_label: true %>
+      </div>
+      <div class="col-sm-2"></div>
+  </div>
+   
+  <div class="row">
+    <label for='username' class="col-sm-4 col-form-label"><strong>Confirm Password: </strong></label>
+    <div class="col-sm-6">
+      <%= f.password_field :password_confirmation, required: true, hide_label: true %>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-5"></div>
+      <div class="col-sm-2">
+        <!-- onclick="alert('Reset Password')" -->
+        <button id = "Update Password" type="submit" class="btn btn-primary btn-sm"> <i class="fas fa-sign-in-alt"></i>Update Password</button>
+      </div>
+    <div class="col-sm-5"></div>
+  </div>
+<% end %>

@@ -1,11 +1,16 @@
 <%= javascript_include_tag "sort_table" %>
 
+<html lang="en">
 <head>
   <style>
+    .up-arrow {
+      text-align: right;
+    }
+    .down-arrow{
+      text-align: right;
+    }
   </style>
 </head>
-
-
 
 <div class="container text-left">
   <p id="notice"><%= notice %></p>
@@ -16,7 +21,7 @@
 <div class="container text-right" style="display: flex; justify-content: flex-end" role="search">
   <%= form_tag cadets_path, method: :get do %>
     <%= text_field_tag 'term', params[:term], placeholder: "First or Last Name..." %>
-    <button class="btn btn-secondary btn-sm" type="submit_tag" >Search</button>
+    <button class="btn btn-secondary btn-sm" type="submit_tag" ><i class="fas fa-search"></i> Search</button>
   <% end %>
   <br>
   <br>
@@ -28,19 +33,19 @@
 <table class="table table-striped table-bordered", id = "table">
   <thead class="thead-dark">
     <tr>
-      <th onclick="sortTable(0)", scope = "col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Cadet Name</th>
-      <th onclick="sortTable(1)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Flight</th>
-      <th onclick="sortTable(2)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Position</th>
-      <th onclick="sortTable(3)",scope="col", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">School</th>
+      <th onclick="sortTable(0,0)", scope = "col"> Cadet Name <div class="up-arrow", id = "0up">&#9650</div> <div class="down-arrow", id = "0down">&#9660</div> </th>
+      <th onclick="sortTable(1,0)",scope="col"> Flight <div class="up-arrow", id = "1up">&#9650</div> <div class="down-arrow", id = "1down">&#9660</div> </th>
+      <th onclick="sortTable(2,0)",scope="col"> Position <div class="up-arrow", id = "2up">&#9650</div> <div class="down-arrow", id = "2down">&#9660</div> </th>
+      <th onclick="sortTable(3,0)",scope="col"> School <div class="up-arrow", id = "3up">&#9650</div> <div class="down-arrow", id = "3down">&#9660</div> </th>
     </tr>
   </thead>
   <tbody>
     <% @cadets.each do |cadet| %>
       <tr>
         <td style="font-weight:bold"><%= link_to "#{cadet.lastName}, #{cadet.firstName} ", cadet %></td>
-        <td><%= link_to "#{cadet.flight}", cadet %></td>
-        <td><%= link_to "#{cadet.position}", cadet %></td>
-        <td><%= link_to "#{cadet.school}", cadet %></td>
+        <td><%= link_to cadet.flight, "/flights/#{cadet.flight}" %></td>
+        <td><%= cadet.position %></td>
+        <td><%= cadet.school %></td>
       </tr>
     <% end %>
   </tbody>
@@ -48,7 +53,11 @@
 
 <p></p>
 
-<%= link_to 'Download Roster', cadets_roster_path( format: 'pdf'), :class => 'btn btn-secondary btn-sm'%>
+<!--%= link_to '<i class="fas fa-user-edit"></i> Edit'.html_safe, edit_cadet_path(@cadet), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0'%-->
+
+<%= link_to '<i class="fas fa-download"></i> Download Roster'.html_safe, cadets_roster_path( format: 'pdf'), :class => "btn btn-primary btn-sm", :role => 'button', :tabindex => '0'%>
+  
+<!--%= link_to 'Download Roster', cadets_roster_path( format: 'pdf'), :class => 'btn btn-secondary btn-sm' :i class="fas fa-user-times">%-->
 <!--%= link_to 'Download Roster 2', @cadets, :method => 'roster', :format => 'pdf',  :class => 'btn btn-secondary btn-sm' %-->
 <!--%= link_to 'Download Roster', cadets_path( @cadets, :format => :pdf), :format => :pdf, :target => "_blank", :class => "btn btn-secondary btn-success btn-sm"%--> 
 
@@ -61,3 +70,4 @@
 <br>
 <%= render "events/back_to_top" %>
 
+</html>

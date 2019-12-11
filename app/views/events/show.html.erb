@@ -1,5 +1,6 @@
-
 <%= javascript_include_tag "sort_table" %>
+
+<html lang="en">
 
 <head>
   <style>
@@ -46,8 +47,8 @@
   <table class = "table table-striped table-bordered", id = "table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col", onclick="sortTable(0)" onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Name</th>
-        <th scope="col", onclick="sortTable(1)" onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Attendance</th>
+        <th scope="col"> Name </th>
+        <th scope="col"> Attendance </th>
       </tr>
     </thead>
     <tbody>
@@ -55,12 +56,12 @@
       <% @ord_attendances.each do |attendance| %>
         <tr>
           <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
-          <% if attendance.attended === "Absent"%>
-            <td class = "bg-danger text-white"><%= attendance.attended %></td>
-          <% elsif attendance.attended === "Present" %>
-             <td  class ="bg-success text-white"><%= attendance.attended %></td>
-          <% elsif attendance.attended === "Tardy" %>
-             <td  class ="bg-warning text-black"><%= attendance.attended %></td>
+          <% if attendance.attended === 0%>
+            <td class = "text-danger"><i class="fas fa-user-times"></i><%= "Absent" %></td>
+          <% elsif attendance.attended === 1 %>
+             <td  class ="text-success"><i class="fas fa-user-check"></i><%= "Present" %></td>
+          <% elsif attendance.attended === 2 %>
+             <td  class ="text-warning"><i class="fas fa-user-times"></i><%= "Tardy" %></td>
           <% else %>
              <td><%= attendance.attended %></td>
           <% end %>            
@@ -69,12 +70,14 @@
     </tbody>
   </table>
   
-  <%= link_to 'Edit Details and Attendance', edit_event_path(@event), :class => "btn btn-secondary btn-info btn-sm" %>
+  <%= link_to '<i class="fas fa-edit"></i> Edit Details and Attendance'.html_safe, edit_event_path(@event), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0' %>
   
-  <%= link_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm"  %> 
+  <%= link_to '<i class="fas fa-calendar-times"></i> Delete Event'.html_safe, @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm", :role => 'button', :tabindex => '0'  %> 
   <br>
   <br>
   
 <%= render "back_to_top" %>
 
 <%end%>
+
+</html>

@@ -14,11 +14,13 @@ gem 'pg_search'
 gem 'bcrypt', '~> 3.1.2'
 gem "bootstrap_form", "~> 4.0"
 gem 'figaro'
+gem 'will_paginate', '~> 3.1.1'
+gem 'will_paginate-bootstrap'
+gem "simple_calendar", "~> 2.0"
 
 
 
 group :production do
-  gem 'wicked_pdf'
   gem 'wkhtmltopdf-heroku'
 end
 

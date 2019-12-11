@@ -1,33 +1,44 @@
 <%= javascript_include_tag "sort_table" %>
 
+<html lang="en">
 <head>
   <style>
+    .up-arrow {
+      text-align: right;
+    }
+    .down-arrow{
+      text-align: right;
+    }
+    
   </style>
 </head>
 <div class="container text-left">
   <p id="notice"><%= notice %></p>
   <h2 class="display-4" style="margin-top: 30px;">Events</h2>
   <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
-    <%= link_to 'New Event', new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
+    <%= link_to '<i class="far fa-calendar-plus"></i> New Event'.html_safe, new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
   <%end%>
+  <%= link_to '<i class="fas fa-calendar-alt"></i> Calendar View'.html_safe, '/calendar', :class => "btn btn-secondary btn-success btn-sm"%>
 </div>
 
-<div class="container text-right" style="display: flex; justify-content: flex-end" role="search">
+<div class="container text-right" style="display: flex; justify-content: flex-end">
   <%= form_tag events_path, method: :get do %>
     <%= text_field_tag 'term', params[:term], placeholder: "YYYY-MM-DD" %>
-    <button class="btn btn-secondary btn-sm" type="submit_tag" >Search</button>
+    <button class="btn btn-secondary btn-sm" type="submit_tag" ><i class="fas fa-search"></i> Search</button>
   <% end %>
   <br>
   <br>
 </div>
 
+<%= will_paginate @events%>
+<br>
 
 <!--Event Table-->
 <table class="table table-striped table-bordered", id = "table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col", onclick="sortTable(0)", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Event Date</th>
-      <th scope="col", onclick="sortTable(1)", onMouseOver="this.style.color='yellow'", onMouseOut="this.style.color='#FFF'">Primary Type</th>
+      <th scope="col", onclick="sortTable(0,1)"> Event Date <div class="up-arrow", id = "0up">&#9650</div> <div class="down-arrow", id = "0down", style = "test-align: right">&#9660</div> </th>
+      <th scope="col", onclick="sortTable(1,1)"> Primary Type <div class="up-arrow", id = "1up">&#9650</div> <div class="down-arrow", id = "1down">&#9660</div></th>
       <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
         <th scope="col">Update Event</th>
       <%end%>
@@ -39,13 +50,17 @@
         <td><%= link_to "#{event.eventDate}", event %></td>
         <td><%= event.primaryType %></td>
         <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
-          <td><%= link_to 'Edit', edit_event_path(event), :class => "btn btn-secondary btn-info btn-sm" %></td>
+          <td><%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_event_path(event), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0'%></td>
         <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= will_paginate @events%>
 <br>
+<br>
+
+</html>
 
 <%= render "back_to_top" %>

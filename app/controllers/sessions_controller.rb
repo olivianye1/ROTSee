@@ -5,12 +5,16 @@ class SessionsController < ApplicationController
 
   def create
     @cadet = Cadet.find_by(username: params[:username])
-    if @cadet && @cadet.authenticate(params[:password])
-      session[:cadet_id] = @cadet.id
-      redirect_to '/welcome', success: "You have been signed in as #{@cadet.username}."
-    else
-      redirect_to '/login', danger: "Invalid username and/or password"
-    end
+   if @cadet && @cadet.authenticate(params[:password])
+        if @cadet.approved == true
+            session[:cadet_id] = @cadet.id
+            redirect_to '/welcome', info: "Successful Login"
+        else
+            redirect_to '/login', danger: "Your account has not been approved yet."
+        end
+   else
+     redirect_to '/login', danger: "Invalid username and/or password."
+   end
   end
 
   def login
