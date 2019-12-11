@@ -1,5 +1,6 @@
 class Cadet < ApplicationRecord
     has_many :attendances, dependent: :destroy
+    has_many :tasks, dependent: :destroy
     has_many :events, through: :attendances
     has_secure_password
     validates :password, confirmation: { case_sensitive: true }

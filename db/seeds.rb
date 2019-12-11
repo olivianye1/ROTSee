@@ -60,6 +60,11 @@ end
 @cadets = Cadet.all.order(:lastName)
 @events = Event.all
 
+@cadets.each do |cadet|
+    Task.create!(:date_created => Date.today, :date_due => Date.today.next_day(3), :description => "Memo due for absence", :completed => 0, :cadet_id => cadet.id)
+    Task.create!(:date_created => Date.today, :date_due => Date.today.next_day(3), :description => "Memo due for tardiness", :completed => 0, :cadet_id => cadet.id)
+end
+
 @events.each do |event|
     @cadets.each do |cadet|
         Attendance.create!(:attended => 1, :cadet_id => cadet.id, :event_id => event.id)

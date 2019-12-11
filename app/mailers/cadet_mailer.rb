@@ -31,4 +31,16 @@ class CadetMailer < ApplicationMailer
         @event = params[:event]
         mail(to: @cadet.email, subject: "Attendance Update")
     end
+    
+    def task_created_email
+        @cadet = params[:cadet]
+        @task = params[:task]
+        mail to: @cadet.email, :subject => 'New Task Created'
+    end
+    
+    def task_updated_email
+        @cadet = params[:cadet]
+        @task = params[:task]
+        mail to: @cadet.email, :subject => 'Task Updated'
+    end
 end
