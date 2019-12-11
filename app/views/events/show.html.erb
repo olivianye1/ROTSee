@@ -57,11 +57,11 @@
         <tr>
           <td><%= link_to "#{attendance.cadet.lastName}, #{attendance.cadet.firstName}", attendance.cadet %></td>
           <% if attendance.attended === 0%>
-            <td class = "bg-danger text-white"><%= "Absent" %></td>
+            <td class = "text-danger"><i class="fas fa-user-times"></i><%= "Absent" %></td>
           <% elsif attendance.attended === 1 %>
-             <td  class ="bg-success text-white"><%= "Present" %></td>
+             <td  class ="text-success"><i class="fas fa-user-check"></i><%= "Present" %></td>
           <% elsif attendance.attended === 2 %>
-             <td  class ="bg-warning text-black"><%= "Tardy" %></td>
+             <td  class ="text-warning"><i class="fas fa-user-times"></i><%= "Tardy" %></td>
           <% else %>
              <td><%= attendance.attended %></td>
           <% end %>            
