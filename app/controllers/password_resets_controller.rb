@@ -11,11 +11,11 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @cadet = Cadet.find_by_password_reset_token!(params[:id])
+    @cadet = Cadet.find_by_password_reset_token(params[:id])
   end
 
   def update
-    @cadet = Cadet.find_by_password_reset_token!(params[:id])
+    @cadet = Cadet.find_by_password_reset_token(params[:id])
     if @cadet.password_reset_sent_at < 2.hour.ago
       redirect_to new_password_reset_path, danger: "Password reset has expired."
     elsif @cadet.update(cadet_params)
