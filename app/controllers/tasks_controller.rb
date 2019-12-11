@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = current_cadet.tasks.order(date: :desc).page(params[:page]).per_page(15)
+    @tasks = current_cadet.tasks.order(date_created: :desc).page(params[:page]).per_page(15)
   end
 
   # GET /tasks/1
@@ -65,7 +65,7 @@ class TasksController < ApplicationController
   end
   
   def alltasks
-    @tasks = Task.all.order(date: :desc).page(params[:page]).per_page(15)
+    @tasks = Task.all.order(date_created: :desc).page(params[:page]).per_page(15)
   end
 
   private
