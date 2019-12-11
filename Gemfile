@@ -16,6 +16,7 @@ gem "bootstrap_form", "~> 4.0"
 gem 'figaro'
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap'
+gem "simple_calendar", "~> 2.0"
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
