@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'authorized', to: 'sessions#page_requires_login'
   get 'unapproved', to: 'cadets#unapproved'
   get 'flights/:flight', to: 'cadets#flights'
+  get 'calendar', to: 'events#calendar'
   
   resources :cadets do
     resources :attendances

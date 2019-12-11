@@ -80,6 +80,10 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to events_url, info: "Event successfully deleted."
   end
+  
+  def calendar
+    @events = Event.all
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
