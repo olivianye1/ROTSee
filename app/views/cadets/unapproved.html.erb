@@ -18,14 +18,12 @@
   <thead class="thead-dark">
     <tr>
       <th>Cadet Name</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @cadets.each do |cadet| %>
       <tr>
-        <td><%= "#{cadet.lastName}, #{cadet.firstName} "%></td>
-        <td><%= link_to "Edit", edit_cadet_path(cadet) %></td>
+        <td><%= link_to "#{cadet.lastName}, #{cadet.firstName}", cadet_path(cadet) %></td>
       </tr>
     <% end %>
   </tbody>
