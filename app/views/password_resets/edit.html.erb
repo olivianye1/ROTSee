@@ -15,7 +15,7 @@
 
 <h2 class="display-4">Reset Password</h2>
 
-<%= bootstrap_form_with @cadet, :url => password_reset_path(params[:id]) do |f| %>
+<%= form_for @cadet, :url => password_reset_path(params[:id]) do |f| %>
   <% if @cadet.errors.any? %>
     <div class='error_messages'>
       <h2>Form is invalid</h2>
@@ -29,18 +29,18 @@
   
   <div class="row">
       <label for='username' class="col-sm-4 col-form-label"><strong>New Password: </strong></label>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
          <%= f.password_field :password, required: true, hide_label: true %>
       </div>
-      <div class="col-sm-4"></div>
+      <div class="col-sm-2"></div>
   </div>
    
   <div class="row">
     <label for='username' class="col-sm-4 col-form-label"><strong>Confirm Password: </strong></label>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <%= f.password_field :password_confirmation, required: true, hide_label: true %>
     </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-2"></div>
   </div>
   
   <div class="row">
