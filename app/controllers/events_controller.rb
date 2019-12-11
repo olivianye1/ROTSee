@@ -10,7 +10,8 @@ class EventsController < ApplicationController
         @events = Event.all.order(:eventDate)
       end
     else
-      @events = Event.all.order(:eventDate)
+      @events = Event.all.order(eventDate: :desc).page(params[:page]).per_page(15)
+     
     end
   end
 

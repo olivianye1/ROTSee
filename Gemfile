@@ -14,6 +14,8 @@ gem 'pg_search'
 gem 'bcrypt', '~> 3.1.2'
 gem "bootstrap_form", "~> 4.0"
 gem 'figaro'
+gem 'will_paginate', '~> 3.1.1'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

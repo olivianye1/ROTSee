@@ -75,7 +75,7 @@ more_articles = [{:date => Date.new(2019,9,5), :title => "Alpha Post 1", :body =
 {:date => Date.new(2019,10,27), :title => "Alpha Post 7", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
 {:date => Date.new(2019,11,8), :title => "Alpha Post 8", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
 {:date => Date.new(2019,11,9), :title => "Alpha Post 9", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
-{:date => Date.new(2019,11,28), :title => "Alpha Post 10", :body => "This is a post for flight Alpha.", :tag => "Alpha"},
+{:date => Date.new(2019,12,9), :title => "Alpha: Winning Attendance Competition", :body => "We won the attendance competition! Pizza party Friday to celebrate.", :tag => "Alpha"},
 {:date => Date.new(2019,11,10), :title => "Bravo Post 1", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
 {:date => Date.new(2019,11,11), :title => "Bravo Post 2", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
 {:date => Date.new(2019,11,15), :title => "Bravo Post 3", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
@@ -85,7 +85,7 @@ more_articles = [{:date => Date.new(2019,9,5), :title => "Alpha Post 1", :body =
 {:date => Date.new(2019,12,1), :title => "Bravo Post 7", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
 {:date => Date.new(2019,12,3), :title => "Bravo Post 8", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
 {:date => Date.new(2019,12,5), :title => "Bravo Post 9", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
-{:date => Date.new(2019,12,10), :title => "Bravo Post 10", :body => "This is a post for flight Bravo.", :tag => "Bravo"},
+{:date => Date.new(2019,12,10), :title => "Bravo: Losing Attendance Competition", :body => "It's a bummer that we lost the attendance competition. Better luck next semester!", :tag => "Bravo"},
 {:date => Date.new(2019,9,20), :title => "All Cadets Post 1", :body => "This is a post for all cadets.", :tag => "All"},
 {:date => Date.new(2019,11,21), :title => "All Cadets Post 2", :body => "This is a post for all cadets.", :tag => "All"},
 {:date => Date.new(2019,11,12), :title => "All Cadets Post 3", :body => "This is a post for all cadets.", :tag => "All"},
@@ -95,7 +95,12 @@ more_articles = [{:date => Date.new(2019,9,5), :title => "Alpha Post 1", :body =
 {:date => Date.new(2019,12,1), :title => "All Cadets Post 7", :body => "This is a post for all cadets.", :tag => "All"},
 {:date => Date.new(2019,12,2), :title => "All Cadets Post 8", :body => "This is a post for all cadets.", :tag => "All"},
 {:date => Date.new(2019,12,3), :title => "All Cadets Post 9", :body => "This is a post for all cadets.", :tag => "All"},
-{:date => Date.new(2019,12,4), :title => "All Cadets Post 10", :body => "This is a post for all cadets.", :tag => "All"}]
+{:date => Date.new(2019,12,4), :title => "All Cadets Post 10", :body => "This is a post for all cadets.", :tag => "All"},
+{:date => Date.new(2019,12,5), :title => "Volunteer Opportunity", :body => "Volunteer opportunity on Dec 15th serving dinner - contact Cadet Juenemann if interested.", :tag => "All"},
+{:date => Date.new(2019,12,6), :title => "Reminder", :body => "Turn in your end of semester feedback form, due Dec 9th.", :tag => "All"},
+{:date => Date.new(2019,12,8), :title => "Congrats!", :body => "Congrats to Alpha flight, who won the semester attendance challenge!", :tag => "All"},
+{:date => Date.new(2019,12,11), :title => "Workouts over break", :body => "Please remember to follow the weekly workout schedule over break.", :tag => "All"},
+{:date => Date.new(2019,12,9), :title => "Forms Due", :body => "Last reminder - forms due today!", :tag => "All"}]
 
 more_articles.each do |article|
     Article.create!(article)
