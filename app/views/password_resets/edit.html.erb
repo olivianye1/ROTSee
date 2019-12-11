@@ -1,4 +1,14 @@
-<h1>Reset Password</h1>
+<html lang="en">
+
+<head>
+  <style>
+    span {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<h2 class="display-4">Reset Password</h2>
 
 <%= form_for @cadet, :url => password_reset_path(params[:id]) do |f| %>
   <% if @cadet.errors.any? %>
@@ -12,13 +22,19 @@
     </div>
   <% end %>
 
-  <div class='field'>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <div class="form-group">
+    <%= f.label :password, "New Password:", class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
   </div>
-  <div class='field'>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Confirm Password:", class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
   </div>
-  <div class='actions'><%= f.submit 'Update password' %></div>
+  
+  <%= f.submit "Update Password", class: "btn btn-default btn-primary" %> 
 <% end %>
