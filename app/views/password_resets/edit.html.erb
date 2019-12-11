@@ -15,7 +15,7 @@
 
 <h2 class="display-4">Reset Password</h2>
 
-<%= form_for @cadet, :url => password_reset_path(params[:id]) do |f| %>
+<%= bootstrap_form_with @cadet, :url => password_reset_path(params[:id]) do |f| %>
   <% if @cadet.errors.any? %>
     <div class='error_messages'>
       <h2>Form is invalid</h2>
