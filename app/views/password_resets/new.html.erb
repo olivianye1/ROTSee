@@ -1,0 +1,41 @@
+<html lang="en">
+
+<style>
+
+    .col-form-label{
+      text-align: right;
+    }
+    .col-sm{
+      text-align: left;
+    }
+    
+</style>
+
+<br>
+
+<h2 class="display-4">Reset Password</h2>
+
+<form_tag>
+<%= form_tag password_resets_path do  %>
+
+
+    <div class="row">
+      <label for='username' class="col-sm-4 col-form-label"><strong>Username: </strong></label>
+      <div class="col-sm-4">
+         <%= text_field_tag :username, params[:username], class: 'form-control', autofocus: true %>
+      </div>
+      <div class="col-sm-4"></div>
+   </div>
+   
+   <br>
+   
+   <div class="row">
+       <div class="col-sm-5"></div>
+        <div class="col-sm-2">
+             <!-- onclick="alert('Login')" -->
+             <button id = "Reset Password" type="submit" class="btn btn-primary btn-sm"> <i class="fas fa-sign-in-alt"></i>Reset Password</button>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+<%end%>
+</form_tag>
