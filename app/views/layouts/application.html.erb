@@ -13,7 +13,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag asset_path('logo.png') %>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
     <style>
       .container {
         padding-right: 0;
@@ -83,7 +83,7 @@
   
   <!--Navigation Bar-->
   <nav class="navbar navbar-expand-lg navbar-light " style="background-color: 	rgb(75,83,32)">
-    <a class="navbar-brand font-weight-bold" href="/" id="navlink" style="background-color: rgb(75,83,32);">ROTSee</a>
+    <a class="navbar-brand font-weight-bold" href="/" id="navlink" style="background-color: rgb(75,83,32);"><i class="fas fa-plane-departure"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -130,10 +130,15 @@
   
     <!--Navigation Bar-->
   <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(75,83,32)">
-    <a class="navbar-brand font-weight-bold" href="/" style="color:white;">ROTSee</a>
+    <a class="navbar-brand font-weight-bold" href="/" style="color:white;"><i class="fas fa-plane-departure"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
+    <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link font-weight-bold" href="/login" id="navlink"> <i class="fas fa-sign-in-alt"></i> Login </a>
+        <a class="nav-item nav-link font-weight-bold" href="/cadets/new" id="navlink"> <i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
   </nav>
   
   <% end %>
