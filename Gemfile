@@ -18,16 +18,16 @@ gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap'
 gem "simple_calendar", "~> 2.0"
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
+#group :production do
+ # gem 'wkhtmltopdf-heroku'
+#end
 
-group :production do
-  gem 'wkhtmltopdf-heroku'
-end
-
-group :development, :test do
-  gem 'wicked_pdf'
-  gem 'wkhtmltopdf-binary'
-end
+#group :development, :test do
+ # gem 'wkhtmltopdf-binary'
+#end
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
