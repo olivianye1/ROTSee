@@ -75,16 +75,17 @@
     </p>
     <% if (@cadet == Cadet.find_by(id: session[:cadet_id])) || (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
     <p>
-      <strong>Approved:</strong>
-      <%= "#{@cadet.approved}" %>
+      <% if @cadet.approved == false %>
+        <p class = "text-danger" style="text-align: left;"><i class="fas fa-times"></i><%= "Unapproved" %></p>
+      <%end%>
     </p>
     <% end %>
     
   </div>
 </div>
 
-
-<% if (@cadet == Cadet.find_by(id: session[:cadet_id])) || (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
+<% if (@cadet == Cadet.find_by(id: session[:cadet_id])) || (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
+  <% if (@cadet.approved == true) %>
   <!--Cadet Attendance Table-->
   <%@ord_attendance = @cadet.attendances%>
   
@@ -121,6 +122,7 @@
       <% end %>
     </tbody>
   </table>
+  <% end %>
   <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
     <div>
       <%= link_to '<i class="fas fa-user-edit"></i> Edit'.html_safe, edit_cadet_path(@cadet), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0'%>
@@ -134,6 +136,6 @@
 
 <%= render "events/back_to_top" %>
 
-<% end %>
+<%end%>
 
 </html>
