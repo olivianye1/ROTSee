@@ -20,41 +20,6 @@ class CadetsController < ApplicationController
   def show
      @cadets = Cadet.all.order(:lastName)
      @ord_attendance = @cadet.attendances
-     
-     @total_records = 0
-     @total_LLAB = 0
-     @total_PT = 0
-     @pres_total = 0
-     @pres_LLAB = 0
-     @pres_PT = 0
-     
-     @LLAB_percent = 0
-     @PT_percent = 0
-     @total_percent = 0
-
-    @ord_attendance.each do |attendance|
-      @total_records += 1
-      if attendance.event.primaryType == "LLAB"
-        @total_LLAB += 1
-        if attendance.attended == 1
-          @pres_LLAB += 1
-        elsif attendance.attended == 2
-          @pres_LLAB += 0.5
-        end
-      elsif attendance.event.primaryType == "PT"
-        @total_PT += 1
-        if attendance.attended == 1
-          @pres_PT += 1
-        elsif attendance.attended == 2
-          @pres_PT += 0.5
-        end
-      end
-    end
-    @pres_total = @pres_LLAB + @pres_PT
-    
-    @LLAB_percent = @pres_LLAB.to_f/@total_LLAB.to_f * 100.00
-    @PT_percent = @pres_PT.to_f/@total_PT.to_f * 100.00
-    @total_percent = @pres_total.to_f/@total_records.to_f * 100.00
     
   end
 

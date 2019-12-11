@@ -6,7 +6,7 @@ class ArticleMailer < ApplicationMailer
     
     if @article.tag == "All"
       mail(to: @cadet.email, subject: "New Post on ROTSee")
-    elsif @article.tag == @adet.flight
+    elsif @article.tag == @cadet.flight
       mail(to: @cadet.email, subject: "New Post on ROTSee")
     else
     end

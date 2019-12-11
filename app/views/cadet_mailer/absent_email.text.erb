@@ -1,0 +1,6 @@
+<%= "Cadet #{@cadet.lastName}," %>
+===============================================
+
+You have been marked absent for <%= @event.primaryType %> on <%= @event.eventDate %>.
+A memorandum explaining your absence is due to your Squadron Commander on <%= @event.eventDate.next_day(3) %>.
+Visit https://rotsee.herokuapp.com/ for more details.
