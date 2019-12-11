@@ -35,15 +35,15 @@
       <div class="col-md-1"></div>
       
       <div class="col-md-10">
-
-          <div class="form-group row">
-            <% @ord_event = @event %>
-            <label for="firstName" class="col-sm-3 col-form-label"><strong>Event Date: </strong></label>
-            <div class="col-sm">
-              <%= f.datetime_select :eventDate, required: true, hide_label: true %>
-            </div>
+        <% @ord_event = @event %>
+        
+        <div class="form-group row">
+          <label for=eventDate class="col-sm-3 col-form-label"><strong>Event Date: </strong></label>
+          <div class="col-sm">
+            <%= f.date_field :eventDate, hide_label: true, value: Date.today %>
           </div>
-  
+        </div>
+        
           <div class="form-group row">
             <label for="primaryType" class="col-sm-3 col-form-label"><strong>Primary Type: </strong></label>
             <div class="col-sm">
