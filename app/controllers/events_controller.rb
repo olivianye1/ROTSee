@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /events
   # GET /events.json
   def index
@@ -55,6 +55,16 @@ class EventsController < ApplicationController
 
     if @event.update(event_params)
       redirect_to @event, success: "Event was successfully updated."
+      @event.attendances.each do |attendance|
+        @cadet = Cadet.find_by_id(attendance.cadet_id)
+        if attendance.attended == 0
+          CadetMailer.with(cadet: @cadet, event: @event).absent_email.deliver_later
+        elsif attendance.attended == 2
+          CadetMailer.with(cadet: @cadet, event: @event).tardy_email.deliver_later
+        else
+          CadetMailer.with(cadet: @cadet, event: @event).present_email.deliver_later
+        end
+      end
     else
       redirect_to edit_event_path(@event), danger: "Event was not updated."
     end
