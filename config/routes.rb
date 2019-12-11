@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :attendances do
     post "attendances/:id/edit"    => "attendances#edit"
   end
+  resources :password_resets
   root 'sessions#welcome'
   
   get "/about" => "pages#about"

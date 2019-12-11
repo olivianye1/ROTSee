@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_022247) do
+ActiveRecord::Schema.define(version: 2019_12_11_010255) do
 
   create_table "articles", force: :cascade do |t|
     t.date "date"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_022247) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "approved", default: false, null: false
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
     t.index ["approved"], name: "index_cadets_on_approved"
   end
 

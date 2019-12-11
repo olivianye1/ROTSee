@@ -9,6 +9,11 @@ class CadetMailer < ApplicationMailer
         mail(to: @cadet.email, subject: "New Cadet")
     end
     
+    def forgot_password(cadet)
+      @cadet = cadet
+      mail to: cadet.email, :subject => 'Reset password instructions'
+    end
+    
     def absent_email
         @cadet = params[:cadet]
         @event = params[:event]
