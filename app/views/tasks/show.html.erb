@@ -1,0 +1,35 @@
+<html lang="en">
+<header>
+  <style>
+    .btn-secondary{
+    
+    }
+  </style>
+</header>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card border-0 shadow my-5">
+  <div class="card-body p-5">
+    <h1 class="font-weight-light" style="text-align: left;"><%= @task.description.titleize %></h1> 
+    <p style="text-align: left;"><strong>C/<%= Cadet.find_by(id: @task.cadet_id).lastName %></strong></p>
+    <p style="text-align: left;">Created: <%= @task.date_created %></p>
+    <p style="text-align: left;">Due: <%= @task.date_due %></p>
+    <% if @task.completed === 0%>
+      <p class = "text-danger" style="text-align: left;"><i class="fas fa-times"></i><%= "Uncompleted" %></p>
+    <% else %>
+      <p class ="text-success" style="text-align: left;"><i class="fas fa-check"></i></i><%= "Completed" %></p>
+    <% end %>  
+  </div>
+</div>
+
+
+<% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
+    <div>
+      <%= link_to '<i class="far fa-edit"></i> Edit'.html_safe, edit_task_path(@task), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0'%>
+  
+      <%= link_to '<i class="far fa-trash-alt"></i> Delete'.html_safe, @task, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm", :role => 'button', :tabindex => '0'  %>
+    </div>
+<% end %>
+
+</html>

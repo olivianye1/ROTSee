@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%= "Cadet #{@cadet.lastName}" %>,</p>
+    <p>
+        One of your tasks has been updated for you on ROTSee:
+    </p>
+    <p>
+        <%= @task.description%>.
+    </p>
+    <p>
+        Created: <%= @task.date_created%>.
+    </p>
+    <p>
+        Due: <%= @task.date_due%>.
+    </p>
+    <p>
+        Visit https://rotsee.herokuapp.com/ for more details.
+    </p>
+  </body>
+</html>
