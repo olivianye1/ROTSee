@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_010255) do
+ActiveRecord::Schema.define(version: 2019_12_11_195500) do
 
   create_table "articles", force: :cascade do |t|
     t.date "date"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 2019_12_11_010255) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.date "date_created"
+    t.date "date_due"
+    t.string "description"
+    t.integer "cadet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "completed"
+    t.index ["cadet_id"], name: "index_tasks_on_cadet_id"
+  end
+
   add_foreign_key "attendances", "cadets"
   add_foreign_key "attendances", "events"
+  add_foreign_key "tasks", "cadets"
 end

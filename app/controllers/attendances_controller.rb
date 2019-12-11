@@ -13,11 +13,7 @@ class AttendancesController < ApplicationController
     end
     
     def update
-        if @attendance.update(attendance_params)
-        else
-          format.html { render :edit }
-          format.json { render json: @attendance.errors, status: :unprocessable_entity }
-        end
+        @attendance.update(attendance_params)
     end
     
   private

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   resources :articles
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   get 'unapproved', to: 'cadets#unapproved'
   get 'flights/:flight', to: 'cadets#flights'
   get 'calendar', to: 'events#calendar'
+  get '/alltasks', to: 'tasks#alltasks'
   
   resources :cadets do
     resources :attendances
