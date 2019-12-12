@@ -40,7 +40,7 @@
         <div class="form-group row">
           <label for=eventDate class="col-sm-3 col-form-label"><strong>Event Date: </strong></label>
           <div class="col-sm">
-            <%= f.date_field :eventDate, hide_label: true, value: Date.today %>
+            <%= f.date_field :eventDate, required: true, hide_label: true, value: Date.today %>
           </div>
         </div>
         
