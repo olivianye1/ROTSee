@@ -19,7 +19,7 @@ gem 'will_paginate-bootstrap'
 gem "simple_calendar", "~> 2.0"
 
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+#gem 'wkhtmltopdf-binary'
 
 #group :production do
  # gem 'wkhtmltopdf-heroku'
