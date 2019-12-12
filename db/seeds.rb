@@ -34,7 +34,16 @@ more_cadets.each do |cadet|
     Cadet.create!(cadet)
 end
 
-more_events =  [ {:eventDate => Date.new(2019, 10, 17), :primaryType => "PT", :subType => "strength", :details => "Details" }, 
+more_events =  [ {:eventDate => Date.new(2019, 12, 17), :primaryType => "PT", :subType => "strength", :details => "Bench 3 sets of 10 reps" }, 
+{:eventDate => Date.new(2019, 12, 16), :primaryType => "LLAB", :subType => "none", :details => "Drill and Ceremony"},
+{:eventDate => Date.new(2019, 12, 19), :primaryType => "PT", :subType => "cardio", :details => "Run 3 miles"},
+{:eventDate => Date.new(2019, 12, 10), :primaryType => "PT", :subType => "strength", :details => "Squat 5 sets of 5 reps"},
+{:eventDate => Date.new(2019, 12, 9), :primaryType => "LLAB", :subType => "none", :details => "Squad Tactics"},
+{:eventDate => Date.new(2019, 12, 12), :primaryType => "PT", :subType => "cardio", :details => "Sprints"},
+{:eventDate => Date.new(2019, 12, 3), :primaryType => "PT", :subType => "strength", :details => "PR day"},
+{:eventDate => Date.new(2019, 12, 2), :primaryType => "LLAB", :subType => "none", :details => "Communication and Reporting"},
+{:eventDate => Date.new(2019, 12, 5), :primaryType => "PT", :subType => "cardio", :details => "Run 3 miles"},
+{:eventDate => Date.new(2019, 10, 17), :primaryType => "PT", :subType => "strength", :details => "Upper body workout of your choice" }, 
 {:eventDate => Date.new(2019, 10, 16), :primaryType => "LLAB", :subType => "none", :details => "Details"},
 {:eventDate => Date.new(2019, 10, 15), :primaryType => "PT", :subType => "cardio", :details => "Details"},
 {:eventDate => Date.new(2019, 10, 10), :primaryType => "PT", :subType => "strength", :details => "Details"},
