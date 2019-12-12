@@ -94,7 +94,7 @@ class CadetsController < ApplicationController
   def flights
     @cadets = []
     @flight = params[:flight]
-    Cadet.where(flight: @flight).find_each do |cadet|
+    Cadet.where(flight: @flight).where(approved: true).find_each do |cadet|
       @cadets << cadet
     end
     

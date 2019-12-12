@@ -26,7 +26,9 @@ more_cadets = [ {:lastName =>'Nye', :firstName => 'Olivia', :email => 'rotseetes
     {:lastName => 'James', :firstName => 'Landon', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'ljames', :password => 'password', :approved => true},
     {:lastName => 'Ryan', :firstName => 'Chase', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'cryan', :password => 'password', :approved => true},
     {:lastName => 'Day', :firstName => 'Jessica', :email => 'jrotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'jday', :password => 'password', :approved => true},
-    {:lastName => 'Miller', :firstName => 'Nicholas', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'nmiller', :password => 'password', :approved => true} ]
+    {:lastName => 'Miller', :firstName => 'Nicholas', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'nmiller', :password => 'password', :approved => true},
+    {:lastName => 'McDonald', :firstName => 'Travis', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Bravo', :username => 'tmcdonald', :password => 'password', :approved => false},
+    {:lastName => 'Doerr', :firstName => 'Jay', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'jdoerr', :password => 'password', :approved => false}]
     
 more_cadets.each do |cadet|
     Cadet.create!(cadet)
@@ -57,7 +59,7 @@ more_events.each do |event|
     Event.create!(event)
 end
 
-@cadets = Cadet.all.order(:lastName)
+@cadets = Cadet.all.where(approved: true).order(lastName: :asc)
 @events = Event.all
 
 @cadets.each do |cadet|
