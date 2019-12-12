@@ -9,5 +9,13 @@
         You have signed up for ROTSee.
     </p>
     <p>Username: <%= @cadet.username %></p>
+    <p>Phone Number: <%= "(#{(@cadet.phoneNumber.to_s)[0, 3]}) #{(@cadet.phoneNumber.to_s)[3, 3]}-#{(@cadet.phoneNumber.to_s)[6, 4]}" %></p>
+    <p>School: <%= @cadet.school %></p>
+    <p>Position: <%= @cadet.position %></p>
+    <p>Course: <%= @cadet.course %></p>
+    <p>Graduation Year: <%= @cadet.gradYear %></p>
+    <p>Flight: <%= @cadet.flight %></p>
+
+    <p>Before you can signin your account must be approved by a POC cadet. You will be notified whether your account is approved or not.</p>
   </body>
 </html>

@@ -1,3 +1,5 @@
+</html>
+
 <html lang="en">
 <header>
   <style>
@@ -19,13 +21,13 @@
 
 <br>
 
-<%= will_paginate @events%>
+<%= will_paginate @articles%>
 <br>
 
 <div class="container">
   <div class="col md"></div>
     
-  <div class="col md  ">
+  <div class="col md">
     <% @articles.each do |article| %>
     <% if article.tag == "All"%>
       <div class="blog-post">
@@ -57,9 +59,7 @@
   <div class="col md"></div>
 </div>
 
-<%= will_paginate @events%>
+<%= will_paginate @articles%>
 <br>
 
 <%= render "events/back_to_top" %>
-
-</html>

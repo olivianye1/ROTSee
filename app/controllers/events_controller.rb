@@ -46,7 +46,9 @@ class EventsController < ApplicationController
     
     @cadets = Cadet.where(approved: true).order(:lastName)
     @cadets.each do |cadet|
-      Attendance.create!(:attended => 1, :cadet_id => cadet.id, :event_id => @event.id)
+      if cadet.approved == true
+        Attendance.create!(:attended => 1, :cadet_id => cadet.id, :event_id => @event.id)
+      end
     end
   end
 

@@ -69,28 +69,28 @@
       <div class="form-group row">
         <label for="school" class="col-sm-3 col-form-label"><strong>School: </strong><br></label>
         <div class="col-sm">
-          <%= form.select :school, options_for_select( @schoolList, @ord_cadet.school), required: true, hide_label: true %>
+          <%= form.select :school, options_for_select( @schoolList, @ord_cadet.school), :include_blank => true, required: true, hide_label: true %>
         </div>
       </div>
       
       <div class="form-group row">
         <label for="gradYear" class="col-sm-3 col-form-label"><strong>Graduation Year: </strong><br></label>
         <div class="col-sm">
-          <%= form.number_field :gradYear, :value => Date.today.year, required: true, hide_label: true %>
+          <%= form.number_field :gradYear, :value => Date.today.year, required: true, :include_blank => true, hide_label: true %>
         </div>
       </div>
     
       <div class="form-group row">
         <label for="position" class="col-sm-3 col-form-label"><strong>Position: </strong><br></label>
         <div class="col-sm">
-          <%= form.select :position, options_for_select(@positionList, @ord_cadet.position), required: true, hide_label: true%>
+          <%= form.select :position, options_for_select(@positionList, @ord_cadet.position), required: true, :include_blank => true, hide_label: true%>
         </div>
       </div>
     
       <div class="form-group row">
         <label for="course" class="col-sm-3 col-form-label"><strong>Course: </strong><br></label>
         <div class="col-sm">
-          <%= form.select :course, options_for_select(@courseList, @ord_cadet.course), required: true, hide_label: true%>
+          <%= form.select :course, options_for_select(@courseList, @ord_cadet.course), :include_blank => true, required: true, hide_label: true%>
         </div>
       </div>
 
@@ -98,7 +98,7 @@
         <label for="flight" class="col-sm-3 col-form-label"><strong>Flight: </strong><br></label>
         <div class="col-sm">
   
-          <%= form.select :flight, options_for_select(@flightList, @ord_cadet.flight), required: true, hide_label: true%>
+          <%= form.select :flight, options_for_select(@flightList, @ord_cadet.flight), :include_blank => true, required: true, hide_label: true%>
         </div>
       </div>
     

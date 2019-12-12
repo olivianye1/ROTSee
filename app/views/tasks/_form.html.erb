@@ -1,0 +1,65 @@
+<html lang="en">
+<header>
+  <style>
+    
+    .col-form-label{
+      text-align: right;
+    }
+    
+  </style>
+</header>
+
+<%= bootstrap_form_with(model: task, local: true) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="container">
+
+
+  <% @ord_task  = @task %>
+
+  <div class="row">
+    <label for="colFormLabel" class="col-sm-2 col-form-label"><strong>Date Created: </strong></label>
+    <div class="col-sm-10"><%= form.date_field :date_created, hide_label: true, value: @ord_task.date_created %></div>
+  </div>
+
+  <div class="row">
+    <label for="colFormLabel" class="col-sm-2 col-form-label"><strong>Date Created: </strong></label>
+    <div class="col-sm-10"><%= form.date_field :date_due, hide_label: true, value: @ord_task.date_due %></div>
+  </div>
+  
+  <div class="row">
+    <label for="colFormLabel" class="col-sm-2 col-form-label"><strong>Due Date: </strong></label>
+    <div class="col-sm-10"><%= form.text_field :description, required: true, hide_label: true, placeholder: "Task Description..." %></div>
+  </div>
+    
+  <div class="row">
+    <label for="colFormLabel" class="col-sm-2 col-form-label"><strong>Cadet: </strong></label>
+    <div class="col-sm-10">
+      <%= form.select :cadet_id, options_for_select(@cadet_options, @ord_task.cadet_id), required: true, hide_label: true %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <label for="colFormLabel" class="col-sm-2 col-form-label"><strong>Completed: </strong></label>
+    <div class="col-sm-10">
+      <%= form.select :completed, options_for_select( @completed_options, @ord_task.completed), required: true, hide_label: true %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+</div>
+<% end %>
+
+</html>

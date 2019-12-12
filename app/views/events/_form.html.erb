@@ -40,21 +40,21 @@
         <div class="form-group row">
           <label for=eventDate class="col-sm-3 col-form-label"><strong>Event Date: </strong></label>
           <div class="col-sm">
-            <%= f.date_field :eventDate, hide_label: true, value: Date.today %>
+            <%= f.date_field :eventDate, required: true, hide_label: true, value: Date.today %>
           </div>
         </div>
         
           <div class="form-group row">
             <label for="primaryType" class="col-sm-3 col-form-label"><strong>Primary Type: </strong></label>
             <div class="col-sm">
-              <%= f.select :primaryType, options_for_select(['LLAB', 'PT'], @ord_event.primaryType), required: true, hide_label: true %>
+              <%= f.select :primaryType, options_for_select(['LLAB', 'PT'], @ord_event.primaryType), :include_blank => true, required: true, hide_label: true %>
             </div>
           </div>
     
           <div class="form-group row">
             <label for="subType" class="col-sm-3 col-form-label"><strong>Sub Type: </strong></label>
             <div class="col-sm">
-              <%= f.select :subType, options_for_select(['None', 'Cardio', 'Strength Workout'], @ord_event.subType), required: true, hide_label: true %>
+              <%= f.select :subType, options_for_select(['Cardio', 'Strength Workout'], @ord_event.subType), :include_blank => true, required: true, hide_label: true %>
             </div>
           </div>
 

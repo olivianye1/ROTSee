@@ -1,0 +1,54 @@
+<html lang="en">
+<header>
+  <style>
+    
+  </style>
+</header>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container" style="height: 100px; background-color: #dbe6c1; display: flex;">
+<h2 class="display-4" style="margin-top: 30px; vertical-align: middle; margin: auto;">My Tasks</h2>
+</div>
+
+<% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
+    <%= link_to '<i class="far fa-calendar-plus"></i> New Task'.html_safe, new_task_path, 
+      :class => "btn btn-secondary btn-success btn-sm", :style => "margin-top:20px;"%>
+  <%end%>
+
+
+<br>
+
+<%= will_paginate @tasks%>
+<br>
+
+<div class="container">
+  <div class="col md"></div>
+    
+  <div class="col md  ">
+    <% @tasks.each do |task| %>
+      <div class="blog-post">
+        <div class="row" style="text-align:left;"><h3><%= link_to "#{task.description.titleize}", task %></h3></div>
+        <% if task.completed === 0%>
+          <div class="row"><p class = "text-danger" style="text-align: left;"><i class="fas fa-times"></i><%= "Uncompleted" %></p></div>
+        <% else %>
+          <div class="row"><p class ="text-success" style="text-align: left;"><i class="fas fa-check"></i><%= "Completed" %></p></div>
+        <% end %>
+        <div class="row" style="text-align:left;">Created: <%= task.date_created %></div>
+        <div class="row"><p style="text-align:left;">Due: <%= task.date_due %></p></div>
+        <hr>
+      </div>
+    <% end %>
+  </div>
+
+   
+    
+  <div class="col md"></div>
+</div>
+
+<%= will_paginate @tasks%>
+<br>
+
+</html>
+
+<%= render "events/back_to_top" %>

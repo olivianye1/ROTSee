@@ -26,13 +26,24 @@ more_cadets = [ {:lastName =>'Nye', :firstName => 'Olivia', :email => 'rotseetes
     {:lastName => 'James', :firstName => 'Landon', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'ljames', :password => 'password', :approved => true},
     {:lastName => 'Ryan', :firstName => 'Chase', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'cryan', :password => 'password', :approved => true},
     {:lastName => 'Day', :firstName => 'Jessica', :email => 'jrotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Alpha', :username => 'jday', :password => 'password', :approved => true},
-    {:lastName => 'Miller', :firstName => 'Nicholas', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'nmiller', :password => 'password', :approved => true} ]
+    {:lastName => 'Miller', :firstName => 'Nicholas', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'nmiller', :password => 'password', :approved => true},
+    {:lastName => 'McDonald', :firstName => 'Travis', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2022 , :flight => 'Bravo', :username => 'tmcdonald', :password => 'password', :approved => false},
+    {:lastName => 'Doerr', :firstName => 'Jay', :email => 'rotseetest@gmail.com', :phoneNumber => '1111111111', :school => 'Tulane University', :position => 'Cadet', :course => 'GMC', :gradYear => 2023 , :flight => 'Bravo', :username => 'jdoerr', :password => 'password', :approved => false}]
     
 more_cadets.each do |cadet|
     Cadet.create!(cadet)
 end
 
-more_events =  [ {:eventDate => Date.new(2019, 10, 17), :primaryType => "PT", :subType => "strength", :details => "Details" }, 
+more_events =  [ {:eventDate => Date.new(2019, 12, 17), :primaryType => "PT", :subType => "strength", :details => "Bench 3 sets of 10 reps" }, 
+{:eventDate => Date.new(2019, 12, 16), :primaryType => "LLAB", :subType => "none", :details => "Drill and Ceremony"},
+{:eventDate => Date.new(2019, 12, 19), :primaryType => "PT", :subType => "cardio", :details => "Run 3 miles"},
+{:eventDate => Date.new(2019, 12, 10), :primaryType => "PT", :subType => "strength", :details => "Squat 5 sets of 5 reps"},
+{:eventDate => Date.new(2019, 12, 9), :primaryType => "LLAB", :subType => "none", :details => "Squad Tactics"},
+{:eventDate => Date.new(2019, 12, 12), :primaryType => "PT", :subType => "cardio", :details => "Sprints"},
+{:eventDate => Date.new(2019, 12, 3), :primaryType => "PT", :subType => "strength", :details => "PR day"},
+{:eventDate => Date.new(2019, 12, 2), :primaryType => "LLAB", :subType => "none", :details => "Communication and Reporting"},
+{:eventDate => Date.new(2019, 12, 5), :primaryType => "PT", :subType => "cardio", :details => "Run 3 miles"},
+{:eventDate => Date.new(2019, 10, 17), :primaryType => "PT", :subType => "strength", :details => "Upper body workout of your choice" }, 
 {:eventDate => Date.new(2019, 10, 16), :primaryType => "LLAB", :subType => "none", :details => "Details"},
 {:eventDate => Date.new(2019, 10, 15), :primaryType => "PT", :subType => "cardio", :details => "Details"},
 {:eventDate => Date.new(2019, 10, 10), :primaryType => "PT", :subType => "strength", :details => "Details"},
@@ -57,8 +68,13 @@ more_events.each do |event|
     Event.create!(event)
 end
 
-@cadets = Cadet.all.order(:lastName)
+@cadets = Cadet.all.where(approved: true).order(lastName: :desc)
 @events = Event.all
+
+@cadets.each do |cadet|
+    Task.create!(:date_created => Date.today, :date_due => Date.today.next_day(3), :description => "Memo due for absence", :completed => 0, :cadet_id => cadet.id)
+    Task.create!(:date_created => Date.today, :date_due => Date.today.next_day(3), :description => "Memo due for tardiness", :completed => 0, :cadet_id => cadet.id)
+end
 
 @events.each do |event|
     @cadets.each do |cadet|

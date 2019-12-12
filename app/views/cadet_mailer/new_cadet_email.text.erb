@@ -4,3 +4,11 @@ Hello <%= "#{@cadet.firstName} #{@cadet.lastName}" %>!
 You have signed up for ROTSee.
 
 Username: <%= @cadet.username %>
+Phone Number: <%= "(#{(@cadet.phoneNumber.to_s)[0, 3]}) #{(@cadet.phoneNumber.to_s)[3, 3]}-#{(@cadet.phoneNumber.to_s)[6, 4]}" %>
+School: <%= @cadet.school %>
+Position: <%= @cadet.position %>
+Course: <%= @cadet.course %>
+Graduation Year: <%= @cadet.gradYear %>
+Flight: <%= @cadet.flight %>
+
+Before you can signin your account must be approved by a POC cadet. You will be notified whether your account is approved or not.

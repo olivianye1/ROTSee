@@ -44,8 +44,10 @@
         <th onclick="sortTable(0,0)", scope = "col"> Cadet Name <div class="up-arrow", id = "0up">&#9650</div> <div class="down-arrow", id = "0down">&#9660</div> </th>
         <th onclick="sortTable(1,0)",scope="col"> Position <div class="up-arrow", id = "1up">&#9650</div> <div class="down-arrow", id = "1down">&#9660</div> </th>
         <th onclick="sortTable(2,0)",scope="col"> School <div class="up-arrow", id = "2up">&#9650</div> <div class="down-arrow", id = "2down">&#9660</div> </th>
+        <% if (@cadet == Cadet.find_by(id: session[:cadet_id])) || (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
         <th onclick="sortTable(3,0)",scope="col"> PT Attendance <div class="up-arrow", id = "3up">&#9650</div> <div class="down-arrow", id = "3down">&#9660</div> </th>
         <th onclick="sortTable(4,0)",scope="col"> LLAB Attendance <div class="up-arrow", id = "4up">&#9650</div> <div class="down-arrow", id = "4down">&#9660</div> </th>
+        <% end %>
     </tr>
   </thead>
   <tbody>
@@ -54,8 +56,10 @@
         <td style="font-weight:bold"><%= link_to "#{cadet.lastName}, #{cadet.firstName} ", cadet %></td>
         <td><%= cadet.position %></td>
         <td><%= cadet.school %></td>
+        <% if (@cadet == Cadet.find_by(id: session[:cadet_id])) || (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
         <td><%= "#{cadet.pt_attendance.round(2)}%" %></td>
         <td><%= "#{cadet.llab_attendance.round(2)}%" %></td>
+        <% end%>
       </tr>
     <% end %>
   </tbody>

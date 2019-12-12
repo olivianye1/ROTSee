@@ -77,6 +77,11 @@
         display: block;
         margin-top: 0; // remove the gap so it doesn't close
        }
+       
+       .alert-dismissible.fade.show{
+          margin-bottom: 0;
+          border-radius: 0;
+       }
     </style>
   </head>
   <% if logged_in? %>
@@ -129,8 +134,19 @@
 
       </div>
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link font-weight-bold" href="<%= cadet_path(current_cadet) %>" id="navlink"> <i class="fas fa-user-circle"></i> Cadet <%= current_cadet.lastName %></a>
-        <a class="nav-item nav-link font-weight-bold" href="/logout" id="navlink"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle font-weight-bold" type="button" id="navlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+            <i class="fas fa-user-circle"></i> Cadet <%= current_cadet.lastName %>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="<%= cadet_path(current_cadet) %>" style="color:black;">My Profile</a>
+            <a class="dropdown-item" href="/tasks" style="color:black;">My Tasks</a>
+            <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>
+              <a class="dropdown-item" href="/alltasks" style="color:black;">All Tasks</a>
+            <% end %>
+            <a class="dropdown-item" href="/logout" style="color:black;"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -157,11 +173,16 @@
   <br>
   <br>
   
+  <div style="padding:20px;">
   <% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name %>">
+    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
       <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   <% end %>
+  </div>
   
     <div class="container text-center" role="main">
       <%= yield %>

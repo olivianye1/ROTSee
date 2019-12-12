@@ -6,13 +6,13 @@
   <br>
   
   <div class="container" style="display: flex;">
-    <%= link_to '<i class="fas fa-list"></i> All Events'.html_safe, events_path, :class => "btn btn-secondary btn-success btn-sm"%>
+    <%= link_to '<i class="fas fa-list"></i> All Events'.html_safe, events_path, :class => "btn btn-primary btn-sm"%>
   </div>
   
   <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: '<<Previous'), calendar.url_for_previous_view %>
+    <%= link_to t('simple_calendar.previous', default: '← Previous'), calendar.url_for_previous_view, :class => "page-item" %>
     |
-    <%= link_to t('simple_calendar.next', default: 'Next>>'), calendar.url_for_next_view %>
+    <%= link_to t('simple_calendar.next', default: 'Next →'), calendar.url_for_next_view,  :class => "page-item"%>
   </div>
   
   <table class="table table-striped">
