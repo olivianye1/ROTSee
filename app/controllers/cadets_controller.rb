@@ -133,13 +133,7 @@ class CadetsController < ApplicationController
       end
     end
   end
-  
-def export_to_xml
-  @rosterEntries = Cadet.all.order(:lastName) 
-  send_data @rosterEntries[lastName].to_xml,
-    :type => 'text/xml; charset=UTF-8;',
-    :disposition => "attachment; filename=cadet_roster.xml"
-end
+
 
 def download
     @cadets = Cadet.all.order(:lastName)

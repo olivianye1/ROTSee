@@ -22,10 +22,14 @@ gem 'wicked_pdf'
 
 #gem 'axlsx', '~> 2.0'
 #gem "axlsx_rails"
-gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
-gem 'axlsx_rails', '>= 0.5.1'
+# gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+# gem 'axlsx_rails', '>= 0.5.1'
+# gem 'rubyzip', '>= 1.2.1'
+
+
 gem 'rubyzip', '>= 1.2.1'
-gem 'zip-zip'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'
 #gem 'axlsx', '~> 2.1.0.pre'
 group :production do
   gem 'wkhtmltopdf-heroku'

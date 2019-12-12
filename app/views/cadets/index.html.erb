@@ -53,18 +53,9 @@
 
 <p></p>
 
-<!--%= link_to '<i class="fas fa-user-edit"></i> Edit'.html_safe, edit_cadet_path(@cadet), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0'%-->
-
 <%= link_to '<i class="fas fa-download"></i> Download Roster'.html_safe, cadets_roster_path( format: 'pdf'), :class => "btn btn-primary btn-sm", :role => 'button', :tabindex => '0'%>
-<%= link_to '<i class="fas fa-download"></i> Export Roster'.html_safe, cadets_export_to_xml_path(), :class => "btn btn-primary btn-sm", :role => 'button', :tabindex => '0'%>
 <%= link_to '<i class="fas fa-download"></i> Cadet Spreadsheet'.html_safe, cadets_download_path(), :class => "btn btn-primary btn-sm", :role => 'button', :tabindex => '0'%>
  
-<!--%= link_to 'Download Roster', cadets_roster_path( format: 'pdf'), :class => 'btn btn-secondary btn-sm' :i class="fas fa-user-times">%-->
-<!--%= link_to 'Download Roster 2', @cadets, :method => 'roster', :format => 'pdf',  :class => 'btn btn-secondary btn-sm' %-->
-<!--%= link_to 'Download Roster', cadets_path( @cadets, :format => :pdf), :format => :pdf, :target => "_blank", :class => "btn btn-secondary btn-success btn-sm"%--> 
-
-<!--%= link_to 'Download Roster 2', roster(@cadets, format: 'pdf'), :class => 'btn btn-secondary btn-sm' %-->
-
 
 <br>
 <p>

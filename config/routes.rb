@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   
   
   get "cadets/roster" => "cadets#roster"
-  get "cadets/export_to_xml" => "cadets#export_to_xml"
   get "cadets/download" => "cadets#download"
   resources :cadets do
     resources :attendances
