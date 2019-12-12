@@ -41,7 +41,7 @@
         <% end %>
         <div class="row" style="text-align:left;">Created: <%= task.date_created %></div>
         <div class="row" style="text-align:left;">Due: <%= task.date_due %></div>
-        <br>
+        <hr>
       </div>
     <% end %>
   </div>
@@ -55,4 +55,7 @@
 <br>
 
 </html>
+
+<%= render "events/back_to_top" %>
+
 <%end%>

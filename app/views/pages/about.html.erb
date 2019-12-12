@@ -10,6 +10,9 @@
           -o-background-size: cover;
           background-color: #dbe6c1;
         }
+    img {
+        display: inline-block;
+        }
   </style>
   
 </head>
@@ -20,12 +23,13 @@
   <div class="card border-0 shadow my-5">
     <div class="card-body p-5">
       <h1 class="font-weight-light">About ROTSee</h1>
-      <p class="lead">ROTSee is a personnel manager for ROTC members. Officers can create events, track attendance, and manage the roster, while every cadet can view their own attendance records and contact information for other cadets.</p>
+      <p class="lead">ROTSee is a personnel manager for ROTC members. POC cadets can create events, track attendance, and manage the roster, while every cadet can view their own attendance records and contact information for other cadets.</p>
       <% if !logged_in? %>
       
       <p class="lead">Interested in joining an ROTC program? Find out more about it <a href='https://www.afrotc.com'>here!</a></p>
       <% else %>
       <% end %>
+      <img src="https://github.com/olivianye1/ROTSee/blob/master/app/views/pages/Det320Spring2018.jpg?raw=true" alt="Det320Spring2018" style="width:960px;height:540px;">
       <div style="height: 700px"></div>
       <p class="lead mb-0"></p>
     </div>

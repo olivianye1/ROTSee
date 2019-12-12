@@ -7,12 +7,20 @@
   
   <div class="container" style="display: flex;">
     <%= link_to '<i class="fas fa-list"></i> All Events'.html_safe, events_path, :class => "btn btn-secondary btn-success btn-sm"%>
+    
   </div>
   
   <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: '<<Previous'), calendar.url_for_previous_view %>
-    |
-    <%= link_to t('simple_calendar.next', default: 'Next>>'), calendar.url_for_next_view %>
+    
+    <br>
+    <!--%= link_to '<i class="fa fa-caret-square-o-left"></i> Previous'.html_safe, calendar.url_for_previous_view  :class => "btn btn-secondary btn-info btn-sm"%-->
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <%= link_to t('simple_calendar.previous', default: '← Previous'), calendar.url_for_previous_view %>
+    
+        <%= link_to t('simple_calendar.next', default: 'Next →'), calendar.url_for_next_view %>
+      </ul>
+      </nav>
   </div>
   
   <table class="table table-striped">
