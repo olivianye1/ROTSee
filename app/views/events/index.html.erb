@@ -18,12 +18,14 @@
   <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %> 
     <%= link_to '<i class="far fa-calendar-plus"></i> New Event'.html_safe, new_event_path, :class => "btn btn-secondary btn-success btn-sm"%>
   <%end%>
-  <%= link_to '<i class="fas fa-calendar-alt"></i> Calendar View'.html_safe, '/calendar', :class => "btn btn-secondary btn-success btn-sm"%>
+   
+  <%= link_to '<i class="fas fa-calendar-alt"></i> Calendar View'.html_safe, '/calendar', :class => "btn btn-primary btn-sm", :style => "align-text: flex-end"%>
 </div>
 
 <div class="container text-right" style="display: flex; justify-content: flex-end">
   <%= form_tag events_path, method: :get do %>
     <%= text_field_tag 'term', params[:term], placeholder: "YYYY-MM-DD" %>
+   
     <button class="btn btn-secondary btn-sm" type="submit_tag" ><i class="fas fa-search"></i> Search</button>
   <% end %>
   <br>
