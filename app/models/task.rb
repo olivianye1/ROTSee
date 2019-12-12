@@ -3,7 +3,7 @@ class Task < ApplicationRecord
     
     validates :date_created, :date_due, :completed, :cadet_id, :presence => true
     
-    validates :descriptiony,
+    validates :description,
         presence: true,
         length: {maximum: 2000},
         allow_nil: false

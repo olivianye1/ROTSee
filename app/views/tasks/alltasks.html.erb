@@ -34,8 +34,14 @@
       <div class="task">
         <div class="row" style="text-align:left;"><h3><%= link_to "#{task.description.titleize}", task %></h3></div>
         <div class="row" style="text-align:left;"><strong>C/<%= Cadet.find_by(id: task.cadet_id).lastName %></strong></div>
+        <% if task.completed === 0%>
+          <div class="row"><p class = "text-danger" style="text-align: left;"><i class="fas fa-times"></i><%= "Uncompleted" %></p></div>
+        <% else %>
+          <div class="row"><p class ="text-success" style="text-align: left;"><i class="fas fa-check"></i><%= "Completed" %></p></div>
+        <% end %>
         <div class="row" style="text-align:left;">Created: <%= task.date_created %></div>
         <div class="row" style="text-align:left;">Due: <%= task.date_due %></div>
+        <br>
       </div>
     <% end %>
   </div>
