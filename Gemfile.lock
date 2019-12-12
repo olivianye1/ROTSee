@@ -295,15 +295,13 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.1.10)
-    zip-zip (0.3)
-      rubyzip (>= 1.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   axlsx!
-  axlsx_rails (>= 0.5.1)
+  axlsx_rails
   bcrypt (~> 3.1.2)
   bootsnap (= 1.4.4)
   bootstrap (~> 4.3.1)
@@ -340,7 +338,6 @@ DEPENDENCIES
   will_paginate-bootstrap
   wkhtmltopdf-binary
   wkhtmltopdf-heroku
-  zip-zip
 
 BUNDLED WITH
    1.17.2
