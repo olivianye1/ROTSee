@@ -27,7 +27,7 @@
     
   <div class="col md  ">
     <% @tasks.each do |task| %>
-      <div class="task">
+      <div class="blog-post">
         <div class="row" style="text-align:left;"><h3><%= link_to "#{task.description.titleize}", task %></h3></div>
         <% if task.completed === 0%>
           <div class="row"><p class = "text-danger" style="text-align: left;"><i class="fas fa-times"></i><%= "Uncompleted" %></p></div>
@@ -36,6 +36,7 @@
         <% end %>
         <div class="row" style="text-align:left;">Created: <%= task.date_created %></div>
         <div class="row"><p style="text-align:left;">Due: <%= task.date_due %></p></div>
+        <hr>
       </div>
     <% end %>
   </div>
@@ -49,3 +50,5 @@
 <br>
 
 </html>
+
+<%= render "events/back_to_top" %>

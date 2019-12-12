@@ -21,9 +21,9 @@
 
 <% if (Cadet.find_by(id: session[:cadet_id]).position != "Cadet") %>  
     <div>
-      <%= link_to '<i class="fas fa-user-edit"></i> Edit'.html_safe, edit_article_path(@article), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0'%>
+      <%= link_to '<i class="far fa-edit"></i> Edit'.html_safe, edit_article_path(@article), :class => "btn btn-secondary btn-info btn-sm", :role => 'button', :tabindex => '0'%>
   
-      <%= link_to ' <i class="fas fa-user-times"></i> Remove'.html_safe, @article, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm", :role => 'button', :tabindex => '0'  %>
+      <%= link_to '<i class="far fa-trash-alt"></i> Remove'.html_safe, @article, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-danger btn-sm", :role => 'button', :tabindex => '0'  %>
     </div>
 <% end %>
 
