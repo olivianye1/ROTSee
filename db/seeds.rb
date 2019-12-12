@@ -68,7 +68,7 @@ more_events.each do |event|
     Event.create!(event)
 end
 
-@cadets = Cadet.all.where(approved: true).order(lastName: :asc)
+@cadets = Cadet.all.where(approved: true).order(lastName: :desc)
 @events = Event.all
 
 @cadets.each do |cadet|
